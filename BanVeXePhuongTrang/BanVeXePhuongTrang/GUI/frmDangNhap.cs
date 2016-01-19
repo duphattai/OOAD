@@ -31,40 +31,43 @@ namespace BanVeXePhuongTrang.GUI
 
         private void btDangNhap_Click(object sender, EventArgs e)
         {
-            string TenDangNhap = txtTenDangNhap.Text;
-            string MatKhau = txtMatKhau.Text;
+            try{
+                string TenDangNhap = txtTenDangNhap.Text;
+                string MatKhau = txtMatKhau.Text;
 
-            if (string.IsNullOrEmpty(txtTenDangNhap.Text) || string.IsNullOrEmpty(txtMatKhau.Text))
-            {
-                MessageBox.Show("Vui Lòng nhập đầy đủ thông tin");
-                txtTenDangNhap.Focus();
-            }
-            else
-            {
-                QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
-                tblTaiKhoan tk = db.tblTaiKhoans.Where(t => t.TenTaiKhoan == TenDangNhap && t.MatKhau == MatKhau).SingleOrDefault();
-           
-                if (tk != null)
+                if (string.IsNullOrEmpty(txtTenDangNhap.Text) || string.IsNullOrEmpty(txtMatKhau.Text))
                 {
-                    
-                    MessageBox.Show("Đang nhập thành công");
-                    this.DialogResult = DialogResult.OK;
-                    //string dlCon = dr["TenNhanVien"].ToString();
-                    string dlCon = tk.tblNhanVien.TenNhanVien.ToString();
-                    int MaNV =int.Parse(tk.MaNhanVien.ToString());
-                    this.DialogResult = DialogResult.OK;
-                    frmMain.MaNhanVien = MaNV;
-                    frmMain.TenDangNhap = dlCon;
-
-                    frmMain f = new frmMain();
-                    f.BatTat(true);
+                    MessageBox.Show("Vui Lòng nhập đầy đủ thông tin");
+                    txtTenDangNhap.Focus();
                 }
                 else
                 {
-                    MessageBox.Show("\tĐang nhập thất bại! \nVui lòng kiểm tra lại thông tin đăng nhập!");
-                    txtTenDangNhap.Focus();
+                    QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+                    tblTaiKhoan tk = db.tblTaiKhoans.Where(t => t.TenTaiKhoan == TenDangNhap && t.MatKhau == MatKhau).SingleOrDefault();
+           
+                    if (tk != null)
+                    {
+                    
+                        MessageBox.Show("Đang nhập thành công");
+                        this.DialogResult = DialogResult.OK;
+                        //string dlCon = dr["TenNhanVien"].ToString();
+                        string dlCon = tk.tblNhanVien.TenNhanVien.ToString();
+                        int MaNV =int.Parse(tk.MaNhanVien.ToString());
+                        this.DialogResult = DialogResult.OK;
+                        frmMain.MaNhanVien = MaNV;
+                        frmMain.TenDangNhap = dlCon;
+
+                        frmMain f = new frmMain();
+                        f.BatTat(true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("\tĐang nhập thất bại! \nVui lòng kiểm tra lại thông tin đăng nhập!");
+                        txtTenDangNhap.Focus();
+                    }
                 }
             }
+            catch { }
         }
 
         private void txtMatKhau_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)

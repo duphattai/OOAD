@@ -29,12 +29,14 @@ namespace BanVeXePhuongTrang.GUI
         private void btBaoCao_Click(object sender, EventArgs e)
         {
             //SetParammater();
-            this.tblBaoCaoDoanhThuThangTableAdapter.Fill(this.qUANLYXEKHACHDataSet.tblBaoCaoDoanhThuThang, int.Parse(cbThang.SelectedIndex.ToString()), int.Parse(cbNam.SelectedIndex.ToString()));
+            this.tblBaoCaoDoanhThuChuyenDiTableAdapter.Fill(this.qUANLYXEKHACHDataSet.tblBaoCaoDoanhThuChuyenDi, int.Parse(cbThang.SelectedItem.ToString()), int.Parse(cbNam.SelectedItem.ToString()));
             reportViewer1.RefreshReport();
         }
 
         private void frmBCDoanhThuThang_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qUANLYXEKHACHDataSet1.tblBaoCaoDoanhThuChuyenDi' table. You can move, or remove it, as needed.
+           
 
             for (int i = 1; i < 13; i++)
             {
@@ -44,9 +46,8 @@ namespace BanVeXePhuongTrang.GUI
             {
                 cbNam.Items.Add(i);
             }
-
-            //SetParammater();
-            reportViewer1.RefreshReport();
+            cbThang.SelectedIndex = 0;
+            cbNam.SelectedIndex = 0;
         }
 
     }

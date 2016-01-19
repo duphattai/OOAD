@@ -71,20 +71,20 @@ namespace BanVeXePhuongTrang
              
             if (lbTenDangNhap.Text.Equals("Chưa đăng nhập"))
             {
-               // BatTat(false);
+                BatTat(false);
                 btnTraCuu.Enabled = true;
                 btnThoat.Enabled = true;
             }
             else
             {
-                //BatTat(true);
+                BatTat(true);
             }
 
             XuLyQuyenHan();
         }
 
         #region Su ly Bật Tắt
-        public void BatTat(Boolean xl)
+        public void     BatTat(Boolean xl)
         {
             rbpDanhMuc.Enabled = xl;
             rbpBaoCao.Enabled = xl;
@@ -501,20 +501,6 @@ namespace BanVeXePhuongTrang
                 frmQuanLyTrungChuyen form = new frmQuanLyTrungChuyen();
                 AddTabControl(form, "Quản Lý Trung Chuyển");
             }
-        }
-
-        private void btDTChuyenDi_Click(object sender, EventArgs e)
-        {
-            if (checkTab("Báo Cao Doanh Thu Chuyến Đi") == false)
-            {
-                frmBCDoanhThuChuyenDi form = new frmBCDoanhThuChuyenDi();
-                AddTabControl(form, "Báo Cao Doanh Thu Chuyến Đi");
-            }
-        }
-
-        private void btnBCChuyenDi_Click(object sender, EventArgs e)
-        {
-            btDTChuyenDi_Click(sender, e);
         }
 
     }

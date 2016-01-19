@@ -30,19 +30,18 @@ namespace BanVeXePhuongTrang.GUI
 
         private void btBaoCao_Click(object sender, EventArgs e)
         {
-            this.tblBaoCaoDoanhThuNamTableAdapter.Fill(this.qUANLYXEKHACHDataSet.tblBaoCaoDoanhThuNam, int.Parse(cbNam.SelectedIndex.ToString()));
+            this.tblBaoCaoDoanhThuThangTableAdapter.Fill(this.qUANLYXEKHACHDataSet.tblBaoCaoDoanhThuThang, int.Parse(cbNam.SelectedItem.ToString()));
 
             this.reportViewer1.RefreshReport();
         }
 
         private void frmBCDoanhThuNam_Load(object sender, EventArgs e)
-        {
-           
-           
+        {                    
             for (int i = 2010; i < DateTime.Now.Year + 1; i++)
             {
-                cbNam.Items.Add(i);
+                cbNam.Items.Add(i);               
             }
+            cbNam.SelectedIndex = 0;
         }
 
     }
