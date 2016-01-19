@@ -54,6 +54,11 @@ namespace BanVeXePhuongTrang.GUI
                     tblChuyenDi chuyenDi = db.tblChuyenDis.Where(t => t.MaChuyenDi == maChuyenDi).SingleOrDefault();
                     if (chuyenDi != null)
                     {
+                        // Xóa báo cáo
+                        tblBaoCaoDoanhThuChuyenDi bcChuyenDi = db.tblBaoCaoDoanhThuChuyenDis.Where(t => t.MaChuyenDi == chuyenDi.MaChuyenDi).SingleOrDefault();
+                        if(bcChuyenDi != null)
+                            db.tblBaoCaoDoanhThuChuyenDis.Remove(bcChuyenDi);
+
                         db.tblChuyenDis.Remove(chuyenDi);
                         db.SaveChanges();
 

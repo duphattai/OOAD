@@ -15,10 +15,12 @@ namespace BanVeXePhuongTrang.GUI
 {
     public partial class frmLichChuyenDi : Form
     {
+        bool editMode;
         public frmLichChuyenDi()
         {
             InitializeComponent();
 
+            editMode = false;
             BLL_ChuyenDi temp = new BLL_ChuyenDi();
             txtMaChuyenDi.Text = temp.getLastestIndex().ToString();
         }
@@ -26,6 +28,7 @@ namespace BanVeXePhuongTrang.GUI
         public frmLichChuyenDi(tblChuyenDi chuyenDi)
         {
             InitializeComponent();
+            editMode = true;
             try
             {
                 QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
@@ -185,5 +188,8 @@ namespace BanVeXePhuongTrang.GUI
             BLL_ChuyenDi temp = new BLL_ChuyenDi();
             txtMaChuyenDi.Text = temp.getLastestIndex().ToString();
         }
+
+
+     
     }
 }

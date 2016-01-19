@@ -35,7 +35,7 @@ namespace BanVeXePhuongTrang.GUI
             int maChuyen = int.Parse(cbbMaChuyenDi.SelectedItem.ToString());
             tblChuyenDi chuyenDi = db.tblChuyenDis.Where(t => t.MaChuyenDi == maChuyen).SingleOrDefault();
 
-            frmThongTinVe form = new frmThongTinVe(chuyenDi, new tblPhieuDatCho());
+            frmThongTinVe form = new frmThongTinVe(chuyenDi);
             form.Show();
         }
 

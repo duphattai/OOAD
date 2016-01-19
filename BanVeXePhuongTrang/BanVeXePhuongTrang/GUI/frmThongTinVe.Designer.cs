@@ -183,7 +183,7 @@
             this.btThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btThoat.Image = global::BanVeXePhuongTrang.Properties.Resources.Windows_Close_Program_icon;
             this.btThoat.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btThoat.Location = new System.Drawing.Point(762, 443);
+            this.btThoat.Location = new System.Drawing.Point(985, 475);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(97, 37);
             this.btThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -198,7 +198,7 @@
             this.btnTaoMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnTaoMoi.Image = global::BanVeXePhuongTrang.Properties.Resources.create_icon;
             this.btnTaoMoi.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTaoMoi.Location = new System.Drawing.Point(576, 443);
+            this.btnTaoMoi.Location = new System.Drawing.Point(839, 475);
             this.btnTaoMoi.Name = "btnTaoMoi";
             this.btnTaoMoi.Size = new System.Drawing.Size(107, 37);
             this.btnTaoMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -213,7 +213,7 @@
             this.btnLuu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLuu.Image = global::BanVeXePhuongTrang.Properties.Resources.Save_icon;
             this.btnLuu.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnLuu.Location = new System.Drawing.Point(404, 443);
+            this.btnLuu.Location = new System.Drawing.Point(729, 475);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(87, 37);
             this.btnLuu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -271,7 +271,7 @@
             // 
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 105;
-            this.groupPanel1.Text = "Thông tin chuyến bay";
+            this.groupPanel1.Text = "Thông tin chuyến đi";
             // 
             // rdDatVe
             // 

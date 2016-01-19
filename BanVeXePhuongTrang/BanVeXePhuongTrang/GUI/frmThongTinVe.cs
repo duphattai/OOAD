@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BanVeXePhuongTrang.DAL;
+using System.Threading;
+
 
 namespace BanVeXePhuongTrang.GUI
 {
@@ -15,12 +17,17 @@ namespace BanVeXePhuongTrang.GUI
     {
         tblChuyenDi chuyenDi;
         tblPhieuDatCho phieuDatCho;
-        public frmThongTinVe(tblChuyenDi chuyenDi, tblPhieuDatCho phieu)
+        bool editMode;
+        public frmThongTinVe(tblChuyenDi chuyenDi, tblPhieuDatCho phieu = null)
         {
             InitializeComponent();
 
             this.chuyenDi = chuyenDi;
-            phieuDatCho = phieu;
+            editMode = phieu == null ? false : true;
+            if (phieu == null)
+                phieuDatCho = new tblPhieuDatCho();
+            else
+                phieuDatCho = phieu;
         }
 
 
@@ -35,11 +42,16 @@ namespace BanVeXePhuongTrang.GUI
             txtKhoiHanh.Text = chuyenDi.KhoiHanh.Value.ToString();
 
            // Thông tin hành khách
-            txtHoTen.Text = phieuDatCho.HoTen.ToString();
-            txtDienThoai.Text = phieuDatCho.DienThoai.ToString();
-            txtTrungChuyen.Text = phieuDatCho.TrungChuyen.ToString();
+            if(phieuDatCho.HoTen != null)
+                txtHoTen.Text = phieuDatCho.HoTen.ToString();
+            if (phieuDatCho.DienThoai != null)
+                txtDienThoai.Text = phieuDatCho.DienThoai.ToString();
+            if (phieuDatCho.TrungChuyen != null)
+                txtTrungChuyen.Text = phieuDatCho.TrungChuyen.ToString();
             // Thông tin ghế
-            dtgGhe.DataSource = db.tblChiTietPhieuDatChoes.Where(t=>t.MaPhieu == phieuDatCho.MaPhieu).Select(t=>t.ViTriGhe).ToList();
+            dtgGhe.Rows.Clear();
+            foreach (var item in db.tblChiTietPhieuDatChoes.Where(t => t.MaPhieu == phieuDatCho.MaPhieu))
+                dtgGhe.Rows.Add(item.ViTriGhe);
         }
 
         private void btThoat_Click(object sender, EventArgs e)
@@ -49,12 +61,88 @@ namespace BanVeXePhuongTrang.GUI
             Close();
         }
 
+
+        void updateBaoCaoDoanhThuThang()
+        {
+            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+
+            int maChuyen = int.Parse(txtMaChuyenDi.Text.ToString());
+            tblChuyenDi chuyenDi = db.tblChuyenDis.Where(t => t.MaChuyenDi == maChuyen).SingleOrDefault();
+
+            tblBaoCaoDoanhThuThang bc = db.tblBaoCaoDoanhThuThangs.Where(t => t.Thang == chuyenDi.KhoiHanh.Value.Month && t.Nam == chuyenDi.KhoiHanh.Value.Year).SingleOrDefault();
+            if (bc == null)
+            {
+                bc = new tblBaoCaoDoanhThuThang();
+                bc.Thang = chuyenDi.KhoiHanh.Value.Month;
+                bc.Nam = chuyenDi.KhoiHanh.Value.Year;
+                db.tblBaoCaoDoanhThuThangs.Add(bc);
+                db.SaveChanges();
+            }
+
+            bc.SoChuyenDi = db.tblBaoCaoDoanhThuChuyenDis.Count(t => t.Thang == bc.Thang && t.Nam == bc.Nam);
+            bc.DoanhThu = db.tblBaoCaoDoanhThuChuyenDis.Where(t => t.Thang == bc.Thang && t.Nam == bc.Nam).Sum(t => t.DoanhThu);
+
+            db.SaveChanges();
+        }
+
+        void updateBaoCaoDoanhThuNam()
+        {
+            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+
+            int maChuyen = int.Parse(txtMaChuyenDi.Text.ToString());
+            tblChuyenDi chuyenDi = db.tblChuyenDis.Where(t => t.MaChuyenDi == maChuyen).SingleOrDefault();
+
+            tblBaoCaoDoanhThuNam bc = db.tblBaoCaoDoanhThuNams.Where(t => t.Nam == chuyenDi.KhoiHanh.Value.Year).SingleOrDefault();
+            if (bc == null)
+            {
+                bc = new tblBaoCaoDoanhThuNam();
+                bc.Nam = chuyenDi.KhoiHanh.Value.Year;
+                db.tblBaoCaoDoanhThuNams.Add(bc);
+                db.SaveChanges();
+            }
+
+            bc.DoanhThu = db.tblBaoCaoDoanhThuChuyenDis.Where(t => t.Nam == bc.Nam).Sum(t => t.DoanhThu);
+            db.SaveChanges();
+        }
+
+        void updateBaoCaoDoanhThuChuyenDi()
+        {
+            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+            int maChuyen = int.Parse(txtMaChuyenDi.Text.ToString());
+
+            tblBaoCaoDoanhThuChuyenDi bc = db.tblBaoCaoDoanhThuChuyenDis.Where(t => t.MaChuyenDi == maChuyen).SingleOrDefault();
+            if (bc == null)
+            {
+                bc = new tblBaoCaoDoanhThuChuyenDi();
+                bc.MaChuyenDi = maChuyen;
+                db.tblBaoCaoDoanhThuChuyenDis.Add(bc);
+                db.SaveChanges();
+            }
+
+            // set value
+           
+            tblChuyenDi chuyenDi = db.tblChuyenDis.Where(t => t.MaChuyenDi == maChuyen).SingleOrDefault();
+            bc.Thang = chuyenDi.KhoiHanh.Value.Month;
+            bc.Nam = chuyenDi.KhoiHanh.Value.Year;
+            bc.SoVe = db.tblChiTietPhieuDatChoes.Count(t => t.MaChuyenDi == maChuyen && t.LayVe.Value == true);
+            bc.DoanhThu = bc.SoVe * chuyenDi.DonGia;
+
+            db.SaveChanges();
+        }
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+            // Kiểm tra phiếu đã tồn tại chưa
+            if (!editMode)
+                phieuDatCho.MaPhieu = new BLL.BLL_PhieuDatCho().getLastestIndex();
+
             phieuDatCho.HoTen = txtHoTen.Text;
             phieuDatCho.TrungChuyen = txtTrungChuyen.Text;
             phieuDatCho.DienThoai = int.Parse(txtDienThoai.Text);
 
+
+            // Chi tiết vé
             List<tblChiTietPhieuDatCho> listCTPhieu = new List<tblChiTietPhieuDatCho>();
             BLL.BLL_ChiTietPhieuDatCho temp = new BLL.BLL_ChiTietPhieuDatCho();
             foreach (DataGridViewRow row in dtgGhe.Rows)
@@ -64,11 +152,10 @@ namespace BanVeXePhuongTrang.GUI
 
 
                 tblChiTietPhieuDatCho ctPhieu = new tblChiTietPhieuDatCho();
-                ctPhieu.MaPhieu = phieuDatCho.MaPhieu;
                 ctPhieu.ViTriGhe = int.Parse(row.Cells["ViTriGhe"].Value.ToString());
                 ctPhieu.LayVe = rdBanVe.Checked;
-                ctPhieu.MaCTPhieu = temp.getLastestIndex();
                 ctPhieu.MaChuyenDi = chuyenDi.MaChuyenDi;
+                ctPhieu.MaPhieu = phieuDatCho.MaPhieu;
 
                 string message = temp.validateInput(phieuDatCho.MaPhieu, chuyenDi.MaChuyenDi, ctPhieu.ViTriGhe);
                 if (!string.IsNullOrEmpty(message))
@@ -79,36 +166,43 @@ namespace BanVeXePhuongTrang.GUI
                 else
                     listCTPhieu.Add(ctPhieu);
             }
-
-
-            if (phieuDatCho.tblChiTietPhieuDatChoes != null)
-                phieuDatCho.tblChiTietPhieuDatChoes.Clear();
             if(listCTPhieu.ToArray().Length == 0)
             {
                 MessageBox.Show("Vui lòng nhập vị trí ghế");
                 return;
             }
 
+            if (phieuDatCho.tblChiTietPhieuDatChoes != null)
+                phieuDatCho.tblChiTietPhieuDatChoes.Clear();
+            // Thêm chi tiết vé
+            int lastCTPhieu = temp.getLastestIndex();
             foreach (var item in listCTPhieu)
-                phieuDatCho.tblChiTietPhieuDatChoes.Add(item);
-
-
-            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
-            string mes = new BLL.BLL_PhieuDatCho().validateInput(phieuDatCho.MaPhieu, chuyenDi.MaChuyenDi, phieuDatCho.HoTen);
-            if (string.IsNullOrEmpty(mes))
             {
-                if (db.tblPhieuDatChoes.Where(t => t.MaPhieu == phieuDatCho.MaPhieu).Count() == 0) // insert
-                {
-                    phieuDatCho.MaPhieu = new BLL.BLL_PhieuDatCho().getLastestIndex();
-                    db.tblPhieuDatChoes.Add(phieuDatCho);
-                }
-                   
-                db.SaveChanges();
-
-                MessageBox.Show("Thành công");
+                item.MaCTPhieu = lastCTPhieu++;
+                phieuDatCho.tblChiTietPhieuDatChoes.Add(item);
             }
-            else
-                MessageBox.Show(mes);
+                
+
+            // Thông tin phiếu
+            string mes = new BLL.BLL_PhieuDatCho().validateInput(phieuDatCho.MaPhieu, phieuDatCho.HoTen, phieuDatCho.DienThoai);
+            if (string.IsNullOrEmpty(mes)) // Insert
+            {
+                if (!editMode)
+                    db.tblPhieuDatChoes.Add(phieuDatCho);   
+            }
+            db.SaveChanges();
+            MessageBox.Show("Thành công");
+            
+
+            // Đa luồng
+            Thread thread = new Thread((ThreadStart)=>
+            {
+                updateBaoCaoDoanhThuChuyenDi();
+                updateBaoCaoDoanhThuThang();
+                updateBaoCaoDoanhThuNam();
+            });
+
+            thread.Start();
         }
 
         private void btnTaoMoi_Click(object sender, EventArgs e)

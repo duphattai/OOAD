@@ -18,15 +18,12 @@ namespace BanVeXePhuongTrang.BLL
                 return db.tblPhieuDatChoes.Max(t => t.MaPhieu) + 1;
         }
 
-        public string validateInput(int maPhieu, int maChuyenDi, string hoTen)
+        public string validateInput(int maPhieu, string hoTen, int? dienThoai)
         {
             QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
 
-            if (db.tblChuyenDis.Where(t => t.MaChuyenDi == maChuyenDi).Count() == 0)
-                return "Chuyến đi không tồn tại";
-            if (string.IsNullOrEmpty(hoTen))
-                return "Vui lòng nhập họ tên";
-
+            if (db.tblPhieuDatChoes.Where(t => t.DienThoai == dienThoai || t.MaPhieu == maPhieu).Count() != 0)
+                return "Hành khách đã tồn tại";
             return null;
         }
 
