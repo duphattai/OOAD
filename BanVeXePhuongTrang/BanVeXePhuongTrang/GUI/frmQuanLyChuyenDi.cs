@@ -32,7 +32,8 @@ namespace BanVeXePhuongTrang.GUI
         private void btThem_Click(object sender, EventArgs e)
         {
             frmLichChuyenDi form = new frmLichChuyenDi();
-            form.Show();
+            form.ShowDialog();
+            frmQuanLyChuyenDi_Load(sender, e);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -76,11 +77,8 @@ namespace BanVeXePhuongTrang.GUI
             tblChuyenDi chuyenDi = db.tblChuyenDis.Where(t => t.MaChuyenDi == maChuyen).SingleOrDefault();
 
             frmLichChuyenDi form = new frmLichChuyenDi(chuyenDi);
-            form.Show();
-        }
+            form.ShowDialog();
 
-        private void btnCapNhat_Click(object sender, EventArgs e)
-        {
             frmQuanLyChuyenDi_Load(sender, e);
         }
 

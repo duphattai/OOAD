@@ -20,6 +20,18 @@ namespace BanVeXePhuongTrang.BLL
             return true;
         }
 
+        public bool canUpdate(string maBenDi, string maBenDen)
+        {
+            if (maBenDi == maBenDen) return false;
+
+            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+            if (db.tblTuyenXes.Where(t => t.MaBenXeDi == maBenDi && t.MaBenXeDen == maBenDen).SingleOrDefault() != null)
+                return true;
+
+            return false;
+        }
+
+
         public bool canDelete(string maTuyen)
         {
             QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();

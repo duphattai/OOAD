@@ -51,7 +51,7 @@ namespace BanVeXePhuongTrang.GUI
                     this.DialogResult = DialogResult.OK;
                     //string dlCon = dr["TenNhanVien"].ToString();
                     string dlCon = tk.tblNhanVien.TenNhanVien.ToString();
-                    int MaNV =int.Parse(tk.MaNhanVien.ToString());
+                    int MaNV = int.Parse(tk.MaNhanVien.ToString());
                     this.DialogResult = DialogResult.OK;
                     frmMain.MaNhanVien = MaNV;
                     frmMain.TenDangNhap = dlCon;

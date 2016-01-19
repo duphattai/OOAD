@@ -33,24 +33,24 @@
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dtgDSXeTrungChuyen = new System.Windows.Forms.DataGridView();
+            this.MaXeTC = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.dataGridViewLabelXColumn2 = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.BSX = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.DiaDiemTrungChuyen = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dtgDSXeKhach = new System.Windows.Forms.DataGridView();
-            this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.btSua = new DevComponents.DotNetBar.ButtonX();
-            this.btThoat = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.btThem = new DevComponents.DotNetBar.ButtonX();
-            this.btXoa = new DevComponents.DotNetBar.ButtonX();
             this.MaXe = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.TenTaiXe = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.LoaiXe = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.BienSoXe = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.TuyenXe = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.SoGhe = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.MaXeTC = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.dataGridViewLabelXColumn2 = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.BSX = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.DiaDiemTrungChuyen = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.btSua = new DevComponents.DotNetBar.ButtonX();
+            this.btThoat = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.btThem = new DevComponents.DotNetBar.ButtonX();
+            this.btXoa = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.groupPanel3.SuspendLayout();
@@ -163,6 +163,30 @@
             this.dtgDSXeTrungChuyen.TabIndex = 0;
             this.dtgDSXeTrungChuyen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDSXeTrungChuyen_CellContentClick);
             // 
+            // MaXeTC
+            // 
+            this.MaXeTC.HeaderText = "Mã Xe";
+            this.MaXeTC.Name = "MaXeTC";
+            this.MaXeTC.Width = 50;
+            // 
+            // dataGridViewLabelXColumn2
+            // 
+            this.dataGridViewLabelXColumn2.FillWeight = 250F;
+            this.dataGridViewLabelXColumn2.HeaderText = "Tên Tài Xế";
+            this.dataGridViewLabelXColumn2.Name = "dataGridViewLabelXColumn2";
+            this.dataGridViewLabelXColumn2.Width = 150;
+            // 
+            // BSX
+            // 
+            this.BSX.HeaderText = "Biển Số Xe";
+            this.BSX.Name = "BSX";
+            // 
+            // DiaDiemTrungChuyen
+            // 
+            this.DiaDiemTrungChuyen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiaDiemTrungChuyen.HeaderText = "Địa Điểm";
+            this.DiaDiemTrungChuyen.Name = "DiaDiemTrungChuyen";
+            // 
             // groupPanel1
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
@@ -221,6 +245,42 @@
             this.dtgDSXeKhach.Size = new System.Drawing.Size(709, 193);
             this.dtgDSXeKhach.TabIndex = 0;
             this.dtgDSXeKhach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDSXeKhach_CellContentClick);
+            // 
+            // MaXe
+            // 
+            this.MaXe.HeaderText = "Mã Xe";
+            this.MaXe.Name = "MaXe";
+            this.MaXe.Width = 50;
+            // 
+            // TenTaiXe
+            // 
+            this.TenTaiXe.FillWeight = 250F;
+            this.TenTaiXe.HeaderText = "Tên Tài Xế";
+            this.TenTaiXe.Name = "TenTaiXe";
+            this.TenTaiXe.Width = 150;
+            // 
+            // LoaiXe
+            // 
+            this.LoaiXe.HeaderText = "Loại Xe";
+            this.LoaiXe.Name = "LoaiXe";
+            // 
+            // BienSoXe
+            // 
+            this.BienSoXe.HeaderText = "Biển Số Xe";
+            this.BienSoXe.Name = "BienSoXe";
+            // 
+            // TuyenXe
+            // 
+            this.TuyenXe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TuyenXe.HeaderText = "Tuyến Xe";
+            this.TuyenXe.Name = "TuyenXe";
+            // 
+            // SoGhe
+            // 
+            this.SoGhe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SoGhe.HeaderText = "Số Ghế";
+            this.SoGhe.Name = "SoGhe";
+            this.SoGhe.Width = 50;
             // 
             // groupPanel2
             // 
@@ -340,66 +400,6 @@
             this.btXoa.TabIndex = 86;
             this.btXoa.Text = "Xóa";
             this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
-            // 
-            // MaXe
-            // 
-            this.MaXe.HeaderText = "Mã Xe";
-            this.MaXe.Name = "MaXe";
-            this.MaXe.Width = 50;
-            // 
-            // TenTaiXe
-            // 
-            this.TenTaiXe.FillWeight = 250F;
-            this.TenTaiXe.HeaderText = "Tên Tài Xế";
-            this.TenTaiXe.Name = "TenTaiXe";
-            this.TenTaiXe.Width = 150;
-            // 
-            // LoaiXe
-            // 
-            this.LoaiXe.HeaderText = "Loại Xe";
-            this.LoaiXe.Name = "LoaiXe";
-            // 
-            // BienSoXe
-            // 
-            this.BienSoXe.HeaderText = "Biển Số Xe";
-            this.BienSoXe.Name = "BienSoXe";
-            // 
-            // TuyenXe
-            // 
-            this.TuyenXe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TuyenXe.HeaderText = "Tuyến Xe";
-            this.TuyenXe.Name = "TuyenXe";
-            // 
-            // SoGhe
-            // 
-            this.SoGhe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SoGhe.HeaderText = "Số Ghế";
-            this.SoGhe.Name = "SoGhe";
-            this.SoGhe.Width = 50;
-            // 
-            // MaXeTC
-            // 
-            this.MaXeTC.HeaderText = "Mã Xe";
-            this.MaXeTC.Name = "MaXeTC";
-            this.MaXeTC.Width = 50;
-            // 
-            // dataGridViewLabelXColumn2
-            // 
-            this.dataGridViewLabelXColumn2.FillWeight = 250F;
-            this.dataGridViewLabelXColumn2.HeaderText = "Tên Tài Xế";
-            this.dataGridViewLabelXColumn2.Name = "dataGridViewLabelXColumn2";
-            this.dataGridViewLabelXColumn2.Width = 150;
-            // 
-            // BSX
-            // 
-            this.BSX.HeaderText = "Biển Số Xe";
-            this.BSX.Name = "BSX";
-            // 
-            // DiaDiemTrungChuyen
-            // 
-            this.DiaDiemTrungChuyen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiaDiemTrungChuyen.HeaderText = "Địa Điểm";
-            this.DiaDiemTrungChuyen.Name = "DiaDiemTrungChuyen";
             // 
             // frmQuanLyXe
             // 

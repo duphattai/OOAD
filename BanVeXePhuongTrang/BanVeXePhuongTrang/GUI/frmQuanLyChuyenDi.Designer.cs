@@ -49,7 +49,6 @@
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.btSua = new DevComponents.DotNetBar.ButtonX();
             this.btThoat = new DevComponents.DotNetBar.ButtonX();
-            this.btnCapNhat = new DevComponents.DotNetBar.ButtonX();
             this.btThem = new DevComponents.DotNetBar.ButtonX();
             this.btXoa = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1.SuspendLayout();
@@ -273,7 +272,6 @@
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel2.Controls.Add(this.btSua);
             this.groupPanel2.Controls.Add(this.btThoat);
-            this.groupPanel2.Controls.Add(this.btnCapNhat);
             this.groupPanel2.Controls.Add(this.btThem);
             this.groupPanel2.Controls.Add(this.btXoa);
             this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
@@ -318,9 +316,9 @@
             this.btSua.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btSua.Image = global::BanVeXePhuongTrang.Properties.Resources.Pencil_icon;
             this.btSua.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btSua.Location = new System.Drawing.Point(40, 163);
+            this.btSua.Location = new System.Drawing.Point(40, 124);
             this.btSua.Name = "btSua";
-            this.btSua.Size = new System.Drawing.Size(106, 48);
+            this.btSua.Size = new System.Drawing.Size(106, 32);
             this.btSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btSua.TabIndex = 86;
             this.btSua.Text = "Sửa";
@@ -333,28 +331,13 @@
             this.btThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btThoat.Image = global::BanVeXePhuongTrang.Properties.Resources.Windows_Close_Program_icon;
             this.btThoat.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btThoat.Location = new System.Drawing.Point(40, 292);
+            this.btThoat.Location = new System.Drawing.Point(40, 181);
             this.btThoat.Name = "btThoat";
-            this.btThoat.Size = new System.Drawing.Size(106, 53);
+            this.btThoat.Size = new System.Drawing.Size(106, 32);
             this.btThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btThoat.TabIndex = 83;
             this.btThoat.Text = "Thoát";
             this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnCapNhat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCapNhat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnCapNhat.Image = global::BanVeXePhuongTrang.Properties.Resources.edit_validated_icon;
-            this.btnCapNhat.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnCapNhat.Location = new System.Drawing.Point(40, 228);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(106, 48);
-            this.btnCapNhat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnCapNhat.TabIndex = 84;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btThem
             // 
@@ -365,7 +348,7 @@
             this.btThem.ImageFixedSize = new System.Drawing.Size(32, 32);
             this.btThem.Location = new System.Drawing.Point(40, 13);
             this.btThem.Name = "btThem";
-            this.btThem.Size = new System.Drawing.Size(106, 47);
+            this.btThem.Size = new System.Drawing.Size(106, 32);
             this.btThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btThem.TabIndex = 86;
             this.btThem.Text = "Thêm";
@@ -378,9 +361,9 @@
             this.btXoa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btXoa.Image = global::BanVeXePhuongTrang.Properties.Resources.Actions_edit_delete_icon;
             this.btXoa.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btXoa.Location = new System.Drawing.Point(40, 85);
+            this.btXoa.Location = new System.Drawing.Point(40, 68);
             this.btXoa.Name = "btXoa";
-            this.btXoa.Size = new System.Drawing.Size(106, 53);
+            this.btXoa.Size = new System.Drawing.Size(106, 32);
             this.btXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btXoa.TabIndex = 86;
             this.btXoa.Text = "Xóa";
@@ -410,7 +393,6 @@
 
         private DevComponents.DotNetBar.PanelEx panelEx1;
         internal System.Windows.Forms.PictureBox PictureBox1;
-        private DevComponents.DotNetBar.ButtonX btnCapNhat;
         private DevComponents.DotNetBar.ButtonX btThoat;
         private DevComponents.DotNetBar.Controls.ReflectionLabel reflectionLabel1;
         private DevComponents.DotNetBar.ButtonX btSua;

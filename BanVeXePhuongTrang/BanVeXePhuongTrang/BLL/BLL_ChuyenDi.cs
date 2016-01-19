@@ -31,8 +31,6 @@ namespace BanVeXePhuongTrang.BLL
                 return "Giá vé không hợp lệ";
             if ((ketThuc - khoiHanh).TotalMinutes < 30)
                 return "Thời gian đi phải lớn hơn 30 phút";
-            //if (db.tblChiTietChuyenDis.Where(t => t.MaChuyenDi == maChuyen).ToArray().Length > 2)
-            //    return "Tối đa chỉ được";
 
             return null;
         }

@@ -28,20 +28,17 @@ namespace BanVeXePhuongTrang.GUI
         private void btThem_Click(object sender, EventArgs e)
         {
             frmThemTuyenXe form = new frmThemTuyenXe();
-            form.Show();
+            form.ShowDialog();
+            frmQuanLyTuyenXe_Load(sender, e);
         }
 
         private void btXoa_Click(object sender, EventArgs e)
         {
             frmXoaTuyenXe form = new frmXoaTuyenXe();
-            form.Show();
-        }
-
-      
-        private void buttonX1_Click(object sender, EventArgs e)
-        {
+            form.ShowDialog();
             frmQuanLyTuyenXe_Load(sender, e);
         }
+
 
         private void frmQuanLyTuyenXe_Load(object sender, EventArgs e)
         {
@@ -64,13 +61,21 @@ namespace BanVeXePhuongTrang.GUI
                 dtgChiTietTuyen.Rows.Clear();
                 foreach (var item in db.tblChiTietTuyens.Where(t => t.MaTuyen == maTuyen).ToList())
                 {
-                    dtgChiTietTuyen.Rows.Add(item.MaBenXeTrungGiang,
-                                            item.tblBenXe.TenBenXe,
+                    dtgChiTietTuyen.Rows.Add(item.tblBenXe.TenBenXe,
                                             item.ThoiGianDung,
                                             item.GhiChu);
                 }
 
             }
+        }
+
+        private void btSua_Click(object sender, EventArgs e)
+        {
+            string maTuyen = dtgDanhSachTuyen.CurrentRow.Cells["MaTuyen"].Value.ToString();
+            tblTuyenXe tuyenXe = new QUANLYXEKHACHEntities().tblTuyenXes.Where(t => t.MaTuyen == maTuyen).SingleOrDefault();
+            frmThemTuyenXe form = new frmThemTuyenXe(tuyenXe);
+            form.ShowDialog();
+            frmQuanLyTuyenXe_Load(sender, e);
         }
 
     }

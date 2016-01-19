@@ -14,10 +14,45 @@ namespace BanVeXePhuongTrang.GUI
 {
     public partial class frmThemTuyenXe : Form
     {
+        bool editMode;
+
         public frmThemTuyenXe()
         {
             InitializeComponent();
-           
+            editMode = false;
+        }
+
+        public frmThemTuyenXe(tblTuyenXe tuyenXe)
+        {
+            InitializeComponent();
+            editMode = true;
+            cbbBenXeDen.Enabled = false;
+            cbbBenXeDi.Enabled = false;
+
+
+            foreach (var item in new QUANLYXEKHACHEntities().tblBenXes.ToList())
+            {
+                cbbBenXeDen.Items.Add(item.TenBenXe);
+                cbbBenXeDi.Items.Add(item.TenBenXe);
+            }
+            // Edit mode
+            cbbBenXeDi.SelectedItem = tuyenXe.tblBenXe.TenBenXe;
+            cbbBenXeDen.SelectedItem = tuyenXe.tblBenXe1.TenBenXe;
+            txtMaTuyen.Text = tuyenXe.MaTuyen;
+
+            dtgChiTietTuyen.Rows.Clear();
+            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+            List<tblChiTietTuyen> listChiTietTuyen = tuyenXe.tblChiTietTuyens.ToList();
+            for (int i = 0; i < listChiTietTuyen.Count; i++)
+            {
+                DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)dtgChiTietTuyen.Rows[i].Cells["BenXeTrungGian"];
+                foreach (var row in db.tblBenXes.Select(t => t.TenBenXe).ToList())
+                    cell.Items.Add(row);
+
+                cell.Value = listChiTietTuyen[i].tblBenXe.TenBenXe;
+                dtgChiTietTuyen.Rows[i].Cells["ThoiGianDung"].Value = listChiTietTuyen[i].ThoiGianDung;
+                dtgChiTietTuyen.Rows[i].Cells["GhiChu"].Value = listChiTietTuyen[i].GhiChu;
+            } 
         }
 
         private void btThoat_Click(object sender, EventArgs e)
@@ -25,31 +60,12 @@ namespace BanVeXePhuongTrang.GUI
             this.Close();
         }
 
-
-        private void cbMaSanBayDi_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(!cbTenBenDen.Text.Equals("") && !cbTenBenDi.Text.Equals(""))
-            {
-                QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
-
-                tblBenXe benXeDi = db.tblBenXes.Where(t => t.TenBenXe == cbTenBenDi.SelectedItem.ToString()).Single();
-                tblBenXe benXeDen = db.tblBenXes.Where(t => t.TenBenXe == cbTenBenDen.SelectedItem.ToString()).Single();
-                
-                txtMaTuyen.Text = benXeDi.MaBenXe + "_" + benXeDen.MaBenXe;
-            }
-        }
-
-        private void cbMaSanBayDen_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbMaSanBayDi_SelectedIndexChanged(sender, e);
-        }
-
         private void frmThemTuyenXe_Load(object sender, EventArgs e)
         {
             foreach (var item in new QUANLYXEKHACHEntities().tblBenXes.ToList())
             {
-                cbTenBenDen.Items.Add(item.TenBenXe);
-                cbTenBenDi.Items.Add(item.TenBenXe);
+                cbbBenXeDen.Items.Add(item.TenBenXe);
+                cbbBenXeDi.Items.Add(item.TenBenXe);
             }
         }
 
@@ -88,46 +104,86 @@ namespace BanVeXePhuongTrang.GUI
             return list;
         }
 
+
+
         private void btnThêm_Click(object sender, EventArgs e)
         {
             QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
 
-            tblBenXe benXeDi = db.tblBenXes.Where(t => t.TenBenXe == cbTenBenDi.SelectedItem.ToString()).Single();
-            tblBenXe benXeDen = db.tblBenXes.Where(t => t.TenBenXe == cbTenBenDen.SelectedItem.ToString()).Single();
+            tblBenXe benXeDi = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDi.SelectedItem.ToString()).Single();
+            tblBenXe benXeDen = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDen.SelectedItem.ToString()).Single();
 
-            BLL_TuyenXe temp = new BLL_TuyenXe();
-            if(temp.canInsert(benXeDi.MaBenXe, benXeDen.MaBenXe))
+            tblTuyenXe tuyenXe = null;
+            if (editMode)
             {
-                tblTuyenXe tuyenXe = new tblTuyenXe();
-                tuyenXe.MaBenXeDi = benXeDi.MaBenXe;
-                tuyenXe.MaBenXeDen = benXeDen.MaBenXe;
-                tuyenXe.MaTuyen = txtMaTuyen.Text.ToString();
-
-                BLL_ChiTietTuyenXe CtTuyen = new BLL_ChiTietTuyenXe();
-                List<tblChiTietTuyen> listCTtuyen = solveDataInputChiTietTuyen();
-                foreach (var item in listCTtuyen)
+                tuyenXe = db.tblTuyenXes.Where(t => t.MaTuyen == txtMaTuyen.Text.ToString()).SingleOrDefault();
+                if(tuyenXe == null)
                 {
-                    string mes = CtTuyen.validateInput(item.MaTuyen, item.ThoiGianDung);
-                    if (!string.IsNullOrEmpty(mes))
-                    {
-                        MessageBox.Show(mes);
-                        return;
-                    }
+                    MessageBox.Show("Dữ liệu không tồn tại.");
+                    return;
                 }
-
-                foreach (var item in listCTtuyen)
-                    tuyenXe.tblChiTietTuyens.Add(item);
-
-
-                db.tblTuyenXes.Add(tuyenXe);
-                db.SaveChanges();
-
-                MessageBox.Show("Thêm thành công");
-            }
+            }            
             else
-                MessageBox.Show("Thêm thất bại");
+                tuyenXe = new tblTuyenXe();
+
+            tuyenXe.MaBenXeDi = benXeDi.MaBenXe;
+            tuyenXe.MaBenXeDen = benXeDen.MaBenXe;
+            tuyenXe.MaTuyen = txtMaTuyen.Text.ToString();
+
+            BLL_ChiTietTuyenXe CtTuyen = new BLL_ChiTietTuyenXe();
+            List<tblChiTietTuyen> listCTtuyen = solveDataInputChiTietTuyen();
+            foreach (var item in listCTtuyen)
+            {
+                string mes = CtTuyen.validateInput(item.MaTuyen, item.ThoiGianDung);
+                if (!string.IsNullOrEmpty(mes))
+                {
+                    MessageBox.Show(mes);
+                    return;
+                }
+            }
+
+            // Xóa record
+            tuyenXe.tblChiTietTuyens.Clear();
+            foreach (var item in listCTtuyen)
+                tuyenXe.tblChiTietTuyens.Add(item);
+
+            if(!editMode)
+            {
+                if (new BLL_TuyenXe().canInsert(benXeDi.MaBenXe, benXeDen.MaBenXe))
+                    db.tblTuyenXes.Add(tuyenXe);
+                else
+                    MessageBox.Show("Lưu thất bại");
+            }     
+            db.SaveChanges();
+
+            MessageBox.Show("Lưu thành công");
         }
 
+        private void dtgChiTietTuyen_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            tblThamSo thamSo = new QUANLYXEKHACHEntities().tblThamSoes.ToArray()[0];
+            int maxRow = thamSo.BenXeTrungGianToiDa.Value;
+            if (dtgChiTietTuyen.Rows.Count > maxRow)
+                dtgChiTietTuyen.AllowUserToAddRows = false;
+        }
+
+        private void cbbBenXeDi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!cbbBenXeDen.Text.Equals("") && !cbbBenXeDi.Text.Equals(""))
+            {
+                QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+
+                tblBenXe benXeDi = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDi.SelectedItem.ToString()).Single();
+                tblBenXe benXeDen = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDen.SelectedItem.ToString()).Single();
+
+                txtMaTuyen.Text = benXeDi.MaBenXe + "_" + benXeDen.MaBenXe;
+            }
+        }
+
+        private void cbbBenXeDen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbbBenXeDi_SelectedIndexChanged(sender, e);
+        }
 
         private void dtgChiTietTuyen_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -137,7 +193,7 @@ namespace BanVeXePhuongTrang.GUI
                 {
                     QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
 
-                    DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)dtgChiTietTuyen.Rows[e.RowIndex].Cells["BenXe"];
+                    DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)dtgChiTietTuyen.Rows[e.RowIndex].Cells["BenXeTrungGian"];
                     if (cell.Items.Count == 0)
                     {
                         cell.Value = "";
@@ -145,9 +201,9 @@ namespace BanVeXePhuongTrang.GUI
                             cell.Items.Add(row);
                     }
                 }
-            }catch
+            }
+            catch
             { }
-           
         }
     }
 }

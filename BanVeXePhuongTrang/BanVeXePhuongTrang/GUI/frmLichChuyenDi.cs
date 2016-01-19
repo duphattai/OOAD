@@ -95,9 +95,17 @@ namespace BanVeXePhuongTrang.GUI
                     cbbMaXe.Items.Add(item.MaXe);
                 }
 
+                // Hiển thị tên tuyến
                 tblTuyenXe tuyen = db.tblTuyenXes.Where(t => t.MaTuyen == maTuyen).SingleOrDefault();
                 if (tuyen != null)
                     txtTuyen.Text = tuyen.tblBenXe.TenBenXe + "-" + tuyen.tblBenXe1.TenBenXe;
+
+                // Hiển thị bến xe trung gian
+                dtgBXTrungGian.Rows.Clear();
+                foreach (var item in tuyen.tblChiTietTuyens.ToList())
+                    dtgBXTrungGian.Rows.Add(item.tblBenXe.TenBenXe,
+                                            item.ThoiGianDung,
+                                            item.GhiChu);
             }
             catch 
             { }

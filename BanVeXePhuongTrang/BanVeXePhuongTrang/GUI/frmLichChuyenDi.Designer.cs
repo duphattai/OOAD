@@ -48,13 +48,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dtgBXTrungGian = new System.Windows.Forms.DataGridView();
+            this.BenXeTrungGian = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThoiGianDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.btThoat = new DevComponents.DotNetBar.ButtonX();
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
             this.btnTaoMoi = new DevComponents.DotNetBar.ButtonX();
-            this.BenXeTrungGian = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThoiGianDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.groupPanel1.SuspendLayout();
@@ -106,7 +106,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(1163, 534);
+            this.panelEx1.Size = new System.Drawing.Size(1102, 534);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -359,6 +359,26 @@
             this.dtgBXTrungGian.TabIndex = 45;
             this.dtgBXTrungGian.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView2_UserAddedRow);
             // 
+            // BenXeTrungGian
+            // 
+            this.BenXeTrungGian.HeaderText = "Bến Xe Trung Gian";
+            this.BenXeTrungGian.Name = "BenXeTrungGian";
+            this.BenXeTrungGian.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.BenXeTrungGian.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.BenXeTrungGian.Width = 200;
+            // 
+            // ThoiGianDung
+            // 
+            this.ThoiGianDung.HeaderText = "Thời Gian Dừng";
+            this.ThoiGianDung.Name = "ThoiGianDung";
+            this.ThoiGianDung.Width = 150;
+            // 
+            // GhiChu
+            // 
+            this.GhiChu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GhiChu.HeaderText = "Ghi Chú";
+            this.GhiChu.Name = "GhiChu";
+            // 
             // groupPanel4
             // 
             this.groupPanel4.CanvasColor = System.Drawing.SystemColors.Control;
@@ -367,7 +387,7 @@
             this.groupPanel4.Controls.Add(this.btnThem);
             this.groupPanel4.Controls.Add(this.btnTaoMoi);
             this.groupPanel4.DisabledBackColor = System.Drawing.Color.Empty;
-            this.groupPanel4.Location = new System.Drawing.Point(942, 74);
+            this.groupPanel4.Location = new System.Drawing.Point(894, 74);
             this.groupPanel4.Name = "groupPanel4";
             this.groupPanel4.Size = new System.Drawing.Size(144, 440);
             // 
@@ -408,9 +428,9 @@
             this.btThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btThoat.Image = global::BanVeXePhuongTrang.Properties.Resources.Windows_Close_Program_icon;
             this.btThoat.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btThoat.Location = new System.Drawing.Point(22, 300);
+            this.btThoat.Location = new System.Drawing.Point(24, 158);
             this.btThoat.Name = "btThoat";
-            this.btThoat.Size = new System.Drawing.Size(96, 37);
+            this.btThoat.Size = new System.Drawing.Size(104, 32);
             this.btThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btThoat.TabIndex = 57;
             this.btThoat.Text = "Thoát";
@@ -425,7 +445,7 @@
             this.btnThem.ImageFixedSize = new System.Drawing.Size(32, 32);
             this.btnThem.Location = new System.Drawing.Point(24, 44);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(89, 37);
+            this.btnThem.Size = new System.Drawing.Size(104, 32);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnThem.TabIndex = 57;
             this.btnThem.Text = "Nhận";
@@ -438,39 +458,19 @@
             this.btnTaoMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnTaoMoi.Image = global::BanVeXePhuongTrang.Properties.Resources.create_icon;
             this.btnTaoMoi.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTaoMoi.Location = new System.Drawing.Point(17, 175);
+            this.btnTaoMoi.Location = new System.Drawing.Point(22, 97);
             this.btnTaoMoi.Name = "btnTaoMoi";
-            this.btnTaoMoi.Size = new System.Drawing.Size(106, 37);
+            this.btnTaoMoi.Size = new System.Drawing.Size(106, 32);
             this.btnTaoMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnTaoMoi.TabIndex = 57;
             this.btnTaoMoi.Text = "Tạo Mới";
             this.btnTaoMoi.Click += new System.EventHandler(this.btnTaoMoi_Click);
             // 
-            // BenXeTrungGian
-            // 
-            this.BenXeTrungGian.HeaderText = "Bến Xe Trung Gian";
-            this.BenXeTrungGian.Name = "BenXeTrungGian";
-            this.BenXeTrungGian.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.BenXeTrungGian.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.BenXeTrungGian.Width = 200;
-            // 
-            // ThoiGianDung
-            // 
-            this.ThoiGianDung.HeaderText = "Thời Gian Dừng";
-            this.ThoiGianDung.Name = "ThoiGianDung";
-            this.ThoiGianDung.Width = 150;
-            // 
-            // GhiChu
-            // 
-            this.GhiChu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.GhiChu.HeaderText = "Ghi Chú";
-            this.GhiChu.Name = "GhiChu";
-            // 
             // frmLichChuyenDi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1163, 534);
+            this.ClientSize = new System.Drawing.Size(1102, 534);
             this.Controls.Add(this.panelEx1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
