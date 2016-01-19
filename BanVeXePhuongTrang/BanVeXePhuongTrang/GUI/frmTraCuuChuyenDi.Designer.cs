@@ -37,9 +37,6 @@
             this.btnTim = new DevComponents.DotNetBar.ButtonX();
             this.cbBenXeDen = new System.Windows.Forms.ComboBox();
             this.Label4 = new System.Windows.Forms.Label();
-            this.Label5 = new System.Windows.Forms.Label();
-            this.Label6 = new System.Windows.Forms.Label();
-            this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
             this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
@@ -91,9 +88,6 @@
             this.groupPanel1.Controls.Add(this.btnTim);
             this.groupPanel1.Controls.Add(this.cbBenXeDen);
             this.groupPanel1.Controls.Add(this.Label4);
-            this.groupPanel1.Controls.Add(this.Label5);
-            this.groupPanel1.Controls.Add(this.Label6);
-            this.groupPanel1.Controls.Add(this.dtpDenNgay);
             this.groupPanel1.Controls.Add(this.dtpTuNgay);
             this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.Location = new System.Drawing.Point(747, 93);
@@ -172,7 +166,6 @@
             this.cbBenXeDi.Name = "cbBenXeDi";
             this.cbBenXeDi.Size = new System.Drawing.Size(235, 25);
             this.cbBenXeDi.TabIndex = 40;
-            this.cbBenXeDi.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbBenXeDi_MouseClick);
             // 
             // btnTim
             // 
@@ -198,7 +191,6 @@
             this.cbBenXeDen.Name = "cbBenXeDen";
             this.cbBenXeDen.Size = new System.Drawing.Size(235, 25);
             this.cbBenXeDen.TabIndex = 41;
-            this.cbBenXeDen.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbBenXeDen_MouseClick);
             // 
             // Label4
             // 
@@ -209,34 +201,9 @@
             this.Label4.TabIndex = 39;
             this.Label4.Text = "Ngày Khởi Hành:";
             // 
-            // Label5
-            // 
-            this.Label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Label5.Location = new System.Drawing.Point(96, 143);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(40, 23);
-            this.Label5.TabIndex = 42;
-            this.Label5.Text = "Từ:";
-            // 
-            // Label6
-            // 
-            this.Label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Label6.Location = new System.Drawing.Point(96, 188);
-            this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(42, 23);
-            this.Label6.TabIndex = 45;
-            this.Label6.Text = "Đến:";
-            // 
-            // dtpDenNgay
-            // 
-            this.dtpDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDenNgay.Location = new System.Drawing.Point(144, 187);
-            this.dtpDenNgay.Name = "dtpDenNgay";
-            this.dtpDenNgay.Size = new System.Drawing.Size(231, 20);
-            this.dtpDenNgay.TabIndex = 44;
-            // 
             // dtpTuNgay
             // 
+            this.dtpTuNgay.CustomFormat = "\"dd-MM-yyyy\"";
             this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpTuNgay.Location = new System.Drawing.Point(143, 142);
             this.dtpTuNgay.Name = "dtpTuNgay";
@@ -309,6 +276,7 @@
             // 
             // dgvTraCuu
             // 
+            this.dgvTraCuu.AllowUserToAddRows = false;
             this.dgvTraCuu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTraCuu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BenXeDi,
@@ -421,10 +389,7 @@
 
         private DevComponents.DotNetBar.PanelEx panelEx1;
         internal System.Windows.Forms.PictureBox PictureBox1;
-        internal System.Windows.Forms.Label Label6;
-        internal System.Windows.Forms.DateTimePicker dtpDenNgay;
         internal System.Windows.Forms.DateTimePicker dtpTuNgay;
-        internal System.Windows.Forms.Label Label5;
         internal System.Windows.Forms.ComboBox cbBenXeDen;
         internal System.Windows.Forms.ComboBox cbBenXeDi;
         internal System.Windows.Forms.Label Label4;
