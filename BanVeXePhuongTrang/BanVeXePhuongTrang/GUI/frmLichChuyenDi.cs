@@ -89,7 +89,7 @@ namespace BanVeXePhuongTrang.GUI
                 List<tblXeKhach> listXeKhach = db.tblXeKhaches.Where(t => t.MaTuyen == maTuyen).ToList();
                 foreach (var item in listXeKhach)
                 {
-                    if (db.tblChuyenDis.Where(t => t.MaXe == item.MaXe && t.KetThuc > khoiHanh).ToArray().Length > 0)
+                    if (db.tblChuyenDis.Where(t => t.MaXe == item.MaXe && t.KetThuc.Value > khoiHanh).ToArray().Length > 0)
                         continue;
 
                     cbbMaXe.Items.Add(item.MaXe);

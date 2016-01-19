@@ -13,7 +13,6 @@ namespace BanVeXePhuongTrang.GUI
 {
     public partial class frmTraCuuChuyenDi : Form
     {
-        DataTable DSSanBay;
         public frmTraCuuChuyenDi()
         {
             InitializeComponent();
@@ -33,32 +32,30 @@ namespace BanVeXePhuongTrang.GUI
             DateTime dateTime = dtpTuNgay.Value;
             try
             {
-                
-                
-                    tblBenXe benXeDi = db.tblBenXes.Where(t => t.TenBenXe == cbBenXeDi.SelectedItem.ToString()).Single();
-                    tblBenXe benXeDen = db.tblBenXes.Where(t => t.TenBenXe == cbBenXeDen.SelectedItem.ToString()).Single();
+                tblBenXe benXeDi = db.tblBenXes.Where(t => t.TenBenXe == cbBenXeDi.SelectedItem.ToString()).Single();
+                tblBenXe benXeDen = db.tblBenXes.Where(t => t.TenBenXe == cbBenXeDen.SelectedItem.ToString()).Single();
                     
                     
-                    MaTuyen = benXeDi.MaBenXe + "_" + benXeDen.MaBenXe;
+                MaTuyen = benXeDi.MaBenXe + "_" + benXeDen.MaBenXe;
 
-                    var entryPoint = (from tuyenXe in db.tblTuyenXes
-                                      join xeDi in db.tblBenXes on tuyenXe.MaBenXeDi equals xeDi.MaBenXe
-                                      join xeDen in db.tblBenXes on tuyenXe.MaBenXeDen equals xeDen.MaBenXe 
-                                      join xe in db.tblXeKhaches on tuyenXe.MaTuyen equals xe.MaTuyen
-                                      join chuyenDi in db.tblChuyenDis on xe.MaXe equals chuyenDi.MaXe
+                var entryPoint = (from tuyenXe in db.tblTuyenXes
+                                    join xeDi in db.tblBenXes on tuyenXe.MaBenXeDi equals xeDi.MaBenXe
+                                    join xeDen in db.tblBenXes on tuyenXe.MaBenXeDen equals xeDen.MaBenXe 
+                                    join xe in db.tblXeKhaches on tuyenXe.MaTuyen equals xe.MaTuyen
+                                    join chuyenDi in db.tblChuyenDis on xe.MaXe equals chuyenDi.MaXe
          
-                                      where tuyenXe.MaTuyen == MaTuyen
-                                      select new
-                                      {
-                                          KhoiHanh = chuyenDi.KhoiHanh,
-                                          BenXeDi = xeDi.TenBenXe,
-                                          BenXeDen = xeDen.TenBenXe,
-                                          SoGheTrong = chuyenDi.SoGheTrong,
-                                          SoGheDat = chuyenDi.SoGheDat,
-                                          KetThuc = chuyenDi.KetThuc
-                                      }).ToList();
+                                    where tuyenXe.MaTuyen == MaTuyen
+                                    select new
+                                    {
+                                        BenXeDi = xeDi.TenBenXe,
+                                        BenXeDen = xeDen.TenBenXe,
+                                        SoGheTrong = chuyenDi.SoGheTrong,
+                                        SoGheDat = chuyenDi.SoGheDat,
+                                         KhoiHanh = chuyenDi.KhoiHanh,
+                                        KetThuc = chuyenDi.KetThuc,
+                                    }).ToList();
 
-                    dgvTraCuu.DataSource = entryPoint;
+                dgvTraCuu.DataSource = entryPoint;
                     
 
 

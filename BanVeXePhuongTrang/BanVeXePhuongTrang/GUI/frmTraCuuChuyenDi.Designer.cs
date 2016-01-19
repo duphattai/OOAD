@@ -44,7 +44,7 @@
             this.dgvTraCuu = new System.Windows.Forms.DataGridView();
             this.BenXeDi = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.BenXeDen = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.KhoiHanh = new DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn();
+            this.KhoiHanh = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.ThoiGian = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.SoGheTrong = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.SoGheDat = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
@@ -92,7 +92,7 @@
             this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.Location = new System.Drawing.Point(747, 93);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(441, 380);
+            this.groupPanel1.Size = new System.Drawing.Size(441, 236);
             // 
             // 
             // 
@@ -127,7 +127,7 @@
             // Label2
             // 
             this.Label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Label2.Location = new System.Drawing.Point(10, 30);
+            this.Label2.Location = new System.Drawing.Point(30, 30);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(96, 23);
             this.Label2.TabIndex = 37;
@@ -136,7 +136,7 @@
             // Label3
             // 
             this.Label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Label3.Location = new System.Drawing.Point(10, 69);
+            this.Label3.Location = new System.Drawing.Point(30, 69);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(115, 23);
             this.Label3.TabIndex = 38;
@@ -149,9 +149,9 @@
             this.btThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btThoat.Image = global::BanVeXePhuongTrang.Properties.Resources.Windows_Close_Program_icon;
             this.btThoat.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btThoat.Location = new System.Drawing.Point(250, 254);
+            this.btThoat.Location = new System.Drawing.Point(307, 163);
             this.btThoat.Name = "btThoat";
-            this.btThoat.Size = new System.Drawing.Size(88, 37);
+            this.btThoat.Size = new System.Drawing.Size(88, 32);
             this.btThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btThoat.TabIndex = 74;
             this.btThoat.Text = "Thoát";
@@ -162,7 +162,7 @@
             this.cbBenXeDi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBenXeDi.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBenXeDi.ForeColor = System.Drawing.Color.Blue;
-            this.cbBenXeDi.Location = new System.Drawing.Point(140, 26);
+            this.cbBenXeDi.Location = new System.Drawing.Point(160, 26);
             this.cbBenXeDi.Name = "cbBenXeDi";
             this.cbBenXeDi.Size = new System.Drawing.Size(235, 25);
             this.cbBenXeDi.TabIndex = 40;
@@ -174,9 +174,9 @@
             this.btnTim.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnTim.Image = global::BanVeXePhuongTrang.Properties.Resources.Zoom_icon;
             this.btnTim.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTim.Location = new System.Drawing.Point(97, 254);
+            this.btnTim.Location = new System.Drawing.Point(163, 163);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(82, 37);
+            this.btnTim.Size = new System.Drawing.Size(82, 32);
             this.btnTim.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnTim.TabIndex = 75;
             this.btnTim.Text = "Tìm";
@@ -187,7 +187,7 @@
             this.cbBenXeDen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBenXeDen.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBenXeDen.ForeColor = System.Drawing.Color.Blue;
-            this.cbBenXeDen.Location = new System.Drawing.Point(140, 66);
+            this.cbBenXeDen.Location = new System.Drawing.Point(160, 66);
             this.cbBenXeDen.Name = "cbBenXeDen";
             this.cbBenXeDen.Size = new System.Drawing.Size(235, 25);
             this.cbBenXeDen.TabIndex = 41;
@@ -195,7 +195,7 @@
             // Label4
             // 
             this.Label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Label4.Location = new System.Drawing.Point(10, 110);
+            this.Label4.Location = new System.Drawing.Point(30, 110);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(134, 23);
             this.Label4.TabIndex = 39;
@@ -205,7 +205,7 @@
             // 
             this.dtpTuNgay.CustomFormat = "\"dd-MM-yyyy\"";
             this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTuNgay.Location = new System.Drawing.Point(143, 142);
+            this.dtpTuNgay.Location = new System.Drawing.Point(163, 113);
             this.dtpTuNgay.Name = "dtpTuNgay";
             this.dtpTuNgay.Size = new System.Drawing.Size(232, 20);
             this.dtpTuNgay.TabIndex = 43;
@@ -294,69 +294,34 @@
             // BenXeDi
             // 
             this.BenXeDi.DataPropertyName = "BenXeDi";
-            this.BenXeDi.HeaderText = "Bến Xe Đi";
+            this.BenXeDi.HeaderText = "Bến xe đi";
             this.BenXeDi.Name = "BenXeDi";
-            this.BenXeDi.Width = 170;
+            this.BenXeDi.Width = 150;
             // 
             // BenXeDen
             // 
             this.BenXeDen.DataPropertyName = "BenXeDen";
-            this.BenXeDen.HeaderText = "Bến Xe Đến";
+            this.BenXeDen.HeaderText = "Bến xe đến";
             this.BenXeDen.Name = "BenXeDen";
-            this.BenXeDen.Width = 170;
+            this.BenXeDen.Width = 150;
             // 
             // KhoiHanh
             // 
-            // 
-            // 
-            // 
-            this.KhoiHanh.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
-            this.KhoiHanh.BackgroundStyle.Class = "DataGridViewDateTimeBorder";
-            this.KhoiHanh.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.KhoiHanh.BackgroundStyle.TextColor = System.Drawing.SystemColors.ControlText;
-            this.KhoiHanh.ButtonClear.Tooltip = "";
-            this.KhoiHanh.ButtonCustom.Tooltip = "";
-            this.KhoiHanh.ButtonCustom2.Tooltip = "";
-            this.KhoiHanh.ButtonDropDown.Tooltip = "";
-            this.KhoiHanh.ButtonFreeText.Tooltip = "";
             this.KhoiHanh.DataPropertyName = "KhoiHanh";
-            this.KhoiHanh.HeaderText = "Khởi Hành";
-            this.KhoiHanh.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
-            // 
-            // 
-            // 
-            this.KhoiHanh.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
-            // 
-            // 
-            // 
-            this.KhoiHanh.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.KhoiHanh.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            // 
-            // 
-            // 
-            this.KhoiHanh.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.KhoiHanh.MonthCalendar.DisplayMonth = new System.DateTime(2014, 12, 1, 0, 0, 0, 0);
-            this.KhoiHanh.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            this.KhoiHanh.MonthCalendar.MarkedDates = new System.DateTime[0];
-            this.KhoiHanh.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
-            // 
-            // 
-            // 
-            this.KhoiHanh.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.KhoiHanh.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
+            this.KhoiHanh.HeaderText = "Khởi hành";
             this.KhoiHanh.Name = "KhoiHanh";
+            this.KhoiHanh.ReadOnly = true;
             // 
             // ThoiGian
             // 
             this.ThoiGian.DataPropertyName = "KetThuc";
-            this.ThoiGian.HeaderText = "Kết Thúc";
+            this.ThoiGian.HeaderText = "Kết thúc";
             this.ThoiGian.Name = "ThoiGian";
-            this.ThoiGian.Width = 60;
             // 
             // SoGheTrong
             // 
             this.SoGheTrong.DataPropertyName = "SoGheTrong";
-            this.SoGheTrong.HeaderText = "Số Ghế Trống";
+            this.SoGheTrong.HeaderText = "Số ghế trống";
             this.SoGheTrong.Name = "SoGheTrong";
             this.SoGheTrong.Width = 80;
             // 
@@ -364,7 +329,7 @@
             // 
             this.SoGheDat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SoGheDat.DataPropertyName = "SoGheDat";
-            this.SoGheDat.HeaderText = "Số Ghế Đặt";
+            this.SoGheDat.HeaderText = "Số ghế đặt";
             this.SoGheDat.Name = "SoGheDat";
             // 
             // frmTraCuuChuyenDi
@@ -403,7 +368,7 @@
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn BenXeDi;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn BenXeDen;
-        private DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn KhoiHanh;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn KhoiHanh;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn ThoiGian;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn SoGheTrong;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn SoGheDat;
