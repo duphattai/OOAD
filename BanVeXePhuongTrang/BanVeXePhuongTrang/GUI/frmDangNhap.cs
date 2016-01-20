@@ -48,8 +48,8 @@ namespace BanVeXePhuongTrang.GUI
                     if (tk != null)
                     {
                     
-                        MessageBox.Show("Đang nhập thành công");
-                        this.DialogResult = DialogResult.OK;
+                        //MessageBox.Show("Đang nhập thành công");
+                        //this.DialogResult = DialogResult.OK;
                         //string dlCon = dr["TenNhanVien"].ToString();
                         string dlCon = tk.tblNhanVien.TenNhanVien.ToString();
                         int MaNV =int.Parse(tk.MaNhanVien.ToString());
