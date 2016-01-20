@@ -10,8 +10,7 @@
             <PropertyRef Name="MaChuyenDi" />
           </Key>
           <Property Name="MaChuyenDi" Type="int" Nullable="false" />
-          <Property Name="Thang" Type="int" />
-          <Property Name="Nam" Type="int" />
+          <Property Name="KhoiHanh" Type="datetime" />
           <Property Name="SoVe" Type="int" />
           <Property Name="DoanhThu" Type="money" />
           <Property Name="TiLe" Type="float" />
@@ -78,7 +77,6 @@
           <Property Name="MaChuyenDi" Type="int" Nullable="false" />
           <Property Name="MaXe" Type="int" />
           <Property Name="KhoiHanh" Type="datetime" />
-          <Property Name="KetThuc" Type="datetime" />
           <Property Name="DonGia" Type="money" />
           <Property Name="SoGheTrong" Type="int" />
           <Property Name="SoGheDat" Type="int" />
@@ -151,6 +149,7 @@
           <Property Name="MaTuyen" Type="varchar" MaxLength="11" Nullable="false" />
           <Property Name="MaBenXeDi" Type="varchar" MaxLength="10" />
           <Property Name="MaBenXeDen" Type="varchar" MaxLength="10" />
+          <Property Name="ThoiGianDi" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblXeKhach">
           <Key>
@@ -491,8 +490,7 @@
             <PropertyRef Name="MaChuyenDi" />
           </Key>
           <Property Name="MaChuyenDi" Type="Int32" Nullable="false" />
-          <Property Name="Thang" Type="Int32" />
-          <Property Name="Nam" Type="Int32" />
+          <Property Name="KhoiHanh" Type="DateTime" Precision="3" />
           <Property Name="SoVe" Type="Int32" />
           <Property Name="DoanhThu" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="TiLe" Type="Double" />
@@ -569,7 +567,6 @@
           <Property Name="MaChuyenDi" Type="Int32" Nullable="false" />
           <Property Name="MaXe" Type="Int32" />
           <Property Name="KhoiHanh" Type="DateTime" Precision="3" />
-          <Property Name="KetThuc" Type="DateTime" Precision="3" />
           <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SoGheTrong" Type="Int32" />
           <Property Name="SoGheDat" Type="Int32" />
@@ -657,6 +654,7 @@
           <Property Name="MaTuyen" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaBenXeDi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MaBenXeDen" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ThoiGianDi" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblBenXe" Relationship="Self.FK__tblTuyenX__MaBen__173876EA" FromRole="tblTuyenXe" ToRole="tblBenXe" />
           <NavigationProperty Name="tblBenXe1" Relationship="Self.FK__tblTuyenX__MaBen__182C9B23" FromRole="tblTuyenXe" ToRole="tblBenXe" />
           <NavigationProperty Name="tblChiTietTuyens" Relationship="Self.FK__tblChiTie__MaTuy__1B0907CE" FromRole="tblTuyenXe" ToRole="tblChiTietTuyen" />
@@ -1008,8 +1006,7 @@
             <EntityTypeMapping TypeName="QUANLYXEKHACHModel.tblBaoCaoDoanhThuChuyenDi">
               <MappingFragment StoreEntitySet="tblBaoCaoDoanhThuChuyenDi">
                 <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
-                <ScalarProperty Name="Thang" ColumnName="Thang" />
-                <ScalarProperty Name="Nam" ColumnName="Nam" />
+                <ScalarProperty Name="KhoiHanh" ColumnName="KhoiHanh" />
                 <ScalarProperty Name="SoVe" ColumnName="SoVe" />
                 <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
                 <ScalarProperty Name="TiLe" ColumnName="TiLe" />
@@ -1080,7 +1077,6 @@
                 <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
                 <ScalarProperty Name="MaXe" ColumnName="MaXe" />
                 <ScalarProperty Name="KhoiHanh" ColumnName="KhoiHanh" />
-                <ScalarProperty Name="KetThuc" ColumnName="KetThuc" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
                 <ScalarProperty Name="SoGheTrong" ColumnName="SoGheTrong" />
                 <ScalarProperty Name="SoGheDat" ColumnName="SoGheDat" />
@@ -1161,6 +1157,7 @@
                 <ScalarProperty Name="MaTuyen" ColumnName="MaTuyen" />
                 <ScalarProperty Name="MaBenXeDi" ColumnName="MaBenXeDi" />
                 <ScalarProperty Name="MaBenXeDen" ColumnName="MaBenXeDen" />
+                <ScalarProperty Name="ThoiGianDi" ColumnName="ThoiGianDi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

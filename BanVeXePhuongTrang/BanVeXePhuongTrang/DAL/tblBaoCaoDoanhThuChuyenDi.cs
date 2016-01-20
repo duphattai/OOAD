@@ -15,8 +15,7 @@ namespace BanVeXePhuongTrang.DAL
     public partial class tblBaoCaoDoanhThuChuyenDi
     {
         public int MaChuyenDi { get; set; }
-        public Nullable<int> Thang { get; set; }
-        public Nullable<int> Nam { get; set; }
+        public Nullable<System.DateTime> KhoiHanh { get; set; }
         public Nullable<int> SoVe { get; set; }
         public Nullable<decimal> DoanhThu { get; set; }
         public Nullable<double> TiLe { get; set; }

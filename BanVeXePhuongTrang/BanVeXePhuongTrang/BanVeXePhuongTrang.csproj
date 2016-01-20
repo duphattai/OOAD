@@ -671,11 +671,10 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Database\QUANLYXEKHACH.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Database\QUANLYXEKHACH_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DependentUpon>QUANLYXEKHACH.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="QUANLYXEKHACH.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

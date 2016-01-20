@@ -83,6 +83,7 @@
             this.dtpKhoiHanh.Name = "dtpKhoiHanh";
             this.dtpKhoiHanh.Size = new System.Drawing.Size(319, 26);
             this.dtpKhoiHanh.TabIndex = 39;
+            this.dtpKhoiHanh.Validated += new System.EventHandler(this.dtpKhoiHanh_Validated);
             // 
             // txtGiaVe
             // 

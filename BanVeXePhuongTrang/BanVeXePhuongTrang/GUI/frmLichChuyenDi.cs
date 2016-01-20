@@ -39,7 +39,7 @@ namespace BanVeXePhuongTrang.GUI
                 cbbMaTuyen.SelectedItem = chuyenDi.tblXeKhach.MaTuyen;
                 txtTuyen.Text = chuyenDi.tblXeKhach.tblTuyenXe.tblBenXe.TenBenXe + "-" + chuyenDi.tblXeKhach.tblTuyenXe.tblBenXe1.TenBenXe;
                 dtpKhoiHanh.Value = chuyenDi.KhoiHanh.Value;
-                dtpKetThuc.Value = chuyenDi.KetThuc.Value;
+                dtpKetThuc.Value = chuyenDi.KhoiHanh.Value.AddMinutes(chuyenDi.tblXeKhach.tblTuyenXe.ThoiGianDi);
 
                 dtgBXTrungGian.Rows.Clear();
                 foreach (var item in db.tblChiTietTuyens.Where(t => t.MaTuyen == chuyenDi.tblXeKhach.MaTuyen).ToList())
@@ -87,12 +87,16 @@ namespace BanVeXePhuongTrang.GUI
                 string maTuyen = cbbMaTuyen.SelectedItem.ToString();
                 cbbMaXe.Items.Clear();
 
-                // Lấy danh sách xe khách chạy theo mã tuyến, kiểm tra lịch của xe có ngày kết thúc < thời gian hiện tại
+                // Lấy danh sách xe khách chạy theo mã tuyến, kiểm tra lịch của xe có ngày kết thúc < thời gian hiện tại             
+                tblTuyenXe tuyenXe = db.tblTuyenXes.Where(t => t.MaTuyen == maTuyen).SingleOrDefault();
                 DateTime khoiHanh = dtpKhoiHanh.Value;
+                if (tuyenXe != null)
+                    khoiHanh = khoiHanh.AddMinutes(tuyenXe.ThoiGianDi);
+
                 List<tblXeKhach> listXeKhach = db.tblXeKhaches.Where(t => t.MaTuyen == maTuyen).ToList();
                 foreach (var item in listXeKhach)
                 {
-                    if (db.tblChuyenDis.Where(t => t.MaXe == item.MaXe && t.KetThuc.Value > khoiHanh).ToArray().Length > 0)
+                    if (db.tblChuyenDis.Where(t => t.MaXe == item.MaXe && t.KhoiHanh.Value > khoiHanh).ToArray().Length > 0)
                         continue;
 
                     cbbMaXe.Items.Add(item.MaXe);
@@ -102,6 +106,8 @@ namespace BanVeXePhuongTrang.GUI
                 tblTuyenXe tuyen = db.tblTuyenXes.Where(t => t.MaTuyen == maTuyen).SingleOrDefault();
                 if (tuyen != null)
                     txtTuyen.Text = tuyen.tblBenXe.TenBenXe + "-" + tuyen.tblBenXe1.TenBenXe;
+                // Thiết lập thời gian kết thúc
+                dtpKetThuc.Value = dtpKhoiHanh.Value.AddMinutes(tuyen.ThoiGianDi);
 
                 // Hiển thị bến xe trung gian
                 dtgBXTrungGian.Rows.Clear();
@@ -124,7 +130,6 @@ namespace BanVeXePhuongTrang.GUI
             chuyenDi.DonGia = int.Parse(txtGiaVe.Text.ToString());
             chuyenDi.MaXe = int.Parse(cbbMaXe.SelectedItem.ToString());
             chuyenDi.KhoiHanh = dtpKhoiHanh.Value;
-            chuyenDi.KetThuc = dtpKetThuc.Value;
             chuyenDi.SoGheTrong = chuyenDi.SoGheDat = 0;
 
             string message = temp.validateInput(chuyenDi.MaChuyenDi, chuyenDi.MaXe, int.Parse(chuyenDi.DonGia.ToString()), dtpKhoiHanh.Value, dtpKetThuc.Value);
@@ -153,7 +158,6 @@ namespace BanVeXePhuongTrang.GUI
             chuyenDi.DonGia = decimal.Parse(txtGiaVe.Text.ToString());
             chuyenDi.MaXe = int.Parse(cbbMaXe.SelectedItem.ToString());
             chuyenDi.KhoiHanh = dtpKhoiHanh.Value;
-            chuyenDi.KetThuc = dtpKetThuc.Value;
             chuyenDi.SoGheTrong = chuyenDi.SoGheDat = 0;
 
 
@@ -189,7 +193,14 @@ namespace BanVeXePhuongTrang.GUI
             txtMaChuyenDi.Text = temp.getLastestIndex().ToString();
         }
 
-
-     
+        private void dtpKhoiHanh_Validated(object sender, EventArgs e)
+        {
+            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+            string maTuyen = cbbMaTuyen.SelectedItem.ToString();
+            tblTuyenXe tuyenXe = db.tblTuyenXes.Where(t => t.MaTuyen == maTuyen).SingleOrDefault();
+            dtpKetThuc.Value = dtpKhoiHanh.Value;
+            if (tuyenXe != null)
+                dtpKetThuc.Value = dtpKetThuc.Value.AddMinutes(tuyenXe.ThoiGianDi);
+        }
     }
 }

@@ -79,8 +79,8 @@ namespace BanVeXePhuongTrang.GUI
                 db.SaveChanges();
             }
 
-            bc.SoChuyenDi = db.tblBaoCaoDoanhThuChuyenDis.Count(t => t.Thang == bc.Thang && t.Nam == bc.Nam);
-            bc.DoanhThu = db.tblBaoCaoDoanhThuChuyenDis.Where(t => t.Thang == bc.Thang && t.Nam == bc.Nam).Sum(t => t.DoanhThu);
+            bc.SoChuyenDi = db.tblBaoCaoDoanhThuChuyenDis.Count(t => t.KhoiHanh.Value.Month == bc.Thang && t.KhoiHanh.Value.Year == bc.Nam);
+            bc.DoanhThu = db.tblBaoCaoDoanhThuChuyenDis.Where(t => t.KhoiHanh.Value.Month == bc.Thang && t.KhoiHanh.Value.Year == bc.Nam).Sum(t => t.DoanhThu);
 
             db.SaveChanges();
         }
@@ -101,7 +101,7 @@ namespace BanVeXePhuongTrang.GUI
                 db.SaveChanges();
             }
 
-            bc.DoanhThu = db.tblBaoCaoDoanhThuChuyenDis.Where(t => t.Nam == bc.Nam).Sum(t => t.DoanhThu);
+            bc.DoanhThu = db.tblBaoCaoDoanhThuChuyenDis.Where(t => t.KhoiHanh.Value.Year == bc.Nam).Sum(t => t.DoanhThu);
             db.SaveChanges();
         }
 
@@ -122,8 +122,7 @@ namespace BanVeXePhuongTrang.GUI
             // set value
            
             tblChuyenDi chuyenDi = db.tblChuyenDis.Where(t => t.MaChuyenDi == maChuyen).SingleOrDefault();
-            bc.Thang = chuyenDi.KhoiHanh.Value.Month;
-            bc.Nam = chuyenDi.KhoiHanh.Value.Year;
+            bc.KhoiHanh = chuyenDi.KhoiHanh.Value;
             bc.SoVe = db.tblChiTietPhieuDatChoes.Count(t => t.MaChuyenDi == maChuyen && t.LayVe.Value == true);
             bc.DoanhThu = bc.SoVe * chuyenDi.DonGia;
 

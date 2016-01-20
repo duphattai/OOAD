@@ -23,6 +23,7 @@ namespace BanVeXePhuongTrang.DAL
         public string MaTuyen { get; set; }
         public string MaBenXeDi { get; set; }
         public string MaBenXeDen { get; set; }
+        public int ThoiGianDi { get; set; }
     
         public virtual tblBenXe tblBenXe { get; set; }
         public virtual tblBenXe tblBenXe1 { get; set; }

@@ -51,8 +51,8 @@ namespace BanVeXePhuongTrang.GUI
                                         BenXeDen = xeDen.TenBenXe,
                                         SoGheTrong = chuyenDi.SoGheTrong,
                                         SoGheDat = chuyenDi.SoGheDat,
-                                         KhoiHanh = chuyenDi.KhoiHanh,
-                                        KetThuc = chuyenDi.KetThuc,
+                                        KhoiHanh = chuyenDi.KhoiHanh,
+                                        KetThuc = chuyenDi.KhoiHanh.Value.AddMinutes(tuyenXe.ThoiGianDi),
                                     }).ToList();
 
                 dgvTraCuu.DataSource = entryPoint;

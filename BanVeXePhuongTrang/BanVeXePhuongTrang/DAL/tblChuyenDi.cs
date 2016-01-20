@@ -22,7 +22,6 @@ namespace BanVeXePhuongTrang.DAL
         public int MaChuyenDi { get; set; }
         public Nullable<int> MaXe { get; set; }
         public Nullable<System.DateTime> KhoiHanh { get; set; }
-        public Nullable<System.DateTime> KetThuc { get; set; }
         public Nullable<decimal> DonGia { get; set; }
         public Nullable<int> SoGheTrong { get; set; }
         public Nullable<int> SoGheDat { get; set; }

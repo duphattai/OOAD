@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\Hoc Tap\Nam 4 - HK I\OOAD\Project\Project\QLBanVeXePhuongTrang.git\BanVeXePhuongTrang\BanVeXePhuongTrang\DAL\Model.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\Hoc Tap\Nam 4 - HK I\OOAD\Project\OOAD.git\BanVeXePhuongTrang\BanVeXePhuongTrang\DAL\Model.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
