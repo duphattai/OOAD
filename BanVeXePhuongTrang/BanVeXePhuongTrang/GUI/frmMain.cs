@@ -352,7 +352,6 @@ namespace BanVeXePhuongTrang
                 frmBCDoanhThuNam form = new frmBCDoanhThuNam();
                 AddTabControl(form, "Báo Cáo Doanh Thu Năm");
             }
-          
         }
 
         private void btQuyDinh1_Click(object sender, EventArgs e)
@@ -500,6 +499,5 @@ namespace BanVeXePhuongTrang
                 AddTabControl(form, "Quản Lý Trung Chuyển");
             }
         }
-
     }
 }

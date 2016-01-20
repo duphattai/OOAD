@@ -62,11 +62,12 @@ namespace BanVeXePhuongTrang.GUI
         }
 
 
-        void updateBaoCaoDoanhThuThang()
+        public static void updateBaoCaoDoanhThuThang(int maChuyenDi)
         {
             QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
 
-            int maChuyen = int.Parse(txtMaChuyenDi.Text.ToString());
+            //int maChuyen = int.Parse(txtMaChuyenDi.Text.ToString());
+            int maChuyen = maChuyenDi;
             tblChuyenDi chuyenDi = db.tblChuyenDis.Where(t => t.MaChuyenDi == maChuyen).SingleOrDefault();
 
             tblBaoCaoDoanhThuThang bc = db.tblBaoCaoDoanhThuThangs.Where(t => t.Thang == chuyenDi.KhoiHanh.Value.Month && t.Nam == chuyenDi.KhoiHanh.Value.Year).SingleOrDefault();
@@ -85,11 +86,11 @@ namespace BanVeXePhuongTrang.GUI
             db.SaveChanges();
         }
 
-        void updateBaoCaoDoanhThuNam()
+        public static void updateBaoCaoDoanhThuNam(int maChuyen)
         {
             QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
 
-            int maChuyen = int.Parse(txtMaChuyenDi.Text.ToString());
+            //int maChuyen = int.Parse(txtMaChuyenDi.Text.ToString());
             tblChuyenDi chuyenDi = db.tblChuyenDis.Where(t => t.MaChuyenDi == maChuyen).SingleOrDefault();
 
             tblBaoCaoDoanhThuNam bc = db.tblBaoCaoDoanhThuNams.Where(t => t.Nam == chuyenDi.KhoiHanh.Value.Year).SingleOrDefault();
@@ -105,10 +106,10 @@ namespace BanVeXePhuongTrang.GUI
             db.SaveChanges();
         }
 
-        void updateBaoCaoDoanhThuChuyenDi()
+        public static void updateBaoCaoDoanhThuChuyenDi(int maChuyen)
         {
             QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
-            int maChuyen = int.Parse(txtMaChuyenDi.Text.ToString());
+            //int maChuyen = int.Parse(txtMaChuyenDi.Text.ToString());
 
             tblBaoCaoDoanhThuChuyenDi bc = db.tblBaoCaoDoanhThuChuyenDis.Where(t => t.MaChuyenDi == maChuyen).SingleOrDefault();
             if (bc == null)
@@ -196,9 +197,10 @@ namespace BanVeXePhuongTrang.GUI
             // Đa luồng
             Thread thread = new Thread((ThreadStart)=>
             {
-                updateBaoCaoDoanhThuChuyenDi();
-                updateBaoCaoDoanhThuThang();
-                updateBaoCaoDoanhThuNam();
+                int maChuyen = int.Parse(txtMaChuyenDi.Text.ToString());
+                updateBaoCaoDoanhThuChuyenDi(maChuyen);
+                updateBaoCaoDoanhThuThang(maChuyen);
+                updateBaoCaoDoanhThuNam(maChuyen);
             });
 
             thread.Start();

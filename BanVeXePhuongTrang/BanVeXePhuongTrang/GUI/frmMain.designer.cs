@@ -237,9 +237,6 @@
             this.ribbonBar7 = new DevComponents.DotNetBar.RibbonBar();
             this.btDTThang = new DevComponents.DotNetBar.ButtonItem();
             this.btDTNam = new DevComponents.DotNetBar.ButtonItem();
-            this.rbpTraCuu = new DevComponents.DotNetBar.RibbonPanel();
-            this.rbTraCuu = new DevComponents.DotNetBar.RibbonBar();
-            this.btTraCuuChuyenBay = new DevComponents.DotNetBar.ButtonItem();
             this.rbpDanhMuc = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
             this.btQLChuyenDi = new DevComponents.DotNetBar.ButtonItem();
@@ -251,6 +248,9 @@
             this.btLichChuyenDi = new DevComponents.DotNetBar.ButtonItem();
             this.btnVeXe = new DevComponents.DotNetBar.ButtonItem();
             this.btDSDatVe = new DevComponents.DotNetBar.ButtonItem();
+            this.rbpTraCuu = new DevComponents.DotNetBar.RibbonPanel();
+            this.rbTraCuu = new DevComponents.DotNetBar.RibbonBar();
+            this.btTraCuuChuyenBay = new DevComponents.DotNetBar.ButtonItem();
             this.rbpHeThong = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
             this.btThoat = new DevComponents.DotNetBar.ButtonItem();
@@ -291,8 +291,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.ribbonControl1.SuspendLayout();
             this.rbpBaoCao.SuspendLayout();
-            this.rbpTraCuu.SuspendLayout();
             this.rbpDanhMuc.SuspendLayout();
+            this.rbpTraCuu.SuspendLayout();
             this.rbpHeThong.SuspendLayout();
             this.rbpThayDoi.SuspendLayout();
             this.rbpPhanQuyen.SuspendLayout();
@@ -3164,9 +3164,9 @@
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
+            this.ribbonControl1.Controls.Add(this.rbpBaoCao);
             this.ribbonControl1.Controls.Add(this.rbpDanhMuc);
             this.ribbonControl1.Controls.Add(this.rbpTraCuu);
-            this.ribbonControl1.Controls.Add(this.rbpBaoCao);
             this.ribbonControl1.Controls.Add(this.rbpHeThong);
             this.ribbonControl1.Controls.Add(this.rbpThayDoi);
             this.ribbonControl1.Controls.Add(this.rbpPhanQuyen);
@@ -3230,7 +3230,6 @@
             // 
             this.rbpBaoCao.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.rbpBaoCao.TabIndex = 4;
-            this.rbpBaoCao.Visible = false;
             // 
             // ribbonBar7
             // 
@@ -3284,72 +3283,7 @@
             this.btDTNam.Name = "btDTNam";
             this.btDTNam.SubItemsExpandWidth = 14;
             this.btDTNam.Text = "Năm";
-            // 
-            // rbpTraCuu
-            // 
-            this.rbpTraCuu.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.rbpTraCuu.Controls.Add(this.rbTraCuu);
-            this.rbpTraCuu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rbpTraCuu.Location = new System.Drawing.Point(0, 56);
-            this.rbpTraCuu.Name = "rbpTraCuu";
-            this.rbpTraCuu.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.rbpTraCuu.Size = new System.Drawing.Size(1186, 95);
-            // 
-            // 
-            // 
-            this.rbpTraCuu.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.rbpTraCuu.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.rbpTraCuu.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.rbpTraCuu.TabIndex = 7;
-            this.rbpTraCuu.Visible = false;
-            // 
-            // rbTraCuu
-            // 
-            this.rbTraCuu.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.rbTraCuu.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.rbTraCuu.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.rbTraCuu.ContainerControlProcessDialogKey = true;
-            this.rbTraCuu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rbTraCuu.DragDropSupport = true;
-            this.rbTraCuu.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btTraCuuChuyenBay});
-            this.rbTraCuu.Location = new System.Drawing.Point(3, 0);
-            this.rbTraCuu.Name = "rbTraCuu";
-            this.rbTraCuu.Size = new System.Drawing.Size(77, 92);
-            this.rbTraCuu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.rbTraCuu.TabIndex = 4;
-            this.rbTraCuu.Text = "Chuyến đi";
-            // 
-            // 
-            // 
-            this.rbTraCuu.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.rbTraCuu.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // btTraCuuChuyenBay
-            // 
-            this.btTraCuuChuyenBay.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btTraCuuChuyenBay.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btTraCuuChuyenBay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btTraCuuChuyenBay.Image = global::BanVeXePhuongTrang.Properties.Resources.bus_green_icon;
-            this.btTraCuuChuyenBay.ImageFixedSize = new System.Drawing.Size(60, 60);
-            this.btTraCuuChuyenBay.Name = "btTraCuuChuyenBay";
-            this.btTraCuuChuyenBay.SubItemsExpandWidth = 14;
-            this.btTraCuuChuyenBay.Click += new System.EventHandler(this.btTraCuuChuyenDi_Click);
+            this.btDTNam.Click += new System.EventHandler(this.btDTNam_Click);
             // 
             // rbpDanhMuc
             // 
@@ -3374,6 +3308,7 @@
             // 
             this.rbpDanhMuc.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.rbpDanhMuc.TabIndex = 2;
+            this.rbpDanhMuc.Visible = false;
             // 
             // ribbonBar5
             // 
@@ -3531,6 +3466,72 @@
             this.btDSDatVe.SubItemsExpandWidth = 14;
             this.btDSDatVe.Text = "DS Đặt Vé";
             this.btDSDatVe.Click += new System.EventHandler(this.btDSDatVe_Click);
+            // 
+            // rbpTraCuu
+            // 
+            this.rbpTraCuu.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.rbpTraCuu.Controls.Add(this.rbTraCuu);
+            this.rbpTraCuu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rbpTraCuu.Location = new System.Drawing.Point(0, 56);
+            this.rbpTraCuu.Name = "rbpTraCuu";
+            this.rbpTraCuu.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.rbpTraCuu.Size = new System.Drawing.Size(1186, 95);
+            // 
+            // 
+            // 
+            this.rbpTraCuu.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.rbpTraCuu.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.rbpTraCuu.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.rbpTraCuu.TabIndex = 7;
+            this.rbpTraCuu.Visible = false;
+            // 
+            // rbTraCuu
+            // 
+            this.rbTraCuu.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.rbTraCuu.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.rbTraCuu.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.rbTraCuu.ContainerControlProcessDialogKey = true;
+            this.rbTraCuu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rbTraCuu.DragDropSupport = true;
+            this.rbTraCuu.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btTraCuuChuyenBay});
+            this.rbTraCuu.Location = new System.Drawing.Point(3, 0);
+            this.rbTraCuu.Name = "rbTraCuu";
+            this.rbTraCuu.Size = new System.Drawing.Size(77, 92);
+            this.rbTraCuu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.rbTraCuu.TabIndex = 4;
+            this.rbTraCuu.Text = "Chuyến đi";
+            // 
+            // 
+            // 
+            this.rbTraCuu.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.rbTraCuu.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // btTraCuuChuyenBay
+            // 
+            this.btTraCuuChuyenBay.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btTraCuuChuyenBay.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btTraCuuChuyenBay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btTraCuuChuyenBay.Image = global::BanVeXePhuongTrang.Properties.Resources.bus_green_icon;
+            this.btTraCuuChuyenBay.ImageFixedSize = new System.Drawing.Size(60, 60);
+            this.btTraCuuChuyenBay.Name = "btTraCuuChuyenBay";
+            this.btTraCuuChuyenBay.SubItemsExpandWidth = 14;
+            this.btTraCuuChuyenBay.Click += new System.EventHandler(this.btTraCuuChuyenDi_Click);
             // 
             // rbpHeThong
             // 
@@ -3884,7 +3885,6 @@
             // 
             // rbTabItemDanhMuc
             // 
-            this.rbTabItemDanhMuc.Checked = true;
             this.rbTabItemDanhMuc.Name = "rbTabItemDanhMuc";
             this.rbTabItemDanhMuc.Panel = this.rbpDanhMuc;
             this.rbTabItemDanhMuc.Text = "Danh mục";
@@ -3897,6 +3897,7 @@
             // 
             // ribbonTabItem4
             // 
+            this.ribbonTabItem4.Checked = true;
             this.ribbonTabItem4.Name = "ribbonTabItem4";
             this.ribbonTabItem4.Panel = this.rbpBaoCao;
             this.ribbonTabItem4.Text = "Báo cáo";
@@ -4046,8 +4047,8 @@
             this.ribbonControl1.ResumeLayout(false);
             this.ribbonControl1.PerformLayout();
             this.rbpBaoCao.ResumeLayout(false);
-            this.rbpTraCuu.ResumeLayout(false);
             this.rbpDanhMuc.ResumeLayout(false);
+            this.rbpTraCuu.ResumeLayout(false);
             this.rbpHeThong.ResumeLayout(false);
             this.rbpThayDoi.ResumeLayout(false);
             this.rbpPhanQuyen.ResumeLayout(false);

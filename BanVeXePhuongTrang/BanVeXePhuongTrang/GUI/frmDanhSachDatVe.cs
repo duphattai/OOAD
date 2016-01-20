@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BanVeXePhuongTrang.DAL;
+using System.Threading;
 
 namespace BanVeXePhuongTrang.GUI
 {
@@ -89,7 +90,6 @@ namespace BanVeXePhuongTrang.GUI
         {
             List<tblChiTietPhieuDatCho> listCTPhieu = new List<tblChiTietPhieuDatCho>();
             QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
-            
             // tìm các vé đặt chỗ - LayVe == false => if LayVe == true -> đã cập nhật
             for(int i = 0; i < dtgDanhSachVe.RowCount; i++)
             {
@@ -105,11 +105,17 @@ namespace BanVeXePhuongTrang.GUI
                 }
             }
 
-            DialogResult result = MessageBox.Show("Dữ liệu có sự thay đổi, bản muốn cập nhật?", "Thông báo", MessageBoxButtons.YesNo);
-            if(result == System.Windows.Forms.DialogResult.Yes)
+            if(listCTPhieu.Count != 0)
             {
-                db.SaveChanges();
-                MessageBox.Show("Thành công");
+                DialogResult result = MessageBox.Show("Dữ liệu có sự thay đổi, bản muốn cập nhật?", "Thông báo", MessageBoxButtons.YesNo);
+                if(result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    int maChuyenDi = listCTPhieu[0].MaChuyenDi.Value;
+                    db.SaveChanges();
+                    MessageBox.Show("Thành công");
+
+                    capNhatBaoCaoDoanhThu(maChuyenDi);
+                }
             }
         }
 
@@ -120,12 +126,28 @@ namespace BanVeXePhuongTrang.GUI
                 int maCTPhieu = int.Parse(dtgDanhSachVe.CurrentRow.Cells["MaCTPhieu"].Value.ToString());
                 QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
                 tblChiTietPhieuDatCho ctPhieu = db.tblChiTietPhieuDatChoes.Where(t => t.MaCTPhieu == maCTPhieu).SingleOrDefault();
+
+                int maChuyenDi = int.Parse(ctPhieu.MaChuyenDi.Value.ToString());
                 if (ctPhieu != null)
                     db.tblChiTietPhieuDatChoes.Remove(ctPhieu);
                 db.SaveChanges();
                 MessageBox.Show("Thành công");
+
+                capNhatBaoCaoDoanhThu(maChuyenDi);
             }
         }
         
+
+        void capNhatBaoCaoDoanhThu(int maChuyen)
+        {
+            Thread thread = new Thread((ThreadStart) =>
+            {
+                frmThongTinVe.updateBaoCaoDoanhThuChuyenDi(maChuyen);
+                frmThongTinVe.updateBaoCaoDoanhThuThang(maChuyen);
+                frmThongTinVe.updateBaoCaoDoanhThuNam(maChuyen);
+            });
+
+            thread.Start();
+        }
     }
 }
