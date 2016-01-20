@@ -53,14 +53,12 @@ namespace BanVeXePhuongTrang
                 btDangNhap.Enabled = true;
                 btDangXuat.Enabled = false;
                 btDoiMatKhau.Enabled = false;                
-                // MessageBox.Show("Chưa đăng nhập");
             }
             else
             {
                 btDangNhap.Enabled = false;
                 btDangXuat.Enabled = true;
                 btDoiMatKhau.Enabled = true;                
-                // MessageBox.Show("da đăng nhập");
             }
             lbthoigian.Text = Convert.ToDateTime(DateTime.Today).ToString("dd/MM/yyyy");
 

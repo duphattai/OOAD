@@ -8,13 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BanVeXePhuongTrang.DAL;
 
 namespace BanVeXePhuongTrang.GUI
 {
     public partial class frmDangNhap : Form
     {
-        //public delegate void TruyenLaiDuLieu(string MaNhanVien, string data);
-        //public static TruyenLaiDuLieu truyendulieu;
         public frmDangNhap()
         {
             InitializeComponent();
@@ -43,22 +42,17 @@ namespace BanVeXePhuongTrang.GUI
                 else
                 {
                     QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+                   
                     tblTaiKhoan tk = db.tblTaiKhoans.Where(t => t.TenTaiKhoan == TenDangNhap && t.MatKhau == MatKhau).SingleOrDefault();
            
                     if (tk != null)
                     {
-                    
-                        MessageBox.Show("Đang nhập thành công");
-                        this.DialogResult = DialogResult.OK;
-                        //string dlCon = dr["TenNhanVien"].ToString();
                         string dlCon = tk.tblNhanVien.TenNhanVien.ToString();
-                        int MaNV =int.Parse(tk.MaNhanVien.ToString());
-                        this.DialogResult = DialogResult.OK;
+                        int MaNV = int.Parse(tk.MaNhanVien.ToString());
                         frmMain.MaNhanVien = MaNV;
                         frmMain.TenDangNhap = dlCon;
 
-                        frmMain f = new frmMain();
-                        f.BatTat(true);
+                        this.Close();
                     }
                     else
                     {
@@ -67,7 +61,10 @@ namespace BanVeXePhuongTrang.GUI
                     }
                 }
             }
-            catch { }
+            catch 
+            {
+                MessageBox.Show("\tĐang nhập thất bại! \nVui lòng kiểm tra lại dữ liệu!");
+            }
         }
 
         private void txtMatKhau_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)

@@ -16,5 +16,12 @@ namespace BanVeXePhuongTrang.GUI
         {
             InitializeComponent();
         }
+
+        private void btThoat_Click(object sender, EventArgs e)
+        {
+            DevComponents.DotNetBar.TabControl TAB = frmMain.m_Tab;
+            TAB.Tabs.Remove(TAB.SelectedTab);
+            Close();
+        }
     }
 }
