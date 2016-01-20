@@ -1877,7 +1877,7 @@ namespace BanVeXePhuongTrang.QUANLYXEKHACHDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tblBaoCaoDoanhThuChuyenDi] WHERE (([MaChuyenDi] = @Original_MaChuyenDi) AND ((@IsNull_Thang = 1 AND [Thang] IS NULL) OR ([Thang] = @Original_Thang)) AND ((@IsNull_Nam = 1 AND [Nam] IS NULL) OR ([Nam] = @Original_Nam)) AND ((@IsNull_SoVe = 1 AND [SoVe] IS NULL) OR ([SoVe] = @Original_SoVe)) AND ((@IsNull_DoanhThu = 1 AND [DoanhThu] IS NULL) OR ([DoanhThu] = @Original_DoanhThu)) AND ((@IsNull_TiLe = 1 AND [TiLe] IS NULL) OR ([TiLe] = @Original_TiLe)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tblBaoCaoDoanhThuChuyenDi] WHERE (([MaChuyenDi] = @Original_MaChuyenDi) AND ((@IsNull_Thang = 1 AND [Thang] IS NULL) OR ([Thang] = @Original_Thang)) AND ((@IsNull_Nam = 1 AND [Nam] IS NULL) OR ([Nam] = @Original_Nam)) AND ((@IsNull_SoVe = 1 AND [SoVe] IS NULL) OR ([SoVe] = @Original_SoVe)) AND ((@IsNull_DoanhThu = 1 AND [DoanhThu] IS NULL) OR ([DoanhThu] = @Original_DoanhThu)) AND ((@IsNull_TiLe = 1 AND [TiLe] IS NULL) OR ([TiLe] = @Original_TiLe)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaChuyenDi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaChuyenDi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Thang", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Thang", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1892,7 +1892,7 @@ namespace BanVeXePhuongTrang.QUANLYXEKHACHDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TiLe", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TiLe", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tblBaoCaoDoanhThuChuyenDi] ([MaChuyenDi], [Thang], [Nam], [SoVe], [DoanhThu], [TiLe]) VALUES (@MaChuyenDi, @Thang, @Nam, @SoVe, @DoanhThu, @TiLe);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblBaoCaoDoanhThuChuyenDi] ([MaChuyenDi], [Thang], [Nam], [SoVe], [DoanhThu], [TiLe]) VALUES (@MaChuyenDi, @Thang, @Nam, @SoVe, @DoanhThu, @TiLe);
 SELECT MaChuyenDi, Thang, Nam, SoVe, DoanhThu, TiLe FROM tblBaoCaoDoanhThuChuyenDi WHERE (MaChuyenDi = @MaChuyenDi)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaChuyenDi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaChuyenDi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1903,7 +1903,7 @@ SELECT MaChuyenDi, Thang, Nam, SoVe, DoanhThu, TiLe FROM tblBaoCaoDoanhThuChuyen
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TiLe", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TiLe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tblBaoCaoDoanhThuChuyenDi] SET [MaChuyenDi] = @MaChuyenDi, [Thang] = @Thang, [Nam] = @Nam, [SoVe] = @SoVe, [DoanhThu] = @DoanhThu, [TiLe] = @TiLe WHERE (([MaChuyenDi] = @Original_MaChuyenDi) AND ((@IsNull_Thang = 1 AND [Thang] IS NULL) OR ([Thang] = @Original_Thang)) AND ((@IsNull_Nam = 1 AND [Nam] IS NULL) OR ([Nam] = @Original_Nam)) AND ((@IsNull_SoVe = 1 AND [SoVe] IS NULL) OR ([SoVe] = @Original_SoVe)) AND ((@IsNull_DoanhThu = 1 AND [DoanhThu] IS NULL) OR ([DoanhThu] = @Original_DoanhThu)) AND ((@IsNull_TiLe = 1 AND [TiLe] IS NULL) OR ([TiLe] = @Original_TiLe)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [tblBaoCaoDoanhThuChuyenDi] SET [MaChuyenDi] = @MaChuyenDi, [Thang] = @Thang, [Nam] = @Nam, [SoVe] = @SoVe, [DoanhThu] = @DoanhThu, [TiLe] = @TiLe WHERE (([MaChuyenDi] = @Original_MaChuyenDi) AND ((@IsNull_Thang = 1 AND [Thang] IS NULL) OR ([Thang] = @Original_Thang)) AND ((@IsNull_Nam = 1 AND [Nam] IS NULL) OR ([Nam] = @Original_Nam)) AND ((@IsNull_SoVe = 1 AND [SoVe] IS NULL) OR ([SoVe] = @Original_SoVe)) AND ((@IsNull_DoanhThu = 1 AND [DoanhThu] IS NULL) OR ([DoanhThu] = @Original_DoanhThu)) AND ((@IsNull_TiLe = 1 AND [TiLe] IS NULL) OR ([TiLe] = @Original_TiLe)));
 SELECT MaChuyenDi, Thang, Nam, SoVe, DoanhThu, TiLe FROM tblBaoCaoDoanhThuChuyenDi WHERE (MaChuyenDi = @MaChuyenDi)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaChuyenDi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaChuyenDi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1938,17 +1938,31 @@ SELECT MaChuyenDi, Thang, Nam, SoVe, DoanhThu, TiLe FROM tblBaoCaoDoanhThuChuyen
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MaChuyenDi, Thang, Nam, SoVe, DoanhThu, TiLe FROM dbo.tblBaoCaoDoanhThuChu" +
-                "yenDi";
+            this._commandCollection[0].CommandText = "SELECT        MaChuyenDi, Thang, Nam, SoVe, DoanhThu, TiLe\r\nFROM            tblBa" +
+                "oCaoDoanhThuChuyenDi\r\nWHERE        (Thang = @Thang) AND (Nam = @Nam)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Thang", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Thang", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nam", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Nam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuChuyenDiDataTable dataTable) {
+        public virtual int Fill(QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuChuyenDiDataTable dataTable, global::System.Nullable<int> Thang, global::System.Nullable<int> Nam) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Thang.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Thang.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Nam.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Nam.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1960,8 +1974,20 @@ SELECT MaChuyenDi, Thang, Nam, SoVe, DoanhThu, TiLe FROM tblBaoCaoDoanhThuChuyen
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuChuyenDiDataTable GetData() {
+        public virtual QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuChuyenDiDataTable GetData(global::System.Nullable<int> Thang, global::System.Nullable<int> Nam) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Thang.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Thang.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Nam.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Nam.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuChuyenDiDataTable dataTable = new QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuChuyenDiDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2706,7 +2732,7 @@ SELECT Nam, DoanhThu, TiLe FROM tblBaoCaoDoanhThuNam WHERE (Nam = @Nam)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tblBaoCaoDoanhThuThang] WHERE (([Thang] = @Original_Thang) AND ([Nam] = @Original_Nam) AND ((@IsNull_SoChuyenDi = 1 AND [SoChuyenDi] IS NULL) OR ([SoChuyenDi] = @Original_SoChuyenDi)) AND ((@IsNull_DoanhThu = 1 AND [DoanhThu] IS NULL) OR ([DoanhThu] = @Original_DoanhThu)) AND ((@IsNull_TiLe = 1 AND [TiLe] IS NULL) OR ([TiLe] = @Original_TiLe)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tblBaoCaoDoanhThuThang] WHERE (([Thang] = @Original_Thang) AND ([Nam] = @Original_Nam) AND ((@IsNull_SoChuyenDi = 1 AND [SoChuyenDi] IS NULL) OR ([SoChuyenDi] = @Original_SoChuyenDi)) AND ((@IsNull_DoanhThu = 1 AND [DoanhThu] IS NULL) OR ([DoanhThu] = @Original_DoanhThu)) AND ((@IsNull_TiLe = 1 AND [TiLe] IS NULL) OR ([TiLe] = @Original_TiLe)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Thang", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Thang", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nam", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nam", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2718,7 +2744,7 @@ SELECT Nam, DoanhThu, TiLe FROM tblBaoCaoDoanhThuNam WHERE (Nam = @Nam)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TiLe", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TiLe", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tblBaoCaoDoanhThuThang] ([Thang], [Nam], [SoChuyenDi], [DoanhThu], [TiLe]) VALUES (@Thang, @Nam, @SoChuyenDi, @DoanhThu, @TiLe);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tblBaoCaoDoanhThuThang] ([Thang], [Nam], [SoChuyenDi], [DoanhThu], [TiLe]) VALUES (@Thang, @Nam, @SoChuyenDi, @DoanhThu, @TiLe);
 SELECT Thang, Nam, SoChuyenDi, DoanhThu, TiLe FROM tblBaoCaoDoanhThuThang WHERE (Nam = @Nam) AND (Thang = @Thang)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Thang", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Thang", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2728,7 +2754,7 @@ SELECT Thang, Nam, SoChuyenDi, DoanhThu, TiLe FROM tblBaoCaoDoanhThuThang WHERE 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TiLe", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TiLe", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tblBaoCaoDoanhThuThang] SET [Thang] = @Thang, [Nam] = @Nam, [SoChuyenDi] = @SoChuyenDi, [DoanhThu] = @DoanhThu, [TiLe] = @TiLe WHERE (([Thang] = @Original_Thang) AND ([Nam] = @Original_Nam) AND ((@IsNull_SoChuyenDi = 1 AND [SoChuyenDi] IS NULL) OR ([SoChuyenDi] = @Original_SoChuyenDi)) AND ((@IsNull_DoanhThu = 1 AND [DoanhThu] IS NULL) OR ([DoanhThu] = @Original_DoanhThu)) AND ((@IsNull_TiLe = 1 AND [TiLe] IS NULL) OR ([TiLe] = @Original_TiLe)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [tblBaoCaoDoanhThuThang] SET [Thang] = @Thang, [Nam] = @Nam, [SoChuyenDi] = @SoChuyenDi, [DoanhThu] = @DoanhThu, [TiLe] = @TiLe WHERE (([Thang] = @Original_Thang) AND ([Nam] = @Original_Nam) AND ((@IsNull_SoChuyenDi = 1 AND [SoChuyenDi] IS NULL) OR ([SoChuyenDi] = @Original_SoChuyenDi)) AND ((@IsNull_DoanhThu = 1 AND [DoanhThu] IS NULL) OR ([DoanhThu] = @Original_DoanhThu)) AND ((@IsNull_TiLe = 1 AND [TiLe] IS NULL) OR ([TiLe] = @Original_TiLe)));
 SELECT Thang, Nam, SoChuyenDi, DoanhThu, TiLe FROM tblBaoCaoDoanhThuThang WHERE (Nam = @Nam) AND (Thang = @Thang)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Thang", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Thang", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2759,10 +2785,9 @@ SELECT Thang, Nam, SoChuyenDi, DoanhThu, TiLe FROM tblBaoCaoDoanhThuThang WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Thang, Nam, SoChuyenDi, DoanhThu, TiLe FROM dbo.tblBaoCaoDoanhThuThang\r\nWH" +
-                "ERE Thang = @Thang and Nam=@Nam";
+            this._commandCollection[0].CommandText = "SELECT        Thang, Nam, SoChuyenDi, DoanhThu, TiLe\r\nFROM            tblBaoCaoDo" +
+                "anhThuThang\r\nWHERE        (Nam = @Nam)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Thang", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Thang", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nam", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Nam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2770,10 +2795,9 @@ SELECT Thang, Nam, SoChuyenDi, DoanhThu, TiLe FROM tblBaoCaoDoanhThuThang WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuThangDataTable dataTable, int Thang, int Nam) {
+        public virtual int Fill(QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuThangDataTable dataTable, int Nam) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Thang));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Nam));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Nam));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2785,10 +2809,9 @@ SELECT Thang, Nam, SoChuyenDi, DoanhThu, TiLe FROM tblBaoCaoDoanhThuThang WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuThangDataTable GetData(int Thang, int Nam) {
+        public virtual QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuThangDataTable GetData(int Nam) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Thang));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Nam));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Nam));
             QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuThangDataTable dataTable = new QUANLYXEKHACHDataSet.tblBaoCaoDoanhThuThangDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

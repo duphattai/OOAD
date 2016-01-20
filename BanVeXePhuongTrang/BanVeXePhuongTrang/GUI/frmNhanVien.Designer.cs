@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.panelDockContainer1 = new DevComponents.DotNetBar.PanelDockContainer();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbPass = new System.Windows.Forms.CheckBox();
             this.dtNgaySinh = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.cbQuyenHan = new System.Windows.Forms.ComboBox();
             this.cbLoaiNV = new System.Windows.Forms.ComboBox();
@@ -108,7 +108,7 @@
             // 
             // panelDockContainer1
             // 
-            this.panelDockContainer1.Controls.Add(this.checkBox1);
+            this.panelDockContainer1.Controls.Add(this.cbPass);
             this.panelDockContainer1.Controls.Add(this.dtNgaySinh);
             this.panelDockContainer1.Controls.Add(this.cbQuyenHan);
             this.panelDockContainer1.Controls.Add(this.cbLoaiNV);
@@ -144,16 +144,17 @@
             this.panelDockContainer1.Style.GradientAngle = 90;
             this.panelDockContainer1.TabIndex = 0;
             // 
-            // checkBox1
+            // cbPass
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Location = new System.Drawing.Point(233, 297);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(48, 17);
-            this.checkBox1.TabIndex = 27;
-            this.checkBox1.Text = "Hiện";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.cbPass.AutoSize = true;
+            this.cbPass.BackColor = System.Drawing.Color.Transparent;
+            this.cbPass.Location = new System.Drawing.Point(233, 297);
+            this.cbPass.Name = "cbPass";
+            this.cbPass.Size = new System.Drawing.Size(48, 17);
+            this.cbPass.TabIndex = 27;
+            this.cbPass.Text = "Hiện";
+            this.cbPass.UseVisualStyleBackColor = false;
+            this.cbPass.CheckedChanged += new System.EventHandler(this.cbPass_CheckedChanged);
             // 
             // dtNgaySinh
             // 
@@ -206,7 +207,7 @@
             this.dtNgaySinh.Name = "dtNgaySinh";
             this.dtNgaySinh.Size = new System.Drawing.Size(277, 20);
             this.dtNgaySinh.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.dtNgaySinh.TabIndex = 26;
+            this.dtNgaySinh.TabIndex = 3;
             // 
             // cbQuyenHan
             // 
@@ -214,7 +215,7 @@
             this.cbQuyenHan.Location = new System.Drawing.Point(97, 324);
             this.cbQuyenHan.Name = "cbQuyenHan";
             this.cbQuyenHan.Size = new System.Drawing.Size(191, 21);
-            this.cbQuyenHan.TabIndex = 25;
+            this.cbQuyenHan.TabIndex = 8;
             this.cbQuyenHan.SelectedIndexChanged += new System.EventHandler(this.cbLoaiNV_SelectedIndexChanged);
             // 
             // cbLoaiNV
@@ -226,7 +227,7 @@
             this.cbLoaiNV.Location = new System.Drawing.Point(11, 237);
             this.cbLoaiNV.Name = "cbLoaiNV";
             this.cbLoaiNV.Size = new System.Drawing.Size(277, 21);
-            this.cbLoaiNV.TabIndex = 25;
+            this.cbLoaiNV.TabIndex = 5;
             this.cbLoaiNV.SelectedIndexChanged += new System.EventHandler(this.cbLoaiNV_SelectedIndexChanged);
             // 
             // labelX9
@@ -298,7 +299,7 @@
             this.txtMatKhau.Location = new System.Drawing.Point(97, 296);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(130, 20);
-            this.txtMatKhau.TabIndex = 20;
+            this.txtMatKhau.TabIndex = 7;
             this.txtMatKhau.WatermarkFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtMatKhau.WatermarkText = "Nhập mật khẩu";
             this.txtMatKhau.Validating += new System.ComponentModel.CancelEventHandler(this.txtCMND_Validating);
@@ -316,8 +317,9 @@
             this.txtTaiKhoan.Location = new System.Drawing.Point(97, 268);
             this.txtTaiKhoan.MaxLength = 20;
             this.txtTaiKhoan.Name = "txtTaiKhoan";
+            this.txtTaiKhoan.ReadOnly = true;
             this.txtTaiKhoan.Size = new System.Drawing.Size(191, 20);
-            this.txtTaiKhoan.TabIndex = 20;
+            this.txtTaiKhoan.TabIndex = 6;
             this.txtTaiKhoan.WatermarkFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtTaiKhoan.WatermarkText = "Nhập tài khoản";
             this.txtTaiKhoan.Validating += new System.ComponentModel.CancelEventHandler(this.txtCMND_Validating);
@@ -336,7 +338,7 @@
             this.txtCMND.MaxLength = 12;
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(278, 20);
-            this.txtCMND.TabIndex = 20;
+            this.txtCMND.TabIndex = 4;
             this.txtCMND.WatermarkFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtCMND.WatermarkText = "Nhập CMND";
             this.txtCMND.Validating += new System.ComponentModel.CancelEventHandler(this.txtCMND_Validating);
@@ -369,7 +371,7 @@
             this.txtDiaChi.MaxLength = 200;
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(278, 20);
-            this.txtDiaChi.TabIndex = 16;
+            this.txtDiaChi.TabIndex = 2;
             this.txtDiaChi.WatermarkFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtDiaChi.WatermarkText = "Nhập địa chỉ";
             this.txtDiaChi.Validating += new System.ComponentModel.CancelEventHandler(this.txtDiaChi_Validating);
@@ -398,7 +400,7 @@
             this.btThemMoi.Location = new System.Drawing.Point(55, 385);
             this.btThemMoi.Name = "btThemMoi";
             this.btThemMoi.Size = new System.Drawing.Size(90, 29);
-            this.btThemMoi.TabIndex = 13;
+            this.btThemMoi.TabIndex = 12;
             this.btThemMoi.Text = "Thêm mới";
             this.btThemMoi.Click += new System.EventHandler(this.btkhong_Click);
             // 
@@ -412,7 +414,7 @@
             this.btCapNhat.Location = new System.Drawing.Point(112, 350);
             this.btCapNhat.Name = "btCapNhat";
             this.btCapNhat.Size = new System.Drawing.Size(81, 29);
-            this.btCapNhat.TabIndex = 8;
+            this.btCapNhat.TabIndex = 10;
             this.btCapNhat.Text = "Cập nhật";
             this.btCapNhat.Click += new System.EventHandler(this.btCapNhat_Click);
             // 
@@ -426,7 +428,7 @@
             this.btThoat.Location = new System.Drawing.Point(165, 385);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(81, 29);
-            this.btThoat.TabIndex = 7;
+            this.btThoat.TabIndex = 13;
             this.btThoat.Text = "Thoát";
             this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
             // 
@@ -440,7 +442,7 @@
             this.btxoa.Location = new System.Drawing.Point(221, 350);
             this.btxoa.Name = "btxoa";
             this.btxoa.Size = new System.Drawing.Size(61, 29);
-            this.btxoa.TabIndex = 7;
+            this.btxoa.TabIndex = 11;
             this.btxoa.Text = "Xóa";
             this.btxoa.Click += new System.EventHandler(this.btxoa_Click);
             // 
@@ -455,7 +457,7 @@
             this.btthem.Location = new System.Drawing.Point(10, 350);
             this.btthem.Name = "btthem";
             this.btthem.Size = new System.Drawing.Size(72, 29);
-            this.btthem.TabIndex = 6;
+            this.btthem.TabIndex = 9;
             this.btthem.Text = "Thêm";
             this.btthem.Click += new System.EventHandler(this.btthem_Click);
             // 
@@ -487,7 +489,7 @@
             this.txtTenNhanVien.MaxLength = 100;
             this.txtTenNhanVien.Name = "txtTenNhanVien";
             this.txtTenNhanVien.Size = new System.Drawing.Size(278, 20);
-            this.txtTenNhanVien.TabIndex = 2;
+            this.txtTenNhanVien.TabIndex = 1;
             this.txtTenNhanVien.WatermarkFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtTenNhanVien.WatermarkText = "Nhập tên nhân viên";
             this.txtTenNhanVien.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenNhanVien_Validating);
@@ -898,7 +900,7 @@
         private DevComponents.DotNetBar.ButtonX btThoat;
         private System.Windows.Forms.ComboBox cbLoaiNV;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dtNgaySinh;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbPass;
         private System.Windows.Forms.ComboBox cbQuyenHan;
         private DevComponents.DotNetBar.LabelX labelX9;
         private DevComponents.DotNetBar.LabelX labelX8;

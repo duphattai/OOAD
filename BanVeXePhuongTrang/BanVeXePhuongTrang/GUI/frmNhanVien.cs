@@ -18,7 +18,7 @@ namespace BanVeXePhuongTrang.GUI
         {
             InitializeComponent();
             LoadDataGridView();
-            TaiKhoan();
+            TaiKhoan();           
         }
         int vitri = 0;
 
@@ -33,6 +33,16 @@ namespace BanVeXePhuongTrang.GUI
             BLL_NhanVien temp = new BLL_NhanVien();
             txtMaNhanVien.Text = temp.getLastestIndex().ToString();
             LoadDataGridView();
+            
+            Gan_click();
+            if (cbPass.Checked)
+            {
+                this.txtMatKhau.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                this.txtMatKhau.UseSystemPasswordChar = true;
+            }
             }
             catch { }
         }
@@ -59,7 +69,7 @@ namespace BanVeXePhuongTrang.GUI
                     }
                     dgvNhanVien.Rows.Add(item.MaNhanVien,
                                             item.TenNhanVien,
-                                            item.NgaySinh,
+                                            item.NgaySinh.Value.ToShortDateString(),
                                             item.CMND,
                                             item.DiaChi,
                                             item.tblLoaiNhanVien.TenLoaiNhanVien,
@@ -81,8 +91,8 @@ namespace BanVeXePhuongTrang.GUI
             {
                 if (this.dgvNhanVien.SelectedRows.Count == 0)
                     return;
-                DataGridViewRow r = this.dgvNhanVien.SelectedRows[0];
-
+                DataGridViewRow r = this.dgvNhanVien.SelectedRows[0];   
+                //txtTaiKhoan.ReadOnly = true;
                 GanDK(r);
             }
             catch (Exception ex)
@@ -103,7 +113,11 @@ namespace BanVeXePhuongTrang.GUI
                     this.dtNgaySinh.Text = r.Cells[2].Value.ToString();
                     this.txtCMND.Text = r.Cells[3].Value.ToString();
                     this.cbLoaiNV.Text = r.Cells[5].Value.ToString();
-                    this.txtTaiKhoan.Text = r.Cells[6].Value.ToString();
+                    if (!string.IsNullOrEmpty(r.Cells[6].Value.ToString()))
+                    {
+                        txtTaiKhoan.ReadOnly = true;
+                    }
+                    this.txtTaiKhoan.Text = r.Cells[6].Value.ToString();                                                                     
                     this.txtMatKhau.Text = r.Cells[7].Value.ToString();
                     this.cbQuyenHan.Text = r.Cells[8].Value.ToString();
                 }
@@ -143,8 +157,7 @@ namespace BanVeXePhuongTrang.GUI
                 t.NgaySinh = dtNgaySinh.Value;
                 t.CMND = int.Parse(txtCMND.Text.ToString());
                 t.DiaChi = txtDiaChi.Text.ToString();
-
-                //v.MaNhanVien = int.Parse(txtMaNhanVien.Text.ToString());
+               
                 if(ConvertLoaiNhanVien() == 2)
                 {
                     v.MaNhanVien = t.MaNhanVien;
@@ -161,7 +174,7 @@ namespace BanVeXePhuongTrang.GUI
                 }
                       
                 MessageBox.Show("Thêm thành công");
-                LoadDataGridView();
+                
                 reset();
             }
             else
@@ -204,14 +217,6 @@ namespace BanVeXePhuongTrang.GUI
             cbQuyenHan.Enabled = x;
         }
 
-        string ConvertToStringLoaiNV(DataGridViewRow r)
-        {
-
-            if (r.Cells[5].Value.Equals(1))
-                return "Tài xế";
-            return "Nhân Viên";
-        }
-
         int ConvertQuyenHan()
         {
             QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
@@ -242,11 +247,11 @@ namespace BanVeXePhuongTrang.GUI
                     t.CMND = int.Parse(txtCMND.Text.ToString());
                     t.DiaChi = txtDiaChi.Text.ToString();
                     v = db.tblTaiKhoans.Where(s => s.MaNhanVien == t.MaNhanVien).SingleOrDefault();
-                    //v.MaNhanVien = int.Parse(txtMaNhanVien.Text.ToString());
+                   
                     if (ConvertLoaiNhanVien() == 2)
                     {
                         if (v == null)
-                        {
+                        {                            
                             v = new tblTaiKhoan();
                             v.MaNhanVien = t.MaNhanVien;
                             v.TenTaiKhoan = txtTaiKhoan.Text.ToString();
@@ -266,15 +271,20 @@ namespace BanVeXePhuongTrang.GUI
                     }
                     else
                     {
-                        if(v.MaNhanVien == t.MaNhanVien)
-                            db.tblTaiKhoans.Remove(v);
+                        if(v!=null)
+                        {
+                            if(v.MaNhanVien.Value == t.MaNhanVien)
+                                db.tblTaiKhoans.Remove(v);
+                        }
                         db.Entry(t).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
                     }
 
-                    MessageBox.Show("Cập nhật thành công");
-                    LoadDataGridView();
+                    MessageBox.Show("Cập nhật thành công");                   
                     reset();
+                    dgvNhanVien.CurrentCell = dgvNhanVien.Rows[vitri].Cells[0];
+                    dgvNhanVien.Rows[vitri].Selected = true;
+                    Gan_click();                
                 }
                 else
                 {
@@ -302,18 +312,30 @@ namespace BanVeXePhuongTrang.GUI
                     tblNhanVien MaNhanVien = db.tblNhanViens.Where(t => t.MaNhanVien == MaNV).SingleOrDefault();
                     tblTaiKhoan ma = db.tblTaiKhoans.Where(t => t.MaNhanVien == MaNV).SingleOrDefault();
 
-                    if (MessageBox.Show("Bạn có muốn xóa nhân viên'" + txtTenNhanVien.Text + "'không ??", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if(cbQuyenHan.SelectedItem.ToString() == "Admin")
                     {
-                        if(ma != null)
-                            db.tblTaiKhoans.Remove(ma);
-                        db.tblNhanViens.Remove(MaNhanVien);
-                        db.SaveChanges();
-                        reset();
-                        if (vitri > 0)
+                        MessageBox.Show("Bạn không thể xóa tài khoản Admin!");
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Thông tin:" +
+                                            "\n Tên: " + txtTenNhanVien.Text +
+                                            "\n Ngày sinh: " + MaNhanVien.NgaySinh.Value.ToShortDateString() +
+                                            "\n CMND: " + MaNhanVien.CMND +
+                                            "\n Chức vụ: " + MaNhanVien.tblLoaiNhanVien.TenLoaiNhanVien +
+                                            "\n\nBạn có muốn xóa nhân viên '" + txtTenNhanVien.Text + "' không ??", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            dgvNhanVien.CurrentCell = dgvNhanVien.Rows[vitri - 1].Cells[0];
-                            dgvNhanVien.Rows[vitri - 1].Selected = true;
-                            Gan_click();
+                            if (ma != null)
+                                db.tblTaiKhoans.Remove(ma);
+                            db.tblNhanViens.Remove(MaNhanVien);
+                            db.SaveChanges();
+                            reset();
+                            if (vitri > 0)
+                            {
+                                dgvNhanVien.CurrentCell = dgvNhanVien.Rows[vitri - 1].Cells[0];
+                                dgvNhanVien.Rows[vitri - 1].Selected = true;
+                                Gan_click();
+                            }
                         }
                     }
                 }
@@ -330,7 +352,7 @@ namespace BanVeXePhuongTrang.GUI
         private void btkhong_Click(object sender, EventArgs e)
         {
             reset();
-            
+            txtTaiKhoan.ReadOnly = false;
             //Gan_click();
         }
         public void reset()
@@ -355,33 +377,13 @@ namespace BanVeXePhuongTrang.GUI
         private void dtNhanVien_Click(object sender, EventArgs e)
         {
             Gan_click();
-            //vitri = dgvNhanVien.CurrentCell.RowIndex;
-        }
-
-        private void chkPass_CheckedChanged(object sender, EventArgs e)
-        {
-           
+            vitri = dgvNhanVien.CurrentCell.RowIndex;
         }
 
         private void dtNhanVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            //if (e.ColumnIndex == 5)
-            //{
-            //    if (e.Value == null || e.Value == DBNull.Value)
-            //        return;
-            //    if ((int)e.Value == 1)
-            //    {
-            //        e.Value = Convert.ToInt32(e.Value).ToString("Tài xế");
-            //    }             
-            //    else
-            //    {
-            //        e.Value = Convert.ToInt32(e.Value).ToString("Nhân Viên");
-            //    }
-
-            //}
+          
         }
-
- 
 
         private void txtDiaChi_Validating(object sender, CancelEventArgs e)
         {
@@ -390,11 +392,6 @@ namespace BanVeXePhuongTrang.GUI
                 MessageBox.Show("Địa chỉ nhập vào vượt quá giới hạn cho chép (<200 ký tự)");
                 txtDiaChi.Focus();
             }
-        }
-
-        private void txtTenDangNhap_Validating(object sender, CancelEventArgs e)
-        {
-            
         }
 
         private void txtCMND_Validating(object sender, CancelEventArgs e)
@@ -426,6 +423,25 @@ namespace BanVeXePhuongTrang.GUI
         private void cbLoaiNV_SelectedIndexChanged(object sender, EventArgs e)
         {
             TaiKhoan();
+            if(string.IsNullOrEmpty(txtTaiKhoan.Text))
+            {
+                txtTaiKhoan.ReadOnly = false;
+            }
+            else { txtTaiKhoan.ReadOnly = true; }
+            
         }
+
+        private void cbPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbPass.Checked)
+            {
+                this.txtMatKhau.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                this.txtMatKhau.UseSystemPasswordChar = true;
+            }
+        }
+
     }
 }
