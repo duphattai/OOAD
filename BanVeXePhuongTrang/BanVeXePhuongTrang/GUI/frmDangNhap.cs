@@ -42,7 +42,6 @@ namespace BanVeXePhuongTrang.GUI
                 else
                 {
                     QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
-                   
                     tblTaiKhoan tk = db.tblTaiKhoans.Where(t => t.TenTaiKhoan == TenDangNhap && t.MatKhau == MatKhau).SingleOrDefault();
            
                     if (tk != null)

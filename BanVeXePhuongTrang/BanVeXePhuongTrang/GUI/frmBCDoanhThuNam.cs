@@ -30,18 +30,18 @@ namespace BanVeXePhuongTrang.GUI
 
         private void btBaoCao_Click(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qUANLYXEKHACHDataSet.tblBaoCaoDoanhThuThang' table. You can move, or remove it, as needed.
             this.tblBaoCaoDoanhThuThangTableAdapter.Fill(this.qUANLYXEKHACHDataSet.tblBaoCaoDoanhThuThang, int.Parse(cbNam.SelectedItem.ToString()));
-
             this.reportViewer1.RefreshReport();
         }
 
         private void frmBCDoanhThuNam_Load(object sender, EventArgs e)
-        {                    
+        {
             for (int i = 2010; i < DateTime.Now.Year + 1; i++)
             {
                 cbNam.Items.Add(i);               
             }
-            cbNam.SelectedIndex = 0;
+            cbNam.SelectedIndex = 0;      
         }
 
     }
