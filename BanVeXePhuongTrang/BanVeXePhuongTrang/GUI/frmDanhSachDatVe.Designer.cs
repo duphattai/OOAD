@@ -53,7 +53,7 @@
             this.HoTen = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.Tuyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrungChuyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KhoiHanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDanhSachVe)).BeginInit();
             this.panelEx1.SuspendLayout();
@@ -81,7 +81,7 @@
             this.HoTen,
             this.Tuyen,
             this.DienThoai,
-            this.CMND,
+            this.TrungChuyen,
             this.KhoiHanh});
             this.dtgDanhSachVe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgDanhSachVe.Location = new System.Drawing.Point(0, 0);
@@ -182,7 +182,7 @@
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 83;
             this.buttonX1.Text = "Thoát";
-            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
+            this.buttonX1.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // buttonX2
             // 
@@ -374,9 +374,9 @@
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label4.Location = new System.Drawing.Point(275, 48);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 19);
+            this.label4.Size = new System.Drawing.Size(89, 19);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Bến xe đi:";
+            this.label4.Text = "Bến xe đến:";
             // 
             // label3
             // 
@@ -454,6 +454,7 @@
             // HoTen
             // 
             this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.HoTen.DataPropertyName = "HoTen";
             this.HoTen.HeaderText = "Họ Tên";
             this.HoTen.Name = "HoTen";
             this.HoTen.ReadOnly = true;
@@ -462,26 +463,30 @@
             // Tuyen
             // 
             this.Tuyen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Tuyen.DataPropertyName = "Tuyen";
             this.Tuyen.HeaderText = "Tuyến";
             this.Tuyen.Name = "Tuyen";
             this.Tuyen.ReadOnly = true;
             // 
             // DienThoai
             // 
+            this.DienThoai.DataPropertyName = "DienThoai";
             this.DienThoai.HeaderText = "Điện Thoại";
             this.DienThoai.Name = "DienThoai";
             this.DienThoai.ReadOnly = true;
             // 
-            // CMND
+            // TrungChuyen
             // 
-            this.CMND.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CMND.HeaderText = "Trung chuyển";
-            this.CMND.Name = "CMND";
-            this.CMND.ReadOnly = true;
-            this.CMND.Width = 200;
+            this.TrungChuyen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TrungChuyen.DataPropertyName = "TrungChuyen";
+            this.TrungChuyen.HeaderText = "Trung chuyển";
+            this.TrungChuyen.Name = "TrungChuyen";
+            this.TrungChuyen.ReadOnly = true;
+            this.TrungChuyen.Width = 200;
             // 
             // KhoiHanh
             // 
+            this.KhoiHanh.DataPropertyName = "KhoiHanh";
             this.KhoiHanh.HeaderText = "Khởi hành";
             this.KhoiHanh.Name = "KhoiHanh";
             this.KhoiHanh.ReadOnly = true;
@@ -536,7 +541,7 @@
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tuyen;
         private System.Windows.Forms.DataGridViewTextBoxColumn DienThoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrungChuyen;
         private System.Windows.Forms.DataGridViewTextBoxColumn KhoiHanh;
     }
 }

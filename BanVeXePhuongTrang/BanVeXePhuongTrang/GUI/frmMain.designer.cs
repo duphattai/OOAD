@@ -3164,9 +3164,9 @@
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.CaptionVisible = true;
-            this.ribbonControl1.Controls.Add(this.rbpBaoCao);
-            this.ribbonControl1.Controls.Add(this.rbpTraCuu);
             this.ribbonControl1.Controls.Add(this.rbpDanhMuc);
+            this.ribbonControl1.Controls.Add(this.rbpTraCuu);
+            this.ribbonControl1.Controls.Add(this.rbpBaoCao);
             this.ribbonControl1.Controls.Add(this.rbpHeThong);
             this.ribbonControl1.Controls.Add(this.rbpThayDoi);
             this.ribbonControl1.Controls.Add(this.rbpPhanQuyen);
@@ -3230,6 +3230,7 @@
             // 
             this.rbpBaoCao.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.rbpBaoCao.TabIndex = 4;
+            this.rbpBaoCao.Visible = false;
             // 
             // ribbonBar7
             // 
@@ -3373,7 +3374,6 @@
             // 
             this.rbpDanhMuc.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.rbpDanhMuc.TabIndex = 2;
-            this.rbpDanhMuc.Visible = false;
             // 
             // ribbonBar5
             // 
@@ -3884,6 +3884,7 @@
             // 
             // rbTabItemDanhMuc
             // 
+            this.rbTabItemDanhMuc.Checked = true;
             this.rbTabItemDanhMuc.Name = "rbTabItemDanhMuc";
             this.rbTabItemDanhMuc.Panel = this.rbpDanhMuc;
             this.rbTabItemDanhMuc.Text = "Danh mục";
@@ -3896,7 +3897,6 @@
             // 
             // ribbonTabItem4
             // 
-            this.ribbonTabItem4.Checked = true;
             this.ribbonTabItem4.Name = "ribbonTabItem4";
             this.ribbonTabItem4.Panel = this.rbpBaoCao;
             this.ribbonTabItem4.Text = "Báo cáo";

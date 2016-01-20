@@ -47,3 +47,4 @@ E:\Hoc Tap\Nam 4 - HK I\QTDA\DoAn\Project\QLBanVeXePhuongTrang.git\BanVeXePhuong
 E:\Hoc Tap\Nam 4 - HK I\QTDA\DoAn\Project\QLBanVeXePhuongTrang.git\BanVeXePhuongTrang\BanVeXePhuongTrang\obj\Debug\RdlCompile.compiled
 E:\Hoc Tap\Nam 4 - HK I\QTDA\DoAn\Project\QLBanVeXePhuongTrang.git\BanVeXePhuongTrang\BanVeXePhuongTrang\obj\Debug\BanVeXePhuongTrang.exe
 E:\Hoc Tap\Nam 4 - HK I\QTDA\DoAn\Project\QLBanVeXePhuongTrang.git\BanVeXePhuongTrang\BanVeXePhuongTrang\obj\Debug\BanVeXePhuongTrang.pdb
+E:\Hoc Tap\Nam 4 - HK I\OOAD\Project\OOAD.git\BanVeXePhuongTrang\BanVeXePhuongTrang\bin\Debug\QUANLYXEKHACH.mdf

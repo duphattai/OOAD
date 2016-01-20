@@ -56,9 +56,6 @@ namespace BanVeXePhuongTrang.GUI
                                     }).ToList();
 
                 dgvTraCuu.DataSource = entryPoint;
-                    
-
-
             }
             catch (Exception ex)
             {

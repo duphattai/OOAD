@@ -20,36 +20,15 @@ namespace BanVeXePhuongTrang.GUI
 
         private void frmDanhSachDatVe_Load(object sender, EventArgs e)
         {
+            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
 
+            cbbBenXeDen.DataSource = db.tblBenXes.Select(t => t.TenBenXe).ToList();
+            cbbBenXeDi.DataSource = db.tblBenXes.Select(t => t.TenBenXe).ToList();
         }
+
+
 
         private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có muốn lưu những thay đổi", "Thông báo", MessageBoxButtons.YesNo);
-
-            if (result == DialogResult.Yes)
-            {
-                if(dtgDanhSachVe.Rows[0].Cells[0].Value == null)
-                {
-                    MessageBox.Show("Không có dữ liệu để lưu", "Thông báo");
-                    return;
-                }
-
-                foreach (DataGridViewRow row in dtgDanhSachVe.Rows)
-                {
-                   
-                }
-
-                MessageBox.Show("Cập nhật thành công", "Thông báo");
-            }
-        }
-
-        private void buttonX1_Click(object sender, EventArgs e)
         {
             DevComponents.DotNetBar.TabControl TAB = frmMain.m_Tab;
             TAB.Tabs.Remove(TAB.SelectedTab);
@@ -60,28 +39,37 @@ namespace BanVeXePhuongTrang.GUI
         {
             try
             {
-                dtgDanhSachVe.Rows.Clear();
                 QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
 
-                  // mã tuyến
-                string maBenDi = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDi.SelectedItem.ToString()).Select(t => t.TenBenXe).ToString();
-                string maBenDen = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDen.SelectedItem.ToString()).Select(t => t.TenBenXe).ToString();
+                // mã tuyến
+                tblBenXe benXeDi = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDi.SelectedItem.ToString()).SingleOrDefault();
+                tblBenXe benXeDen = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDen.SelectedItem.ToString()).SingleOrDefault();
+                int dienThoai;
+                int.TryParse(txtDienThoai.Text.ToString(), out dienThoai);
 
-                string maTuyen = maBenDi + "-" + maBenDen;
-                int dienThoai = int.Parse(txtDienThoai.Text.ToString());
-                foreach (var item in db.tblPhieuDatChoes.Where(t=>t.HoTen == txtHoten.Text.ToString() || t.DienThoai == dienThoai).ToList())
-                {
-                    dtgDanhSachVe.Rows.Add(item.HoTen,
-                                            "",
-                                            item.DienThoai,
-                                            item.TrungChuyen,
-                                            "");
-                }
+                var entryPoint = (from tuyenXe in db.tblTuyenXes
+                                  join xeDi in db.tblBenXes on tuyenXe.MaBenXeDi equals xeDi.MaBenXe
+                                  join xeDen in db.tblBenXes on tuyenXe.MaBenXeDen equals xeDen.MaBenXe
+                                  join xe in db.tblXeKhaches on tuyenXe.MaTuyen equals xe.MaTuyen
+                                  join chuyenDi in db.tblChuyenDis on xe.MaXe equals chuyenDi.MaXe
+                                  join ctPhieu in db.tblChiTietPhieuDatChoes on chuyenDi.MaChuyenDi equals ctPhieu.MaChuyenDi
+                                  join phieuDatCho in db.tblPhieuDatChoes on ctPhieu.MaPhieu equals phieuDatCho.MaPhieu
+                                  where tuyenXe.MaBenXeDi == benXeDi.MaBenXe && tuyenXe.MaBenXeDen == benXeDen.MaBenXe && (phieuDatCho.HoTen == txtHoten.Text || phieuDatCho.DienThoai.ToString().Contains(dienThoai.ToString())) 
+                                  select new
+                                  {
+                                      HoTen = phieuDatCho.HoTen,
+                                      Tuyen = xeDi.TenBenXe + "-" + xeDen.TenBenXe,
+                                      DienThoai = phieuDatCho.DienThoai,
+                                      TrungChuyen = phieuDatCho.TrungChuyen,
+                                      KhoiHanh = chuyenDi.KhoiHanh,
+                                  }).ToList();
+
+               dtgDanhSachVe.DataSource = entryPoint;
+                    
             }
             catch { }
             
         }
-
         
     }
 }
