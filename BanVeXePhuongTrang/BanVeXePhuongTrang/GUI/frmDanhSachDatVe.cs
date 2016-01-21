@@ -64,6 +64,8 @@ namespace BanVeXePhuongTrang.GUI
                                   select new
                                   {
                                       HoTen = phieuDatCho.HoTen,
+                                      MaChuyenDi = chuyenDi.MaChuyenDi,
+                                      MaPhieu = phieuDatCho.MaPhieu,
                                       Tuyen = xeDi.TenBenXe + "-" + xeDen.TenBenXe,
                                       DienThoai = phieuDatCho.DienThoai,
                                       TrungChuyen = phieuDatCho.TrungChuyen,
@@ -75,13 +77,14 @@ namespace BanVeXePhuongTrang.GUI
 
                 if (entryPoint.Count == 0)
                 {
+                    dtgDanhSachVe.Rows.Clear();
                     MessageBox.Show("Không tìm thấy");
                     return;
                 }
                    
                 dtgDanhSachVe.Rows.Clear();
                 foreach(var item in entryPoint)
-                    dtgDanhSachVe.Rows.Add( item.HoTen, item.MaCTPhieu, item.Tuyen, item.DienThoai, item.TrungChuyen, item.KhoiHanh, item.ViTriGhe, item.LayVe);
+                    dtgDanhSachVe.Rows.Add( item.HoTen, item.MaChuyenDi, item.MaPhieu, item.MaCTPhieu, item.Tuyen, item.DienThoai, item.TrungChuyen, item.KhoiHanh, item.ViTriGhe, item.LayVe);
             }
             catch { }
         }
@@ -148,6 +151,19 @@ namespace BanVeXePhuongTrang.GUI
             });
 
             thread.Start();
+        }
+
+        private void btSua_Click(object sender, EventArgs e)
+        {
+            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+            int maPhieu = int.Parse(dtgDanhSachVe.CurrentRow.Cells["MaPhieu"].Value.ToString());
+
+            int maChuyenDi = int.Parse(dtgDanhSachVe.CurrentRow.Cells["MaChuyenDi"].Value.ToString());
+            tblChuyenDi chuyenDi = db.tblChuyenDis.Where(t => t.MaChuyenDi == maChuyenDi).SingleOrDefault();
+            tblPhieuDatCho phieu = db.tblPhieuDatChoes.Where(t => t.MaPhieu == maPhieu).SingleOrDefault();
+
+            frmThongTinVe ve = new frmThongTinVe(chuyenDi, phieu);
+            ve.Show();
         }
     }
 }

@@ -39,23 +39,21 @@ namespace BanVeXePhuongTrang.GUI
         private void btXoa_Click(object sender, EventArgs e)
         {
             frmXoaBenXe form = new frmXoaBenXe();
-            form.Show();
+            form.ShowDialog();
+            frmQuanLyBenXe_Load(sender, e);
         }
 
         private void btSua_Click(object sender, EventArgs e)
         {
             frmSuaBenXe form = new frmSuaBenXe();
-            form.Show();
+            form.ShowDialog();
+            frmQuanLyBenXe_Load(sender, e);
         }
 
         private void btThem_Click(object sender, EventArgs e)
         {
             frmThemBenXe form = new frmThemBenXe();
-            form.Show();
-        }
-
-        private void buttonX1_Click(object sender, EventArgs e)
-        {
+            form.ShowDialog();
             frmQuanLyBenXe_Load(sender, e);
         }
     }

@@ -24,7 +24,7 @@ namespace BanVeXePhuongTrang.BLL
             tblChuyenDi chuyenDi = db.tblChuyenDis.Where(t=>t.MaChuyenDi == maChuyenDi).SingleOrDefault();
             if (db.tblChiTietPhieuDatChoes.Where(t => t.MaChuyenDi == maChuyenDi && t.LayVe == true).ToArray().Length >= chuyenDi.tblXeKhach.SoGhe)
                 return "Hết chỗ, không thể bán hay đặt vé";
-            if (db.tblChiTietPhieuDatChoes.Where(t => t.MaChuyenDi == maChuyenDi && t.ViTriGhe == viTriGhe).ToArray().Length > 0)
+            if (db.tblChiTietPhieuDatChoes.Where(t => t.MaChuyenDi == maChuyenDi && t.MaPhieu != maPhieu && t.ViTriGhe == viTriGhe).ToArray().Length > 0)
                 return "Vị trí ghế bị trùng";
             if (viTriGhe < 0 || viTriGhe >= chuyenDi.tblXeKhach.SoGhe)
                 return "Vị trí ghế nằm (0, 50)";

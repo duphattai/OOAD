@@ -32,16 +32,15 @@
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dtgDanhSachBen = new System.Windows.Forms.DataGridView();
+            this.MaBenXe = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.TenBenXe = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.btSua = new DevComponents.DotNetBar.ButtonX();
             this.btThoat = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.btThem = new DevComponents.DotNetBar.ButtonX();
             this.btXoa = new DevComponents.DotNetBar.ButtonX();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
-            this.MaBenXe = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.TenBenXe = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.panelEx1.SuspendLayout();
             this.panelEx2.SuspendLayout();
             this.groupPanel1.SuspendLayout();
@@ -144,13 +143,27 @@
             this.dtgDanhSachBen.Size = new System.Drawing.Size(533, 348);
             this.dtgDanhSachBen.TabIndex = 0;
             // 
+            // MaBenXe
+            // 
+            this.MaBenXe.DataPropertyName = "MaBenXe";
+            this.MaBenXe.HeaderText = "Mã Bến Xe";
+            this.MaBenXe.Name = "MaBenXe";
+            this.MaBenXe.Width = 200;
+            // 
+            // TenBenXe
+            // 
+            this.TenBenXe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenBenXe.DataPropertyName = "TenBenXe";
+            this.TenBenXe.FillWeight = 250F;
+            this.TenBenXe.HeaderText = "Tên Bến Xe";
+            this.TenBenXe.Name = "TenBenXe";
+            // 
             // groupPanel2
             // 
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel2.Controls.Add(this.btSua);
             this.groupPanel2.Controls.Add(this.btThoat);
-            this.groupPanel2.Controls.Add(this.buttonX1);
             this.groupPanel2.Controls.Add(this.btThem);
             this.groupPanel2.Controls.Add(this.btXoa);
             this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
@@ -195,9 +208,9 @@
             this.btSua.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btSua.Image = global::BanVeXePhuongTrang.Properties.Resources.Pencil_icon;
             this.btSua.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btSua.Location = new System.Drawing.Point(48, 163);
+            this.btSua.Location = new System.Drawing.Point(48, 112);
             this.btSua.Name = "btSua";
-            this.btSua.Size = new System.Drawing.Size(106, 48);
+            this.btSua.Size = new System.Drawing.Size(106, 32);
             this.btSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btSua.TabIndex = 86;
             this.btSua.Text = "Sửa";
@@ -210,28 +223,13 @@
             this.btThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btThoat.Image = global::BanVeXePhuongTrang.Properties.Resources.Windows_Close_Program_icon;
             this.btThoat.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btThoat.Location = new System.Drawing.Point(48, 292);
+            this.btThoat.Location = new System.Drawing.Point(48, 313);
             this.btThoat.Name = "btThoat";
-            this.btThoat.Size = new System.Drawing.Size(106, 53);
+            this.btThoat.Size = new System.Drawing.Size(106, 32);
             this.btThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btThoat.TabIndex = 83;
             this.btThoat.Text = "Thoát";
             this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
-            // 
-            // buttonX1
-            // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.buttonX1.Image = global::BanVeXePhuongTrang.Properties.Resources.edit_validated_icon;
-            this.buttonX1.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.buttonX1.Location = new System.Drawing.Point(48, 228);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(106, 48);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 84;
-            this.buttonX1.Text = "Cập nhật";
-            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // btThem
             // 
@@ -242,7 +240,7 @@
             this.btThem.ImageFixedSize = new System.Drawing.Size(32, 32);
             this.btThem.Location = new System.Drawing.Point(48, 13);
             this.btThem.Name = "btThem";
-            this.btThem.Size = new System.Drawing.Size(106, 47);
+            this.btThem.Size = new System.Drawing.Size(106, 32);
             this.btThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btThem.TabIndex = 86;
             this.btThem.Text = "Thêm";
@@ -255,9 +253,9 @@
             this.btXoa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btXoa.Image = global::BanVeXePhuongTrang.Properties.Resources.Actions_edit_delete_icon;
             this.btXoa.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btXoa.Location = new System.Drawing.Point(48, 85);
+            this.btXoa.Location = new System.Drawing.Point(48, 61);
             this.btXoa.Name = "btXoa";
-            this.btXoa.Size = new System.Drawing.Size(106, 53);
+            this.btXoa.Size = new System.Drawing.Size(106, 32);
             this.btXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btXoa.TabIndex = 86;
             this.btXoa.Text = "Xóa";
@@ -285,21 +283,6 @@
             this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBox1.TabIndex = 52;
             this.PictureBox1.TabStop = false;
-            // 
-            // MaBenXe
-            // 
-            this.MaBenXe.DataPropertyName = "MaBenXe";
-            this.MaBenXe.HeaderText = "Mã Bến Xe";
-            this.MaBenXe.Name = "MaBenXe";
-            this.MaBenXe.Width = 200;
-            // 
-            // TenBenXe
-            // 
-            this.TenBenXe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenBenXe.DataPropertyName = "TenBenXe";
-            this.TenBenXe.FillWeight = 250F;
-            this.TenBenXe.HeaderText = "Tên Bến Xe";
-            this.TenBenXe.Name = "TenBenXe";
             // 
             // frmQuanLyBenXe
             // 
@@ -331,7 +314,6 @@
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
         private DevComponents.DotNetBar.ButtonX btSua;
         private DevComponents.DotNetBar.ButtonX btThoat;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.ButtonX btThem;
         private DevComponents.DotNetBar.ButtonX btXoa;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn MaBenXe;

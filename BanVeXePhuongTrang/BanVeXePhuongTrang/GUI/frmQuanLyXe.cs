@@ -26,7 +26,8 @@ namespace BanVeXePhuongTrang.GUI
         private void btThem_Click(object sender, EventArgs e)
         {
             frmThemXe form = new frmThemXe();
-            form.Show();
+            form.ShowDialog();
+            frmQuanLyXe_Load(sender, e);
         }
 
         private void btSua_Click(object sender, EventArgs e)
@@ -52,7 +53,8 @@ namespace BanVeXePhuongTrang.GUI
                 }
             }
 
-            form.Show();
+            form.ShowDialog();
+            frmQuanLyXe_Load(sender, e);
         }
 
         private void frmQuanLyXe_Load(object sender, EventArgs e)
@@ -109,7 +111,8 @@ namespace BanVeXePhuongTrang.GUI
                             db.SaveChanges();
 
                             MessageBox.Show("Thành công!");
-                        }catch(Exception ex)
+                            frmQuanLyXe_Load(sender, e);
+                        }catch
                         {
                             MessageBox.Show("Dữ liệu đang được sử dụng, không thể xóa!", "Lỗi");
                         }
@@ -160,11 +163,6 @@ namespace BanVeXePhuongTrang.GUI
         {
             dtgDSXeKhach.ClearSelection();
             dtgDanhSachXeKhachSelected = false;
-        }
-
-        private void buttonX1_Click(object sender, EventArgs e)
-        {
-            frmQuanLyXe_Load(sender, e);
         }
     }
 }

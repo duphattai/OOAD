@@ -41,6 +41,7 @@ namespace BanVeXePhuongTrang.GUI
             txtGiaTien.Text = chuyenDi.DonGia.ToString();
             txtKhoiHanh.Text = chuyenDi.KhoiHanh.Value.ToString();
 
+
            // Thông tin hành khách
             if(phieuDatCho.HoTen != null)
                 txtHoTen.Text = phieuDatCho.HoTen.ToString();
@@ -132,67 +133,82 @@ namespace BanVeXePhuongTrang.GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
-            // Kiểm tra phiếu đã tồn tại chưa
-            if (!editMode)
-                phieuDatCho.MaPhieu = new BLL.BLL_PhieuDatCho().getLastestIndex();
-
-            phieuDatCho.HoTen = txtHoTen.Text;
-            phieuDatCho.TrungChuyen = txtTrungChuyen.Text;
-            phieuDatCho.DienThoai = int.Parse(txtDienThoai.Text);
-
-
-            // Chi tiết vé
-            List<tblChiTietPhieuDatCho> listCTPhieu = new List<tblChiTietPhieuDatCho>();
-            BLL.BLL_ChiTietPhieuDatCho temp = new BLL.BLL_ChiTietPhieuDatCho();
-            foreach (DataGridViewRow row in dtgGhe.Rows)
+            try
             {
-                if (string.IsNullOrEmpty(row.Cells["ViTriGhe"].Value + ""))
-                    continue;
+                QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+                // Kiểm tra phiếu đã tồn tại chưa
+                if (!editMode)
+                    phieuDatCho.MaPhieu = new BLL.BLL_PhieuDatCho().getLastestIndex();
+                else
+                    phieuDatCho = db.tblPhieuDatChoes.Where(t => t.MaPhieu == phieuDatCho.MaPhieu).SingleOrDefault();
+
+                phieuDatCho.HoTen = txtHoTen.Text;
+                phieuDatCho.TrungChuyen = txtTrungChuyen.Text;
+                phieuDatCho.DienThoai = int.Parse(txtDienThoai.Text);
 
 
-                tblChiTietPhieuDatCho ctPhieu = new tblChiTietPhieuDatCho();
-                ctPhieu.ViTriGhe = int.Parse(row.Cells["ViTriGhe"].Value.ToString());
-                ctPhieu.LayVe = rdBanVe.Checked;
-                ctPhieu.MaChuyenDi = chuyenDi.MaChuyenDi;
-                ctPhieu.MaPhieu = phieuDatCho.MaPhieu;
-
-                string message = temp.validateInput(phieuDatCho.MaPhieu, chuyenDi.MaChuyenDi, ctPhieu.ViTriGhe);
-                if (!string.IsNullOrEmpty(message))
+                // Chi tiết vé
+                List<tblChiTietPhieuDatCho> listCTPhieu = new List<tblChiTietPhieuDatCho>();
+                BLL.BLL_ChiTietPhieuDatCho temp = new BLL.BLL_ChiTietPhieuDatCho();
+                foreach (DataGridViewRow row in dtgGhe.Rows)
                 {
-                    MessageBox.Show(message);
+                    if (string.IsNullOrEmpty(row.Cells["ViTriGhe"].Value + ""))
+                        continue;
+
+
+                    tblChiTietPhieuDatCho ctPhieu = new tblChiTietPhieuDatCho();
+                    ctPhieu.ViTriGhe = int.Parse(row.Cells["ViTriGhe"].Value.ToString());
+                    ctPhieu.LayVe = rdBanVe.Checked;
+                    ctPhieu.MaChuyenDi = chuyenDi.MaChuyenDi;
+                    ctPhieu.MaPhieu = phieuDatCho.MaPhieu;
+
+                    string message = temp.validateInput(phieuDatCho.MaPhieu, chuyenDi.MaChuyenDi, ctPhieu.ViTriGhe);
+                    if (!string.IsNullOrEmpty(message))
+                    {
+                        MessageBox.Show(message);
+                        return;
+                    }
+                    else
+                        listCTPhieu.Add(ctPhieu);
+                }
+                if (listCTPhieu.ToArray().Length == 0)
+                {
+                    MessageBox.Show("Vui lòng nhập vị trí ghế");
                     return;
                 }
-                else
-                    listCTPhieu.Add(ctPhieu);
-            }
-            if(listCTPhieu.ToArray().Length == 0)
-            {
-                MessageBox.Show("Vui lòng nhập vị trí ghế");
-                return;
-            }
 
-            if (phieuDatCho.tblChiTietPhieuDatChoes != null)
-                phieuDatCho.tblChiTietPhieuDatChoes.Clear();
-            // Thêm chi tiết vé
-            int lastCTPhieu = temp.getLastestIndex();
-            foreach (var item in listCTPhieu)
-            {
-                item.MaCTPhieu = lastCTPhieu++;
-                phieuDatCho.tblChiTietPhieuDatChoes.Add(item);
-            }
+                if (phieuDatCho.tblChiTietPhieuDatChoes != null)
+                    phieuDatCho.tblChiTietPhieuDatChoes.Clear();
                 
+                    
+                // Thêm chi tiết vé
+                int lastCTPhieu = temp.getLastestIndex();
+                foreach (var item in listCTPhieu)
+                {
+                    item.MaCTPhieu = lastCTPhieu++;
+                    phieuDatCho.tblChiTietPhieuDatChoes.Add(item);
+                }
 
-            // Thông tin phiếu
-            string mes = new BLL.BLL_PhieuDatCho().validateInput(phieuDatCho.MaPhieu, phieuDatCho.HoTen, phieuDatCho.DienThoai);
-            if (string.IsNullOrEmpty(mes)) // Insert
-            {
-                if (!editMode)
-                    db.tblPhieuDatChoes.Add(phieuDatCho);   
+
+                // Thông tin phiếu
+                string mes = new BLL.BLL_PhieuDatCho().validateInput(phieuDatCho.MaPhieu, phieuDatCho.HoTen, phieuDatCho.DienThoai);
+                if (string.IsNullOrEmpty(mes)) // Insert
+                {
+                    if (!editMode)
+                        db.tblPhieuDatChoes.Add(phieuDatCho);
+                }
+                db.SaveChanges();
+                MessageBox.Show("Thành công");
             }
-            db.SaveChanges();
-            MessageBox.Show("Thành công");
-            
+            catch(FormatException)
+            {
+                MessageBox.Show("Ghế nhập sai. Phải là số nguyên");
+            }catch(Exception)
+            {
+                MessageBox.Show("Lỗi");
+            }
+
+
 
             // Đa luồng
             Thread thread = new Thread((ThreadStart)=>

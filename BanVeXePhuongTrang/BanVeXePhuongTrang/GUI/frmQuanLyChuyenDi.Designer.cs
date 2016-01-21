@@ -331,7 +331,7 @@
             this.btThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btThoat.Image = global::BanVeXePhuongTrang.Properties.Resources.Windows_Close_Program_icon;
             this.btThoat.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btThoat.Location = new System.Drawing.Point(40, 181);
+            this.btThoat.Location = new System.Drawing.Point(40, 337);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(106, 32);
             this.btThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;

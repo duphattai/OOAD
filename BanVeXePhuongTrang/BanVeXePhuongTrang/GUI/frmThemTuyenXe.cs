@@ -88,6 +88,7 @@ namespace BanVeXePhuongTrang.GUI
 
                 tblChiTietTuyen temp = new tblChiTietTuyen();
                 temp.MaBenXeTrungGiang = MaBenXeTrungGian;
+
                 if (!string.IsNullOrEmpty(row.Cells[1].Value + ""))
                     temp.ThoiGianDung = int.Parse(row.Cells[1].Value.ToString());
                 else
@@ -108,55 +109,68 @@ namespace BanVeXePhuongTrang.GUI
 
         private void btnThêm_Click(object sender, EventArgs e)
         {
-            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
-
-            tblBenXe benXeDi = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDi.SelectedItem.ToString()).Single();
-            tblBenXe benXeDen = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDen.SelectedItem.ToString()).Single();
-
-            tblTuyenXe tuyenXe = null;
-            if (editMode)
+            try
             {
-                tuyenXe = db.tblTuyenXes.Where(t => t.MaTuyen == txtMaTuyen.Text.ToString()).SingleOrDefault();
-                if(tuyenXe == null)
+                QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+
+                tblBenXe benXeDi = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDi.SelectedItem.ToString()).Single();
+                tblBenXe benXeDen = db.tblBenXes.Where(t => t.TenBenXe == cbbBenXeDen.SelectedItem.ToString()).Single();
+
+                tblTuyenXe tuyenXe = null;
+                if (editMode)
                 {
-                    MessageBox.Show("Dữ liệu không tồn tại.");
-                    return;
+                    tuyenXe = db.tblTuyenXes.Where(t => t.MaTuyen == txtMaTuyen.Text.ToString()).SingleOrDefault();
+                    if (tuyenXe == null)
+                    {
+                        MessageBox.Show("Dữ liệu không tồn tại.");
+                        return;
+                    }
                 }
-            }            
-            else
-                tuyenXe = new tblTuyenXe();
-
-            tuyenXe.MaBenXeDi = benXeDi.MaBenXe;
-            tuyenXe.MaBenXeDen = benXeDen.MaBenXe;
-            tuyenXe.MaTuyen = txtMaTuyen.Text.ToString();
-
-            BLL_ChiTietTuyenXe CtTuyen = new BLL_ChiTietTuyenXe();
-            List<tblChiTietTuyen> listCTtuyen = solveDataInputChiTietTuyen();
-            foreach (var item in listCTtuyen)
-            {
-                string mes = CtTuyen.validateInput(item.MaTuyen, item.ThoiGianDung);
-                if (!string.IsNullOrEmpty(mes))
-                {
-                    MessageBox.Show(mes);
-                    return;
-                }
-            }
-
-            // Xóa record
-            tuyenXe.tblChiTietTuyens.Clear();
-            foreach (var item in listCTtuyen)
-                tuyenXe.tblChiTietTuyens.Add(item);
-
-            if(!editMode)
-            {
-                if (new BLL_TuyenXe().canInsert(benXeDi.MaBenXe, benXeDen.MaBenXe))
-                    db.tblTuyenXes.Add(tuyenXe);
                 else
-                    MessageBox.Show("Lưu thất bại");
-            }     
-            db.SaveChanges();
+                    tuyenXe = new tblTuyenXe();
 
-            MessageBox.Show("Lưu thành công");
+                tuyenXe.MaBenXeDi = benXeDi.MaBenXe;
+                tuyenXe.MaBenXeDen = benXeDen.MaBenXe;
+                tuyenXe.MaTuyen = txtMaTuyen.Text.ToString();
+
+                BLL_ChiTietTuyenXe CtTuyen = new BLL_ChiTietTuyenXe();
+                List<tblChiTietTuyen> listCTtuyen = solveDataInputChiTietTuyen();
+                foreach (var item in listCTtuyen)
+                {
+                    string mes = CtTuyen.validateInput(item.MaTuyen, item.ThoiGianDung);
+                    if (!string.IsNullOrEmpty(mes))
+                    {
+                        MessageBox.Show(mes);
+                        return;
+                    }
+                }
+
+                // Xóa record
+                tuyenXe.tblChiTietTuyens.Clear();
+                foreach (var item in listCTtuyen)
+                    tuyenXe.tblChiTietTuyens.Add(item);
+
+                if (!editMode)
+                {
+                    if (new BLL_TuyenXe().canInsert(benXeDi.MaBenXe, benXeDen.MaBenXe))
+                        db.tblTuyenXes.Add(tuyenXe);
+                    else
+                        MessageBox.Show("Lưu thất bại");
+                }
+                db.SaveChanges();
+
+                MessageBox.Show("Lưu thành công");
+            }
+            catch(FormatException)
+            {
+                MessageBox.Show("Thời gian dừng nhập sai! Phải là số nguyên");
+            }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show("Thời gian dừng nhập sai! Phải là số nguyên");
+            }
+            catch(Exception)
+            { }
         }
 
         private void dtgChiTietTuyen_UserAddedRow(object sender, DataGridViewRowEventArgs e)

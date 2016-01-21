@@ -429,7 +429,7 @@
             this.btThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btThoat.Image = global::BanVeXePhuongTrang.Properties.Resources.Windows_Close_Program_icon;
             this.btThoat.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btThoat.Location = new System.Drawing.Point(24, 158);
+            this.btThoat.Location = new System.Drawing.Point(24, 373);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(104, 32);
             this.btThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -444,7 +444,7 @@
             this.btnThem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnThem.Image = global::BanVeXePhuongTrang.Properties.Resources.Save_icon;
             this.btnThem.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnThem.Location = new System.Drawing.Point(24, 44);
+            this.btnThem.Location = new System.Drawing.Point(24, 17);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(104, 32);
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -459,7 +459,7 @@
             this.btnTaoMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnTaoMoi.Image = global::BanVeXePhuongTrang.Properties.Resources.create_icon;
             this.btnTaoMoi.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnTaoMoi.Location = new System.Drawing.Point(22, 97);
+            this.btnTaoMoi.Location = new System.Drawing.Point(24, 64);
             this.btnTaoMoi.Name = "btnTaoMoi";
             this.btnTaoMoi.Size = new System.Drawing.Size(106, 32);
             this.btnTaoMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
