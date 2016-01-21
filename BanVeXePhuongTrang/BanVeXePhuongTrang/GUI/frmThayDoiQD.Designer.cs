@@ -1,6 +1,6 @@
 ﻿namespace BanVeXePhuongTrang.GUI
 {
-    partial class frmThayDoiQD1
+    partial class frmThayDoiQD
     {
         /// <summary>
         /// Required designer variable.

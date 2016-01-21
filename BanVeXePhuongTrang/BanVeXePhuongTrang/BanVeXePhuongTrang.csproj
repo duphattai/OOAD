@@ -297,17 +297,11 @@
     <Compile Include="GUI\frmSuaBenXe.Designer.cs">
       <DependentUpon>frmSuaBenXe.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frmThayDoiQD1.cs">
+    <Compile Include="GUI\frmThayDoiQD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\frmThayDoiQD1.Designer.cs">
-      <DependentUpon>frmThayDoiQD1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\frmThayDoiQD2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmThayDoiQD2.Designer.cs">
-      <DependentUpon>frmThayDoiQD2.cs</DependentUpon>
+    <Compile Include="GUI\frmThayDoiQD.Designer.cs">
+      <DependentUpon>frmThayDoiQD.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmThemBenXe.cs">
       <SubType>Form</SubType>
@@ -350,12 +344,6 @@
     </Compile>
     <Compile Include="GUI\frmXoaTuyenXe.Designer.cs">
       <DependentUpon>frmXoaTuyenXe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\frmTaiKhoan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmTaiKhoan.Designer.cs">
-      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -421,11 +409,8 @@
     <EmbeddedResource Include="GUI\frmSuaBenXe.resx">
       <DependentUpon>frmSuaBenXe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmThayDoiQD1.resx">
-      <DependentUpon>frmThayDoiQD1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmThayDoiQD2.resx">
-      <DependentUpon>frmThayDoiQD2.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmThayDoiQD.resx">
+      <DependentUpon>frmThayDoiQD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmThemBenXe.resx">
       <DependentUpon>frmThemBenXe.cs</DependentUpon>
@@ -447,9 +432,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmXoaTuyenXe.resx">
       <DependentUpon>frmXoaTuyenXe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmTaiKhoan.resx">
-      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Report1.rdlc" />
     <EmbeddedResource Include="GUI\Report2.rdlc" />
@@ -671,11 +653,11 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Database\QUANLYXEKHACH.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Database\QUANLYXEKHACH_log.ldf">
       <DependentUpon>QUANLYXEKHACH.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

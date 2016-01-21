@@ -12,10 +12,10 @@ using BanVeXePhuongTrang.DAL;
 
 namespace BanVeXePhuongTrang.GUI
 {
-    public partial class frmThayDoiQD1 : Form
+    public partial class frmThayDoiQD : Form
     {
         QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
-        public frmThayDoiQD1()
+        public frmThayDoiQD()
         {
             InitializeComponent();
         }

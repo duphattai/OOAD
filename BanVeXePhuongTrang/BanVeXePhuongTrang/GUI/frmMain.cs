@@ -258,16 +258,6 @@ namespace BanVeXePhuongTrang
      
         #endregion
 
-        #region nhân viên
-        private void btnTaiKhoan_Click(object sender, EventArgs e)
-        {
-            if (checkTab("Tài khoản") == false)
-            {
-                 frmTaiKhoan form = new frmTaiKhoan();
-                 AddTabControl(form, "Tài khoản");
-            }
-        }
-        #endregion
 
         public void AddTabControl(Form form, string nameTab)
         {
@@ -358,29 +348,11 @@ namespace BanVeXePhuongTrang
         {
             if (checkTab("Thay Đổi Quy Định 1") == false)
             {
-                frmThayDoiQD1 form = new frmThayDoiQD1();
+                frmThayDoiQD form = new frmThayDoiQD();
                 AddTabControl(form, "Thay Đổi Quy Định 1");
             }
         }
-
-        private void btQuyDinh2_Click(object sender, EventArgs e)
-        {
-            if (checkTab("Thay Đổi Quy Định 2") == false)
-            {
-                frmThayDoiQD2 form = new frmThayDoiQD2();
-                AddTabControl(form, "Thay Đổi Quy Định 2");
-            }
-        }
-
-        private void btQuyDinh3_Click(object sender, EventArgs e)
-        {
-            if (checkTab("Thay Đổi Quy Định 3") == false)
-            {
-                frmThayDoiQD2 form = new frmThayDoiQD2();
-                AddTabControl(form, "Thay Đổi Quy Định 3");
-            }
-        }
-
+ 
         private void btQLChuyenDi_Click(object sender, EventArgs e)
         {
             if (checkTab("Quản Lý Chuyến Đi") == false)

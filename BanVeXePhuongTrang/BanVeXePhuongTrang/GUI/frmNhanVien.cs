@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,6 +46,16 @@ namespace BanVeXePhuongTrang.GUI
             }
             }
             catch { }
+        }
+
+        private string MaHoaMD5(string str)
+        {
+            Byte[] dauvao = ASCIIEncoding.Default.GetBytes(str);
+            using (MD5 md5 = new MD5CryptoServiceProvider())
+            {
+                var daura = md5.ComputeHash(dauvao);
+                return BitConverter.ToString(daura).Replace("-", "").ToLower();
+            }
         }
       
         public void LoadDataGridView()
@@ -116,9 +127,10 @@ namespace BanVeXePhuongTrang.GUI
                     if (!string.IsNullOrEmpty(r.Cells[6].Value.ToString()))
                     {
                         txtTaiKhoan.ReadOnly = true;
+                        txtMatKhau.ReadOnly = true;
                     }
                     this.txtTaiKhoan.Text = r.Cells[6].Value.ToString();                                                                     
-                    this.txtMatKhau.Text = r.Cells[7].Value.ToString();
+                    this.txtMatKhau.Text =  r.Cells[7].Value.ToString();
                     this.cbQuyenHan.Text = r.Cells[8].Value.ToString();
                 }
                 else
@@ -162,7 +174,7 @@ namespace BanVeXePhuongTrang.GUI
                 {
                     v.MaNhanVien = t.MaNhanVien;
                     v.TenTaiKhoan = txtTaiKhoan.Text.ToString();
-                    v.MatKhau = txtMatKhau.Text.ToString();
+                    v.MatKhau = MaHoaMD5(txtMatKhau.Text.ToString());
                     v.MaQuyen = ConvertQuyenHan();
                     db.tblTaiKhoans.Add(v);
                     db.tblNhanViens.Add(t);
@@ -255,14 +267,14 @@ namespace BanVeXePhuongTrang.GUI
                             v = new tblTaiKhoan();
                             v.MaNhanVien = t.MaNhanVien;
                             v.TenTaiKhoan = txtTaiKhoan.Text.ToString();
-                            v.MatKhau = txtMatKhau.Text.ToString();
+                            v.MatKhau = MaHoaMD5(txtMatKhau.Text.ToString());
                             v.MaQuyen = ConvertQuyenHan();
                             db.tblTaiKhoans.Add(v);
                         }
                         else {
                             v.MaNhanVien = t.MaNhanVien;
                             v.TenTaiKhoan = txtTaiKhoan.Text.ToString();
-                            v.MatKhau = txtMatKhau.Text.ToString();
+                            //v.MatKhau = MaHoaMD5(txtMatKhau.Text.ToString());
                             v.MaQuyen = ConvertQuyenHan();
                             db.Entry(v).State = System.Data.Entity.EntityState.Modified;
                         }                       
@@ -353,6 +365,7 @@ namespace BanVeXePhuongTrang.GUI
         {
             reset();
             txtTaiKhoan.ReadOnly = false;
+            txtMatKhau.ReadOnly = false;
             //Gan_click();
         }
         public void reset()
@@ -426,8 +439,12 @@ namespace BanVeXePhuongTrang.GUI
             if(string.IsNullOrEmpty(txtTaiKhoan.Text))
             {
                 txtTaiKhoan.ReadOnly = false;
+                txtMatKhau.ReadOnly = false;
             }
-            else { txtTaiKhoan.ReadOnly = true; }
+            else { 
+                txtTaiKhoan.ReadOnly = true;
+                txtMatKhau.ReadOnly = true;
+            }
             
         }
 

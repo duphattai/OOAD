@@ -822,6 +822,7 @@
             this.MatKhau.HeaderText = "Mật khẩu";
             this.MatKhau.Name = "MatKhau";
             this.MatKhau.ReadOnly = true;
+            this.MatKhau.Visible = false;
             // 
             // MaQuyenHan
             // 
