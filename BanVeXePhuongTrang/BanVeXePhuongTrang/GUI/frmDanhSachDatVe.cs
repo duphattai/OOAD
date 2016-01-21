@@ -62,7 +62,7 @@ namespace BanVeXePhuongTrang.GUI
                                   join phieuDatCho in db.tblPhieuDatChoes on ctPhieu.MaPhieu equals phieuDatCho.MaPhieu
                                   where tuyenXe.MaBenXeDi == benXeDi.MaBenXe && tuyenXe.MaBenXeDen == benXeDen.MaBenXe && 
                                         ctPhieu.LayVe == timDatVe && (phieuDatCho.HoTen == txtHoten.Text || phieuDatCho.DienThoai.ToString().Contains(dienThoai.ToString()))
-                                        && chuyenDi.KhoiHanh.Value > System.Data.Entity.DbFunctions.AddMinutes(dtpKhoiHanh.Value, -30).Value && chuyenDi.KhoiHanh.Value < System.Data.Entity.DbFunctions.AddMinutes(dtpKhoiHanh.Value, 30).Value
+                                        && chuyenDi.KhoiHanh.Value >= System.Data.Entity.DbFunctions.AddMinutes(dtpKhoiHanh.Value, -30).Value && chuyenDi.KhoiHanh.Value <= System.Data.Entity.DbFunctions.AddMinutes(dtpKhoiHanh.Value, 30).Value
                                   select new
                                   {
                                       HoTen = phieuDatCho.HoTen,
