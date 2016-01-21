@@ -29,24 +29,34 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.tblBaoCaoDoanhThuThangBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qUANLYXEKHACHDataSet = new BanVeXePhuongTrang.QUANLYXEKHACHDataSet();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btThoat = new DevComponents.DotNetBar.ButtonX();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.btBaoCao = new DevComponents.DotNetBar.ButtonX();
             this.cbNam = new System.Windows.Forms.ComboBox();
             this.Label3 = new System.Windows.Forms.Label();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.qUANLYXEKHACHDataSet = new BanVeXePhuongTrang.QUANLYXEKHACHDataSet();
-            this.tblBaoCaoDoanhThuThangBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblBaoCaoDoanhThuThangTableAdapter = new BanVeXePhuongTrang.QUANLYXEKHACHDataSetTableAdapters.tblBaoCaoDoanhThuThangTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.tblBaoCaoDoanhThuThangBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYXEKHACHDataSet)).BeginInit();
             this.panelEx1.SuspendLayout();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUANLYXEKHACHDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblBaoCaoDoanhThuThangBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tblBaoCaoDoanhThuThangBindingSource
+            // 
+            this.tblBaoCaoDoanhThuThangBindingSource.DataMember = "tblBaoCaoDoanhThuThang";
+            this.tblBaoCaoDoanhThuThangBindingSource.DataSource = this.qUANLYXEKHACHDataSet;
+            // 
+            // qUANLYXEKHACHDataSet
+            // 
+            this.qUANLYXEKHACHDataSet.DataSetName = "QUANLYXEKHACHDataSet";
+            this.qUANLYXEKHACHDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panelEx1
             // 
@@ -91,6 +101,18 @@
             this.panelEx2.Style.GradientAngle = 90;
             this.panelEx2.TabIndex = 1;
             // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.tblBaoCaoDoanhThuThangBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "BanVeXePhuongTrang.GUI.Report2.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 84);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(1121, 458);
+            this.reportViewer1.TabIndex = 80;
+            // 
             // btThoat
             // 
             this.btThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -131,6 +153,8 @@
             // 
             // cbNam
             // 
+            this.cbNam.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNam.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbNam.ForeColor = System.Drawing.Color.Blue;
             this.cbNam.Location = new System.Drawing.Point(317, 28);
@@ -147,28 +171,6 @@
             this.Label3.TabIndex = 37;
             this.Label3.Text = "Năm:";
             // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.tblBaoCaoDoanhThuThangBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "BanVeXePhuongTrang.GUI.Report2.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 84);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1121, 458);
-            this.reportViewer1.TabIndex = 80;
-            // 
-            // qUANLYXEKHACHDataSet
-            // 
-            this.qUANLYXEKHACHDataSet.DataSetName = "QUANLYXEKHACHDataSet";
-            this.qUANLYXEKHACHDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblBaoCaoDoanhThuThangBindingSource
-            // 
-            this.tblBaoCaoDoanhThuThangBindingSource.DataMember = "tblBaoCaoDoanhThuThang";
-            this.tblBaoCaoDoanhThuThangBindingSource.DataSource = this.qUANLYXEKHACHDataSet;
-            // 
             // tblBaoCaoDoanhThuThangTableAdapter
             // 
             this.tblBaoCaoDoanhThuThangTableAdapter.ClearBeforeFill = true;
@@ -182,11 +184,11 @@
             this.Name = "frmBCDoanhThuNam";
             this.Text = "Báo Cáo Doanh Thu Nam";
             this.Load += new System.EventHandler(this.frmBCDoanhThuNam_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.tblBaoCaoDoanhThuThangBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUANLYXEKHACHDataSet)).EndInit();
             this.panelEx1.ResumeLayout(false);
             this.panelEx2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUANLYXEKHACHDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblBaoCaoDoanhThuThangBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

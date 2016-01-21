@@ -255,6 +255,12 @@
     <Compile Include="GUI\frmSuaXe.Designer.cs">
       <DependentUpon>frmSuaXe.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmThayDoiQD1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmThayDoiQD1.designer.cs">
+      <DependentUpon>frmThayDoiQD1.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmThemTrungChuyen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,12 +302,6 @@
     </Compile>
     <Compile Include="GUI\frmSuaBenXe.Designer.cs">
       <DependentUpon>frmSuaBenXe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\frmThayDoiQD1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frmThayDoiQD1.Designer.cs">
-      <DependentUpon>frmThayDoiQD1.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmThemBenXe.cs">
       <SubType>Form</SubType>
@@ -394,6 +394,9 @@
     <EmbeddedResource Include="GUI\frmSuaXe.resx">
       <DependentUpon>frmSuaXe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmThayDoiQD1.resx">
+      <DependentUpon>frmThayDoiQD1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmThemTrungChuyen.resx">
       <DependentUpon>frmThemTrungChuyen.cs</DependentUpon>
     </EmbeddedResource>
@@ -414,9 +417,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmSuaBenXe.resx">
       <DependentUpon>frmSuaBenXe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frmThayDoiQD1.resx">
-      <DependentUpon>frmThayDoiQD1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmThemBenXe.resx">
       <DependentUpon>frmThemBenXe.cs</DependentUpon>
@@ -662,11 +662,11 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Database\QUANLYXEKHACH.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Database\QUANLYXEKHACH_log.ldf">
       <DependentUpon>QUANLYXEKHACH.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

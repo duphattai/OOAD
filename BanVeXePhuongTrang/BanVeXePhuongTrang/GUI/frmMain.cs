@@ -258,6 +258,7 @@ namespace BanVeXePhuongTrang
      
         #endregion
 
+
         public void AddTabControl(Form form, string nameTab)
         {
             TabItem tab = tabControl.CreateTab(nameTab);
@@ -351,7 +352,7 @@ namespace BanVeXePhuongTrang
                 AddTabControl(form, "Thay Đổi Quy Định 1");
             }
         }
-
+ 
         private void btQLChuyenDi_Click(object sender, EventArgs e)
         {
             if (checkTab("Quản Lý Chuyến Đi") == false)

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BanVeXePhuongTrang.DAL;
+using System.Security.Cryptography;
 
 namespace BanVeXePhuongTrang.GUI
 {
@@ -19,6 +20,16 @@ namespace BanVeXePhuongTrang.GUI
             InitializeComponent();
             frmMain.TenDangNhap = "Chưa đăng nhập";
             frmMain.MaNhanVien = 0;
+        }
+
+        private string MaHoaMD5(string str)
+        {
+            Byte[] dauvao = ASCIIEncoding.Default.GetBytes(str);
+            using (MD5 md5 = new MD5CryptoServiceProvider())
+            {
+                var daura = md5.ComputeHash(dauvao);
+                return BitConverter.ToString(daura).Replace("-", "").ToLower();
+            }
         }
 
         private void btHuyBo_Click(object sender, EventArgs e)
@@ -32,7 +43,7 @@ namespace BanVeXePhuongTrang.GUI
         {
             try{
                 string TenDangNhap = txtTenDangNhap.Text;
-                string MatKhau = txtMatKhau.Text;
+                string MatKhau = MaHoaMD5(txtMatKhau.Text);
 
                 if (string.IsNullOrEmpty(txtTenDangNhap.Text) || string.IsNullOrEmpty(txtMatKhau.Text))
                 {

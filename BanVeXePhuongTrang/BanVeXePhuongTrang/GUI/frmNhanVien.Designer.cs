@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.panelDockContainer1 = new DevComponents.DotNetBar.PanelDockContainer();
             this.cbPass = new System.Windows.Forms.CheckBox();
@@ -80,6 +80,7 @@
             this.TenTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MatKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaQuyenHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDoiMK = new DevComponents.DotNetBar.ButtonX();
             this.panelDockContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgaySinh)).BeginInit();
             this.dockSite2.SuspendLayout();
@@ -123,6 +124,7 @@
             this.panelDockContainer1.Controls.Add(this.labelX5);
             this.panelDockContainer1.Controls.Add(this.txtDiaChi);
             this.panelDockContainer1.Controls.Add(this.labelX1);
+            this.panelDockContainer1.Controls.Add(this.btnDoiMK);
             this.panelDockContainer1.Controls.Add(this.btThemMoi);
             this.panelDockContainer1.Controls.Add(this.btCapNhat);
             this.panelDockContainer1.Controls.Add(this.btThoat);
@@ -397,7 +399,7 @@
             this.btThemMoi.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btThemMoi.Image = global::BanVeXePhuongTrang.Properties.Resources.recycle_icon;
             this.btThemMoi.ImageFixedSize = new System.Drawing.Size(25, 25);
-            this.btThemMoi.Location = new System.Drawing.Point(55, 385);
+            this.btThemMoi.Location = new System.Drawing.Point(105, 385);
             this.btThemMoi.Name = "btThemMoi";
             this.btThemMoi.Size = new System.Drawing.Size(90, 29);
             this.btThemMoi.TabIndex = 12;
@@ -425,7 +427,7 @@
             this.btThoat.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btThoat.Image = global::BanVeXePhuongTrang.Properties.Resources.Windows_Close_Program_icon;
             this.btThoat.ImageFixedSize = new System.Drawing.Size(25, 25);
-            this.btThoat.Location = new System.Drawing.Point(165, 385);
+            this.btThoat.Location = new System.Drawing.Point(200, 385);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(81, 29);
             this.btThoat.TabIndex = 13;
@@ -728,15 +730,15 @@
             this.dgvNhanVien.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dgvNhanVien.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvNhanVien.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNhanVien,
@@ -822,6 +824,7 @@
             this.MatKhau.HeaderText = "Mật khẩu";
             this.MatKhau.Name = "MatKhau";
             this.MatKhau.ReadOnly = true;
+            this.MatKhau.Visible = false;
             // 
             // MaQuyenHan
             // 
@@ -830,6 +833,20 @@
             this.MaQuyenHan.HeaderText = "Quyền hạn";
             this.MaQuyenHan.Name = "MaQuyenHan";
             this.MaQuyenHan.ReadOnly = true;
+            // 
+            // btnDoiMK
+            // 
+            this.btnDoiMK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDoiMK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDoiMK.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnDoiMK.Image = global::BanVeXePhuongTrang.Properties.Resources.recycle_icon;
+            this.btnDoiMK.ImageFixedSize = new System.Drawing.Size(25, 25);
+            this.btnDoiMK.Location = new System.Drawing.Point(11, 385);
+            this.btnDoiMK.Name = "btnDoiMK";
+            this.btnDoiMK.Size = new System.Drawing.Size(90, 29);
+            this.btnDoiMK.TabIndex = 12;
+            this.btnDoiMK.Text = "Đổi MK";
+            this.btnDoiMK.Click += new System.EventHandler(this.btnDoiMK_Click);
             // 
             // frmNhanVien
             // 
@@ -916,5 +933,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenTaiKhoan;
         private System.Windows.Forms.DataGridViewTextBoxColumn MatKhau;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaQuyenHan;
+        private DevComponents.DotNetBar.ButtonX btnDoiMK;
     }
 }

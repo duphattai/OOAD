@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +21,16 @@ namespace BanVeXePhuongTrang.GUI
             ma = manv;
         }
 
+        private string MaHoaMD5(string str)
+        {
+            Byte[] dauvao = ASCIIEncoding.Default.GetBytes(str);
+            using (MD5 md5 = new MD5CryptoServiceProvider())
+            {
+                var daura = md5.ComputeHash(dauvao);
+                return BitConverter.ToString(daura).Replace("-", "").ToLower();
+            }
+        }
+
         private void btluu_Click(object sender, EventArgs e)
         {
             try
@@ -28,7 +39,7 @@ namespace BanVeXePhuongTrang.GUI
                 int id = ma;
                 tblTaiKhoan tk = db.tblTaiKhoans.Where(t => t.MaNhanVien == id).SingleOrDefault();
                 string MatKhauMoi = txtMatKhauMoi.Text;
-                tk.MatKhau = MatKhauMoi;
+                tk.MatKhau = MaHoaMD5(MatKhauMoi);
                 db.Entry(tk).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 MessageBox.Show("Thay đổi mật khẩu thành công");
