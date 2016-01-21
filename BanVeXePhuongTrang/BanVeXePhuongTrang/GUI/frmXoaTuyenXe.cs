@@ -24,11 +24,6 @@ namespace BanVeXePhuongTrang.GUI
             this.Close();
         }
 
-        static public void XoaTuyenBay(String MaTuyenBay)
-        {
-           
-        }
-
         private void btXoa_Click(object sender, EventArgs e)
         {
             if(cbMaTuyen.Text.Equals(""))

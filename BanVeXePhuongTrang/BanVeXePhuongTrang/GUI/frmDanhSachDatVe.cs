@@ -60,7 +60,9 @@ namespace BanVeXePhuongTrang.GUI
                                   join chuyenDi in db.tblChuyenDis on xe.MaXe equals chuyenDi.MaXe
                                   join ctPhieu in db.tblChiTietPhieuDatChoes on chuyenDi.MaChuyenDi equals ctPhieu.MaChuyenDi
                                   join phieuDatCho in db.tblPhieuDatChoes on ctPhieu.MaPhieu equals phieuDatCho.MaPhieu
-                                  where tuyenXe.MaBenXeDi == benXeDi.MaBenXe && tuyenXe.MaBenXeDen == benXeDen.MaBenXe && ctPhieu.LayVe == timDatVe && (phieuDatCho.HoTen == txtHoten.Text || phieuDatCho.DienThoai.ToString().Contains(dienThoai.ToString())) 
+                                  where tuyenXe.MaBenXeDi == benXeDi.MaBenXe && tuyenXe.MaBenXeDen == benXeDen.MaBenXe && 
+                                        ctPhieu.LayVe == timDatVe && (phieuDatCho.HoTen == txtHoten.Text || phieuDatCho.DienThoai.ToString().Contains(dienThoai.ToString()))
+                                        && chuyenDi.KhoiHanh.Value > System.Data.Entity.DbFunctions.AddMinutes(dtpKhoiHanh.Value, -30).Value && chuyenDi.KhoiHanh.Value < System.Data.Entity.DbFunctions.AddMinutes(dtpKhoiHanh.Value, 30).Value
                                   select new
                                   {
                                       HoTen = phieuDatCho.HoTen,

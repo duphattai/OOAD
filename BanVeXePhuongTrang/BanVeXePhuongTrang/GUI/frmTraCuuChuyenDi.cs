@@ -34,28 +34,31 @@ namespace BanVeXePhuongTrang.GUI
             {
                 tblBenXe benXeDi = db.tblBenXes.Where(t => t.TenBenXe == cbBenXeDi.SelectedItem.ToString()).Single();
                 tblBenXe benXeDen = db.tblBenXes.Where(t => t.TenBenXe == cbBenXeDen.SelectedItem.ToString()).Single();
-                    
+                   
                     
                 MaTuyen = benXeDi.MaBenXe + "_" + benXeDen.MaBenXe;
 
                 var entryPoint = (from tuyenXe in db.tblTuyenXes
-                                    join xeDi in db.tblBenXes on tuyenXe.MaBenXeDi equals xeDi.MaBenXe
-                                    join xeDen in db.tblBenXes on tuyenXe.MaBenXeDen equals xeDen.MaBenXe 
-                                    join xe in db.tblXeKhaches on tuyenXe.MaTuyen equals xe.MaTuyen
-                                    join chuyenDi in db.tblChuyenDis on xe.MaXe equals chuyenDi.MaXe
-         
-                                    where tuyenXe.MaTuyen == MaTuyen
+                                  join xeDi in db.tblBenXes on tuyenXe.MaBenXeDi equals xeDi.MaBenXe
+                                  join xeDen in db.tblBenXes on tuyenXe.MaBenXeDen equals xeDen.MaBenXe 
+                                  join xe in db.tblXeKhaches on tuyenXe.MaTuyen equals xe.MaTuyen
+                                  join chuyenDi in db.tblChuyenDis on xe.MaXe equals chuyenDi.MaXe
+                                  where tuyenXe.MaTuyen == MaTuyen && chuyenDi.KhoiHanh.Value > System.Data.Entity.DbFunctions.AddMinutes(dateTime, -30).Value && chuyenDi.KhoiHanh.Value < System.Data.Entity.DbFunctions.AddMinutes(dateTime, 30).Value
                                     select new
                                     {
                                         BenXeDi = xeDi.TenBenXe,
                                         BenXeDen = xeDen.TenBenXe,
                                         SoGheTrong = chuyenDi.SoGheTrong,
                                         SoGheDat = chuyenDi.SoGheDat,
-                                        KhoiHanh = chuyenDi.KhoiHanh,
-                                        KetThuc = chuyenDi.KhoiHanh.Value.AddMinutes(tuyenXe.ThoiGianDi),
+                                        KhoiHanh = chuyenDi.KhoiHanh.Value,
+                                        KetThuc = System.Data.Entity.DbFunctions.AddMinutes(chuyenDi.KhoiHanh.Value, tuyenXe.ThoiGianDi)
                                     }).ToList();
-
-                dgvTraCuu.DataSource = entryPoint;
+                
+                dgvTraCuu.DataSource = "";
+                if (entryPoint.Count == 0)
+                    MessageBox.Show("Không tìm thấy");
+                else
+                    dgvTraCuu.DataSource = entryPoint;
             }
             catch (Exception ex)
             {

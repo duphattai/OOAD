@@ -289,7 +289,7 @@
             this.btnThêm.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnThêm.TabIndex = 87;
             this.btnThêm.Text = "Lưu";
-            this.btnThêm.Click += new System.EventHandler(this.btnThêm_Click);
+            this.btnThêm.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btThoat
             // 

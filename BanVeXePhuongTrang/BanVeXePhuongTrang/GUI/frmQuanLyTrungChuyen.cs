@@ -74,6 +74,7 @@ namespace BanVeXePhuongTrang.GUI
                 if(xeTC != null)
                 {
                     temp.MaXe = xeTC.MaXe;
+                    temp.DaRuoc = false;
                     db.tblChiTietTrungChuyens.Add(temp);
                     db.SaveChanges();
 
@@ -100,19 +101,20 @@ namespace BanVeXePhuongTrang.GUI
             var table = (from ct in db.tblChiTietTrungChuyens
                          join phieu in db.tblPhieuDatChoes on ct.MaPhieu equals phieu.MaPhieu
                          join xe in db.tblXeTrungChuyens on ct.MaXe equals xe.MaXe
-                         where xe.BienSoXe == bienSo
+                         where xe.BienSoXe == bienSo && ct.DaRuoc == false 
                          select new
                          {
                              HoTen = phieu.HoTen,
                              SDT = phieu.DienThoai,
                              DiaDiem = phieu.TrungChuyen,
                              SoVe = ct.SoLuong,
-                             MaPhieu = phieu.MaPhieu
+                             MaPhieu = phieu.MaPhieu,
+                             DaRuoc = ct.DaRuoc
                          }).ToList();
 
             dtgDanhSachTC.Rows.Clear();
             foreach (var item in table)
-                dtgDanhSachTC.Rows.Add(item.HoTen, item.MaPhieu, item.SDT, item.DiaDiem, item.SoVe);
+                dtgDanhSachTC.Rows.Add(item.HoTen, item.MaPhieu, item.SDT, item.DiaDiem, item.SoVe, item.DaRuoc);
         }
 
         private void btXoa_Click(object sender, EventArgs e)
@@ -138,6 +140,11 @@ namespace BanVeXePhuongTrang.GUI
                                         dtgDanhSachTC.CurrentRow.Cells["SoVe"].Value);
                 dtgDanhSachTC.Rows.RemoveAt(dtgDanhSachTC.CurrentRow.Index);
             }
+        }
+
+        private void btCapNhat_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

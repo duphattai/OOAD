@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyTrungChuyen));
             this.dtgDanhSachTC = new System.Windows.Forms.DataGridView();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.btnTim = new DevComponents.DotNetBar.ButtonX();
@@ -35,29 +36,29 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dtgKhachHang = new System.Windows.Forms.DataGridView();
+            this.HoTen_KH = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.MaPhieu_KH = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.SDT_KH = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.DiaDiem_KH = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.SoVe_KH = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.cbbXeTrungChuyen = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.label3 = new System.Windows.Forms.Label();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.btCapNhat = new DevComponents.DotNetBar.ButtonX();
+            this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.btThoat = new DevComponents.DotNetBar.ButtonX();
             this.btThem = new DevComponents.DotNetBar.ButtonX();
             this.btXoa = new DevComponents.DotNetBar.ButtonX();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.btnThoat = new DevComponents.DotNetBar.ButtonX();
-            this.HoTen_KH = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.MaPhieu_KH = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.SDT_KH = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.DiaDiem_KH = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.SoVe_KH = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.btCapNhat = new DevComponents.DotNetBar.ButtonX();
             this.HoTen = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.MaPhieu = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.SDT = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.DiaDiem = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.SoVe = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.TinhTrang = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DaRuoc = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDanhSachTC)).BeginInit();
             this.panelEx2.SuspendLayout();
             this.groupPanel3.SuspendLayout();
@@ -79,7 +80,7 @@
             this.SDT,
             this.DiaDiem,
             this.SoVe,
-            this.TinhTrang});
+            this.DaRuoc});
             this.dtgDanhSachTC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgDanhSachTC.Location = new System.Drawing.Point(0, 0);
             this.dtgDanhSachTC.Name = "dtgDanhSachTC";
@@ -208,6 +209,41 @@
             this.dtgKhachHang.Size = new System.Drawing.Size(475, 268);
             this.dtgKhachHang.TabIndex = 0;
             // 
+            // HoTen_KH
+            // 
+            this.HoTen_KH.DataPropertyName = "HoTen";
+            this.HoTen_KH.FillWeight = 250F;
+            this.HoTen_KH.HeaderText = "Họ tên";
+            this.HoTen_KH.Name = "HoTen_KH";
+            this.HoTen_KH.Width = 150;
+            // 
+            // MaPhieu_KH
+            // 
+            this.MaPhieu_KH.DataPropertyName = "MaPhieu";
+            this.MaPhieu_KH.HeaderText = "MaPhieu";
+            this.MaPhieu_KH.Name = "MaPhieu_KH";
+            this.MaPhieu_KH.ReadOnly = true;
+            this.MaPhieu_KH.Visible = false;
+            // 
+            // SDT_KH
+            // 
+            this.SDT_KH.DataPropertyName = "SDT";
+            this.SDT_KH.HeaderText = "SĐT";
+            this.SDT_KH.Name = "SDT_KH";
+            // 
+            // DiaDiem_KH
+            // 
+            this.DiaDiem_KH.DataPropertyName = "DiaDiem";
+            this.DiaDiem_KH.HeaderText = "Địa điểm";
+            this.DiaDiem_KH.Name = "DiaDiem_KH";
+            // 
+            // SoVe_KH
+            // 
+            this.SoVe_KH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SoVe_KH.DataPropertyName = "SoVe";
+            this.SoVe_KH.HeaderText = "Số vé";
+            this.SoVe_KH.Name = "SoVe_KH";
+            // 
             // cbbXeTrungChuyen
             // 
             this.cbbXeTrungChuyen.DisplayMember = "Text";
@@ -317,6 +353,35 @@
             this.groupPanel2.TabIndex = 92;
             this.groupPanel2.Text = "Chức năng";
             // 
+            // btCapNhat
+            // 
+            this.btCapNhat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btCapNhat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btCapNhat.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btCapNhat.Image = global::BanVeXePhuongTrang.Properties.Resources.Save_icon;
+            this.btCapNhat.ImageFixedSize = new System.Drawing.Size(25, 25);
+            this.btCapNhat.Location = new System.Drawing.Point(3, 119);
+            this.btCapNhat.Name = "btCapNhat";
+            this.btCapNhat.Size = new System.Drawing.Size(106, 29);
+            this.btCapNhat.TabIndex = 88;
+            this.btCapNhat.Text = "Cập nhật";
+            this.btCapNhat.Click += new System.EventHandler(this.btCapNhat_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnThoat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnThoat.Image = global::BanVeXePhuongTrang.Properties.Resources.Windows_Close_Program_icon;
+            this.btnThoat.ImageFixedSize = new System.Drawing.Size(32, 32);
+            this.btnThoat.Location = new System.Drawing.Point(3, 230);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(106, 32);
+            this.btnThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnThoat.TabIndex = 87;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // btThoat
             // 
             this.btThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -337,7 +402,7 @@
             this.btThem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btThem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btThem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btThem.Image = global::BanVeXePhuongTrang.Properties.Resources.Actions_list_add_icon;
+            this.btThem.Image = ((System.Drawing.Image)(resources.GetObject("btThem.Image")));
             this.btThem.ImageFixedSize = new System.Drawing.Size(32, 32);
             this.btThem.Location = new System.Drawing.Point(3, 43);
             this.btThem.Name = "btThem";
@@ -352,7 +417,7 @@
             this.btXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btXoa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btXoa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btXoa.Image = global::BanVeXePhuongTrang.Properties.Resources.Actions_edit_delete_icon;
+            this.btXoa.Image = ((System.Drawing.Image)(resources.GetObject("btXoa.Image")));
             this.btXoa.ImageFixedSize = new System.Drawing.Size(32, 32);
             this.btXoa.Location = new System.Drawing.Point(3, 81);
             this.btXoa.Name = "btXoa";
@@ -405,69 +470,6 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 1;
             // 
-            // btnThoat
-            // 
-            this.btnThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnThoat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnThoat.Image = global::BanVeXePhuongTrang.Properties.Resources.Windows_Close_Program_icon;
-            this.btnThoat.ImageFixedSize = new System.Drawing.Size(32, 32);
-            this.btnThoat.Location = new System.Drawing.Point(3, 230);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(106, 32);
-            this.btnThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnThoat.TabIndex = 87;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // HoTen_KH
-            // 
-            this.HoTen_KH.DataPropertyName = "HoTen";
-            this.HoTen_KH.FillWeight = 250F;
-            this.HoTen_KH.HeaderText = "Họ tên";
-            this.HoTen_KH.Name = "HoTen_KH";
-            this.HoTen_KH.Width = 150;
-            // 
-            // MaPhieu_KH
-            // 
-            this.MaPhieu_KH.DataPropertyName = "MaPhieu";
-            this.MaPhieu_KH.HeaderText = "MaPhieu";
-            this.MaPhieu_KH.Name = "MaPhieu_KH";
-            this.MaPhieu_KH.ReadOnly = true;
-            this.MaPhieu_KH.Visible = false;
-            // 
-            // SDT_KH
-            // 
-            this.SDT_KH.DataPropertyName = "SDT";
-            this.SDT_KH.HeaderText = "SĐT";
-            this.SDT_KH.Name = "SDT_KH";
-            // 
-            // DiaDiem_KH
-            // 
-            this.DiaDiem_KH.DataPropertyName = "DiaDiem";
-            this.DiaDiem_KH.HeaderText = "Địa điểm";
-            this.DiaDiem_KH.Name = "DiaDiem_KH";
-            // 
-            // SoVe_KH
-            // 
-            this.SoVe_KH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SoVe_KH.DataPropertyName = "SoVe";
-            this.SoVe_KH.HeaderText = "Số vé";
-            this.SoVe_KH.Name = "SoVe_KH";
-            // 
-            // btCapNhat
-            // 
-            this.btCapNhat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btCapNhat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btCapNhat.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btCapNhat.Image = global::BanVeXePhuongTrang.Properties.Resources.Save_icon;
-            this.btCapNhat.ImageFixedSize = new System.Drawing.Size(25, 25);
-            this.btCapNhat.Location = new System.Drawing.Point(3, 119);
-            this.btCapNhat.Name = "btCapNhat";
-            this.btCapNhat.Size = new System.Drawing.Size(106, 29);
-            this.btCapNhat.TabIndex = 88;
-            this.btCapNhat.Text = "Cập nhật";
-            // 
             // HoTen
             // 
             this.HoTen.FillWeight = 250F;
@@ -497,11 +499,12 @@
             this.SoVe.HeaderText = "Số vé";
             this.SoVe.Name = "SoVe";
             // 
-            // TinhTrang
+            // DaRuoc
             // 
-            this.TinhTrang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TinhTrang.HeaderText = "Đã rướt";
-            this.TinhTrang.Name = "TinhTrang";
+            this.DaRuoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DaRuoc.DataPropertyName = "DaRuoc";
+            this.DaRuoc.HeaderText = "Đã rướt";
+            this.DaRuoc.Name = "DaRuoc";
             // 
             // frmQuanLyTrungChuyen
             // 
@@ -549,12 +552,12 @@
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn SDT_KH;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn DiaDiem_KH;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn SoVe_KH;
+        private DevComponents.DotNetBar.ButtonX btCapNhat;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn HoTen;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn MaPhieu;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn SDT;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn DiaDiem;
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn SoVe;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn TinhTrang;
-        private DevComponents.DotNetBar.ButtonX btCapNhat;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn DaRuoc;
     }
 }

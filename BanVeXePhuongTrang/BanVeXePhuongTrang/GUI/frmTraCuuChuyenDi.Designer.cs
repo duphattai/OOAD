@@ -203,8 +203,8 @@
             // 
             // dtpTuNgay
             // 
-            this.dtpTuNgay.CustomFormat = "\"dd-MM-yyyy\"";
-            this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTuNgay.CustomFormat = "HH:mm dd/MM/ yyyy ";
+            this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTuNgay.Location = new System.Drawing.Point(163, 113);
             this.dtpTuNgay.Name = "dtpTuNgay";
             this.dtpTuNgay.Size = new System.Drawing.Size(232, 20);
@@ -293,17 +293,17 @@
             // 
             // BenXeDi
             // 
+            this.BenXeDi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.BenXeDi.DataPropertyName = "BenXeDi";
             this.BenXeDi.HeaderText = "Bến xe đi";
             this.BenXeDi.Name = "BenXeDi";
-            this.BenXeDi.Width = 150;
             // 
             // BenXeDen
             // 
+            this.BenXeDen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.BenXeDen.DataPropertyName = "BenXeDen";
             this.BenXeDen.HeaderText = "Bến xe đến";
             this.BenXeDen.Name = "BenXeDen";
-            this.BenXeDen.Width = 150;
             // 
             // KhoiHanh
             // 
@@ -311,6 +311,7 @@
             this.KhoiHanh.HeaderText = "Khởi hành";
             this.KhoiHanh.Name = "KhoiHanh";
             this.KhoiHanh.ReadOnly = true;
+            this.KhoiHanh.Width = 120;
             // 
             // ThoiGian
             // 
@@ -320,17 +321,18 @@
             // 
             // SoGheTrong
             // 
+            this.SoGheTrong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.SoGheTrong.DataPropertyName = "SoGheTrong";
-            this.SoGheTrong.HeaderText = "Số ghế trống";
+            this.SoGheTrong.HeaderText = "Ghế trống";
             this.SoGheTrong.Name = "SoGheTrong";
-            this.SoGheTrong.Width = 80;
+            this.SoGheTrong.Width = 70;
             // 
             // SoGheDat
             // 
-            this.SoGheDat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SoGheDat.DataPropertyName = "SoGheDat";
-            this.SoGheDat.HeaderText = "Số ghế đặt";
+            this.SoGheDat.HeaderText = "Ghế đặt";
             this.SoGheDat.Name = "SoGheDat";
+            this.SoGheDat.Width = 70;
             // 
             // frmTraCuuChuyenDi
             // 

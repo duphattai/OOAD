@@ -17,6 +17,7 @@ namespace BanVeXePhuongTrang.DAL
         public int MaXe { get; set; }
         public int MaPhieu { get; set; }
         public Nullable<int> SoLuong { get; set; }
+        public Nullable<bool> DaRuoc { get; set; }
     
         public virtual tblPhieuDatCho tblPhieuDatCho { get; set; }
         public virtual tblXeTrungChuyen tblXeTrungChuyen { get; set; }

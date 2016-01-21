@@ -59,6 +59,7 @@
           <Property Name="MaXe" Type="int" Nullable="false" />
           <Property Name="MaPhieu" Type="int" Nullable="false" />
           <Property Name="SoLuong" Type="int" />
+          <Property Name="DaRuoc" Type="bit" />
         </EntityType>
         <EntityType Name="tblChiTietTuyen">
           <Key>
@@ -545,6 +546,7 @@
           <Property Name="MaXe" Type="Int32" Nullable="false" />
           <Property Name="MaPhieu" Type="Int32" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" />
+          <Property Name="DaRuoc" Type="Boolean" />
           <NavigationProperty Name="tblPhieuDatCho" Relationship="Self.FK__tblChiTie__MaPhi__32E0915F" FromRole="tblChiTietTrungChuyen" ToRole="tblPhieuDatCho" />
           <NavigationProperty Name="tblXeTrungChuyen" Relationship="Self.FK__tblChiTiet__MaXe__31EC6D26" FromRole="tblChiTietTrungChuyen" ToRole="tblXeTrungChuyen" />
         </EntityType>
@@ -1058,6 +1060,7 @@
                 <ScalarProperty Name="MaXe" ColumnName="MaXe" />
                 <ScalarProperty Name="MaPhieu" ColumnName="MaPhieu" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DaRuoc" ColumnName="DaRuoc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

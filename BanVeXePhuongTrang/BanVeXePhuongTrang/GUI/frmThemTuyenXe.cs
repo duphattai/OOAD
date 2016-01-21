@@ -107,7 +107,7 @@ namespace BanVeXePhuongTrang.GUI
 
 
 
-        private void btnThêm_Click(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
             try
             {

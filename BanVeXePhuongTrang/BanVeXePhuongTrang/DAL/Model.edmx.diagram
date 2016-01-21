@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f05b6903d9d64da8948f3c48acc32d71" Name="Diagram1">
+      <Diagram DiagramId="082a1022ae40457aa27eee3e765c1084" Name="Diagram1">
         <EntityTypeShape EntityType="QUANLYXEKHACHModel.tblBaoCaoDoanhThuChuyenDi" Width="1.5" PointX="9.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QUANLYXEKHACHModel.tblBaoCaoDoanhThuNam" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QUANLYXEKHACHModel.tblBaoCaoDoanhThuThang" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QUANLYXEKHACHModel.tblBenXe" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QUANLYXEKHACHModel.tblChiTietPhieuDatCho" Width="1.5" PointX="9.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYXEKHACHModel.tblChiTietTrungChuyen" Width="1.5" PointX="9.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYXEKHACHModel.tblChiTietTrungChuyen" Width="1.5" PointX="9.75" PointY="12.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QUANLYXEKHACHModel.tblChiTietTuyen" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QUANLYXEKHACHModel.tblChuyenDi" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QUANLYXEKHACHModel.tblLoaiNhanVien" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
