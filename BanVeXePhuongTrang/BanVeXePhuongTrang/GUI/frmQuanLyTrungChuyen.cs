@@ -144,7 +144,29 @@ namespace BanVeXePhuongTrang.GUI
 
         private void btCapNhat_Click(object sender, EventArgs e)
         {
+            QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
+            List<tblChiTietTrungChuyen> list = new List<tblChiTietTrungChuyen>();
+            foreach(DataGridViewRow row in dtgDanhSachTC.Rows)
+            {
+                if(bool.Parse(row.Cells["DaRuoc"].Value.ToString()))
+                {
+                    int maPhieu = int.Parse(row.Cells["MaPhieu"].Value.ToString());
+                    tblChiTietTrungChuyen tc = db.tblChiTietTrungChuyens.Where(t => t.MaPhieu == maPhieu).SingleOrDefault();
+                    if(tc != null)
+                    {
+                        tc.DaRuoc = true;
+                        list.Add(tc);
+                    }
+                }
+            }
 
+            if (list.Count != 0 && MessageBox.Show("Dữ liệu có sự thay đổi, bạn muốn cập nhật?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                db.SaveChanges();
+                MessageBox.Show("Thành công");
+
+                cbbXeTrungChuyen_SelectedIndexChanged(sender, e);
+            }
         }
     }
 }

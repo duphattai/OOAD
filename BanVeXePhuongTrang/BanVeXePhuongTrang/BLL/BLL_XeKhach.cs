@@ -52,6 +52,9 @@ namespace BanVeXePhuongTrang.BLL
         {
             QUANLYXEKHACHEntities db = new QUANLYXEKHACHEntities();
 
+            if(db.tblXeKhaches.Where(t=>t.BienSoXe == bienSo && t.MaXe != t.MaXe).Count() != 0 ||
+                db.tblXeTrungChuyens.Where(t => t.BienSoXe == bienSo).Count() != 0)
+                return "Biển số xe không được trùng";
             if (maXe < 0) 
                 return "Mã xe không hợp lệ";
             if (db.tblNhanViens.Where(t => t.MaNhanVien == maNhanVien).ToArray().Length == 0)

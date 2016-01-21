@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QUANLYXEKHACHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QUANLYXEKHACHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblBaoCaoDoanhThuChuyenDi">
           <Key>
             <PropertyRef Name="MaChuyenDi" />
@@ -129,7 +129,7 @@
             <PropertyRef Name="TenTaiKhoan" />
           </Key>
           <Property Name="TenTaiKhoan" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="MatKhau" Type="varchar" MaxLength="20" />
+          <Property Name="MatKhau" Type="varchar" MaxLength="50" />
           <Property Name="MaNhanVien" Type="int" />
           <Property Name="MaQuyen" Type="int" />
         </EntityType>
@@ -481,8 +481,7 @@
             <End Role="tblXeTrungChuyen" EntitySet="tblXeTrungChuyen" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QUANLYXEKHACHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -633,7 +632,7 @@
             <PropertyRef Name="TenTaiKhoan" />
           </Key>
           <Property Name="TenTaiKhoan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MaNhanVien" Type="Int32" />
           <Property Name="MaQuyen" Type="Int32" />
           <NavigationProperty Name="tblNhanVien" Relationship="Self.FK__tblTaiKho__MaNha__3E52440B" FromRole="tblTaiKhoan" ToRole="tblNhanVien" />

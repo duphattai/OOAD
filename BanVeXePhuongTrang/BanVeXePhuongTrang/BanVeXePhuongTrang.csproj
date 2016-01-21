@@ -327,6 +327,12 @@
     <Compile Include="GUI\frmTraCuuChuyenDi.Designer.cs">
       <DependentUpon>frmTraCuuChuyenDi.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmTraCuuTrungChuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmTraCuuTrungChuyen.Designer.cs">
+      <DependentUpon>frmTraCuuTrungChuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmVeXe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -423,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmTraCuuChuyenDi.resx">
       <DependentUpon>frmTraCuuChuyenDi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmTraCuuTrungChuyen.resx">
+      <DependentUpon>frmTraCuuTrungChuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmVeXe.resx">
       <DependentUpon>frmVeXe.cs</DependentUpon>

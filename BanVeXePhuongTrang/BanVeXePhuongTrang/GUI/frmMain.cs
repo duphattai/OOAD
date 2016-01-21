@@ -470,5 +470,14 @@ namespace BanVeXePhuongTrang
                 AddTabControl(form, "Quản Lý Trung Chuyển");
             }
         }
+
+        private void btnTraCuuTrungChuyen_Click(object sender, EventArgs e)
+        {
+            if (checkTab("Tra Cứu Trung Chuyển") == false)
+            {
+                frmTraCuuTrungChuyen form = new frmTraCuuTrungChuyen();
+                AddTabControl(form, "Tra Cứu Trung Chuyển");
+            }
+        }
     }
 }
