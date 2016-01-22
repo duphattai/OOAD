@@ -36,10 +36,14 @@ namespace BanVeXePhuongTrang.GUI
             BLL_TuyenXe temp = new BLL_TuyenXe();
             if(temp.canDelete(cbMaTuyen.SelectedItem.ToString()))
             {
-                tblTuyenXe tuyenXe = db.tblTuyenXes.Where(t => t.MaTuyen == cbMaTuyen.SelectedItem.ToString()).Single();
-                db.tblTuyenXes.Remove(tuyenXe);
-                db.SaveChanges();
-                MessageBox.Show("Xóa thành công", "Thông báo");
+                tblTuyenXe tuyenXe = db.tblTuyenXes.Where(t => t.MaTuyen == cbMaTuyen.SelectedItem.ToString()).SingleOrDefault();
+                if (tuyenXe != null)
+                {
+                    tuyenXe.tblChiTietTuyens.Clear();
+                    db.tblTuyenXes.Remove(tuyenXe);
+                    db.SaveChanges();
+                    MessageBox.Show("Xóa thành công", "Thông báo");
+                }
             }
             else
                 MessageBox.Show("Tuyến không tồn tại", "Thông báo");
